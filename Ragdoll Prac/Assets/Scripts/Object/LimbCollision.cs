@@ -16,6 +16,7 @@ public class LimbCollision : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             playerController.isGrounded = true;
+            playerController.ResetJumpForce();
         }
     }
 }

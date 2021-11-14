@@ -19,9 +19,18 @@ public class PatrolWall : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Trigger Enter : " + other.gameObject);
+        //Debug.Log("Trigger Enter : " + other.gameObject);
+        //if (objPlayer.transform.parent == null)
+        //{
+        //    objPlayer.transform.SetParent(transform);
+        //}
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
         if (objPlayer.transform.parent == null)
         {
+            Debug.Log("Trigger Stay : " + other.gameObject);
             objPlayer.transform.SetParent(transform);
         }
     }
@@ -29,5 +38,9 @@ public class PatrolWall : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         Debug.Log("Trigger Exit : " + other.gameObject);
+        if(objPlayer.transform.parent != null)
+        {
+            objPlayer.transform.parent = null;
+        }
     }
 }

@@ -9,13 +9,10 @@ public class PlayerController : MonoBehaviour
     public float fJumpForce;
     public bool isGrounded;
     public bool isRunning;
+    public int nJumpForceCount;
 
     public Rigidbody rigidbody_Hips;
     public Animator animator;
-
-    void Start()
-    {
-    }
 
     private void FixedUpdate()
     {
@@ -74,13 +71,30 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetAxis("Jump") > 0)
         {
-            Debug.Log("테스트1");
             if (isGrounded)
             {
-                Debug.Log("테스트2");
                 rigidbody_Hips.AddForce(new Vector3(0, fJumpForce, 0));
                 isGrounded = false;
             }
         }
+    }
+
+    public void AddJumpForce()
+    {
+        if(nJumpForceCount <= 5)
+        {
+            nJumpForceCount++;
+            fJumpForce += 2000 * nJumpForceCount;
+            Debug.Log("점프력 : " + fJumpForce);
+        }
+
+        rigidbody_Hips.AddForce(new Vector3(0, fJumpForce, 0));
+        isGrounded = false;
+    }
+
+    public void ResetJumpForce()
+    {
+        fJumpForce = 6000.0f;
+        nJumpForceCount = 0;
     }
 }
