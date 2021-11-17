@@ -12,7 +12,10 @@ public class PlayerController : MonoBehaviour
     public int nJumpForceCount;
 
     public Rigidbody rigidbody_Hips;
+    public GameObject objHips;
     public Animator animator;
+
+    public GameObject objPassWall;
 
     private void FixedUpdate()
     {
@@ -76,6 +79,15 @@ public class PlayerController : MonoBehaviour
                 rigidbody_Hips.AddForce(new Vector3(0, fJumpForce, 0));
                 isGrounded = false;
             }
+        }
+
+        if (isRunning)
+        {
+            objPassWall.GetComponent<BoxCollider>().enabled = false;
+        }
+        else
+        {
+            objPassWall.GetComponent<BoxCollider>().enabled = true;
         }
     }
 
