@@ -15,7 +15,8 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
-    rigImportErrors: 
+    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
+      human bone 'Hips' not found\n"
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
@@ -23,7 +24,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -73,7 +74,57 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton: []
+    skeleton:
+    - name: Character (1)(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Hat
+      parentName: Character (1)(Clone)
+      position: {x: -0, y: 2.0501645, z: 0.029669793}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1.197444, y: 1.197444, z: 0.958717}
+    - name: Body
+      parentName: Character (1)(Clone)
+      position: {x: -0, y: 5.6399337e-18, z: 0.035975542}
+      rotation: {x: 0.7071062, y: 0, z: 0, w: 0.7071074}
+      scale: {x: -0.26343, y: -0.26343, z: -0.26343}
+    - name: Hair
+      parentName: Character (1)(Clone)
+      position: {x: -0.00000009689331, y: 1.886484, z: -0.021665514}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 0.283383, y: 0.299112, z: 0.299112}
+    - name: Shoes
+      parentName: Character (1)(Clone)
+      position: {x: -0, y: 0, z: 0.08882486}
+      rotation: {x: -0.70710695, y: 0, z: 0, w: 0.7071066}
+      scale: {x: 0.357731, y: 0.357731, z: 0.357731}
+    - name: Wings
+      parentName: Character (1)(Clone)
+      position: {x: 0.00000009689331, y: 0.9699499, z: -0.08365056}
+      rotation: {x: 0.00000040133926, y: 0.0000000059624403, z: 1, w: -2.454194e-15}
+      scale: {x: -0.731181, y: -0.731181, z: -2.274715}
+    - name: Ribbon
+      parentName: Character (1)(Clone)
+      position: {x: 0.000000047437542, y: 1.0970334, z: 0.1859091}
+      rotation: {x: 0.9848078, y: -0, z: 0, w: 0.17364813}
+      scale: {x: -1, y: -0.899407, z: -0.77867603}
+    - name: Box001
+      parentName: Character (1)(Clone)
+      position: {x: -0, y: 0.76199996, z: 0.000000033308076}
+      rotation: {x: 0.00000008146034, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Clothes001
+      parentName: Character (1)(Clone)
+      position: {x: -0.000000001240648, y: 0.8816917, z: 0.07378416}
+      rotation: {x: 0.50000024, y: 0.49999976, z: 0.5000001, w: -0.49999988}
+      scale: {x: 1, y: 1.2709401, z: 1}
+    - name: Box003
+      parentName: Character (1)(Clone)
+      position: {x: -0, y: 0.6671923, z: -0.08046462}
+      rotation: {x: 0.9961947, y: -0, z: 0, w: -0.087155804}
+      scale: {x: -0.516811, y: -0.516811, z: -0.264968}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -84,7 +135,7 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
