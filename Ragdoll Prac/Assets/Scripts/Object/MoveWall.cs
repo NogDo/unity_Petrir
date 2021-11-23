@@ -10,19 +10,11 @@ public class MoveWall : MonoBehaviour
 
     }
 
-    void Update()
-    {
-        CheckLeverState();
-    }
-
     public void CheckLeverState()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            Vector3 position = transform.position;
-            position.y += transform.localScale.y;
+        Vector3 position = transform.position;
+        position.y += transform.localScale.y;
 
-            transform.DOMove(position, 5.0f);
-        }
+        transform.DOMove(position, 5.0f);
     }
 }

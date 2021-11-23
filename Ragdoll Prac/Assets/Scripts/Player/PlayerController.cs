@@ -19,9 +19,38 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Run();
+        Move();
+
+        if (Input.GetAxis("Jump") > 0)
+        {
+            if (isGrounded)
+            {
+                rigidbody_Hips.AddForce(new Vector3(0, fJumpForce, 0));
+                isGrounded = false;
+            }
+        }
+    }
+
+    public void Move()
+    {
         if (Input.GetKey(KeyCode.W))
         {
-            if (Input.GetKey(KeyCode.LeftShift))
+            //if (Input.GetKey(KeyCode.LeftShift))
+            //{
+            //    animator.SetBool("isWalk", true);
+            //    animator.SetBool("isRun", true);
+            //    isRunning = true;
+            //    rigidbody_Hips.AddForce(rigidbody_Hips.transform.forward * fSpeed * 1.5f);
+            //}
+            //else
+            //{
+            //    animator.SetBool("isRun", false);
+            //    animator.SetBool("isWalk", true);
+            //    rigidbody_Hips.AddForce(rigidbody_Hips.transform.forward * fSpeed);
+            //}
+
+            if (isRunning)
             {
                 animator.SetBool("isWalk", true);
                 animator.SetBool("isRun", true);
@@ -44,8 +73,16 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
-            animator.SetBool("isLeft", true);
-            rigidbody_Hips.AddForce(-rigidbody_Hips.transform.right * fStrafeSpeed);
+            if (isRunning)
+            {
+                animator.SetBool("isLeft", true);
+                rigidbody_Hips.AddForce(-rigidbody_Hips.transform.right * fStrafeSpeed * 1.5f);
+            }
+            else
+            {
+                animator.SetBool("isLeft", true);
+                rigidbody_Hips.AddForce(-rigidbody_Hips.transform.right * fStrafeSpeed);
+            }
         }
         else
         {
@@ -54,31 +91,50 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.S))
         {
-            animator.SetBool("isWalk", true);
-            rigidbody_Hips.AddForce(-rigidbody_Hips.transform.forward * fSpeed);
+            if (isRunning)
+            {
+                animator.SetBool("isWalk", true);
+                rigidbody_Hips.AddForce(-rigidbody_Hips.transform.forward * fSpeed * 1.5f);
+            }
+            else
+            {
+                animator.SetBool("isWalk", true);
+                rigidbody_Hips.AddForce(-rigidbody_Hips.transform.forward * fSpeed);
+            }
         }
-        else if(!Input.GetKey(KeyCode.W))
+        else if (!Input.GetKey(KeyCode.W))
         {
             animator.SetBool("isWalk", false);
         }
 
         if (Input.GetKey(KeyCode.D))
         {
-            animator.SetBool("isRight", true);
-            rigidbody_Hips.AddForce(rigidbody_Hips.transform.right * fStrafeSpeed);
+            if (isRunning)
+            {
+                animator.SetBool("isRight", true);
+                rigidbody_Hips.AddForce(rigidbody_Hips.transform.right * fStrafeSpeed * 1.5f);
+            }
+            else
+            {
+                animator.SetBool("isRight", true);
+                rigidbody_Hips.AddForce(rigidbody_Hips.transform.right * fStrafeSpeed);
+            }
         }
         else
         {
             animator.SetBool("isRight", false);
         }
+    }
 
-        if (Input.GetAxis("Jump") > 0)
+    public void Run()
+    {
+        if (Input.GetKey(KeyCode.LeftShift))
         {
-            if (isGrounded)
-            {
-                rigidbody_Hips.AddForce(new Vector3(0, fJumpForce, 0));
-                isGrounded = false;
-            }
+            isRunning = true;
+        }
+        else
+        {
+            isRunning = false;
         }
 
         if (isRunning)

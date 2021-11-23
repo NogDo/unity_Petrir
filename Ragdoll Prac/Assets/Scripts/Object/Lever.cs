@@ -4,32 +4,29 @@ using UnityEngine;
 
 public class Lever : MonoBehaviour
 {
-    public Rigidbody rig;
-    public Grab grab;
+    public HingeJoint joint_Lever;
+    public MoveWall moveWall;
 
-    void Start()
+    public bool isMove = false;
+
+    private void Start()
     {
-        rig = GetComponent<Rigidbody>();
+        joint_Lever = GetComponent<HingeJoint>();
     }
 
-    void Update()
+    private void OnTriggerStay(Collider other)
     {
-        
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Hand"))
+        if (joint_Lever.angle >= 45.0f)
         {
-            rig.isKinematic = false;
+            if (!isMove)
+            {
+                moveWall.CheckLeverState();
+                isMove = true;
+            }
         }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Hand"))
+        else
         {
-            rig.isKinematic = true;
+            isMove = false;
         }
     }
 }
