@@ -15,8 +15,7 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
-    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
-      human bone 'Hips' not found\n"
+    rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
@@ -35,7 +34,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 1.5
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -82,47 +81,47 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Hat
       parentName: Character (1)(Clone)
-      position: {x: -0, y: 2.0501645, z: 0.029669793}
+      position: {x: -0, y: 0.07811127, z: 0.0011304191}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
       scale: {x: 1.197444, y: 1.197444, z: 0.958717}
     - name: Body
       parentName: Character (1)(Clone)
-      position: {x: -0, y: 5.6399337e-18, z: 0.035975542}
+      position: {x: -0, y: 2.1488148e-19, z: 0.0013706682}
       rotation: {x: 0.7071062, y: 0, z: 0, w: 0.7071074}
       scale: {x: -0.26343, y: -0.26343, z: -0.26343}
     - name: Hair
       parentName: Character (1)(Clone)
-      position: {x: -0.00000009689331, y: 1.886484, z: -0.021665514}
+      position: {x: -0.0000000036916352, y: 0.07187504, z: -0.00082545605}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
       scale: {x: 0.283383, y: 0.299112, z: 0.299112}
     - name: Shoes
       parentName: Character (1)(Clone)
-      position: {x: -0, y: 0, z: 0.08882486}
+      position: {x: -0, y: 0, z: 0.0033842272}
       rotation: {x: -0.70710695, y: 0, z: 0, w: 0.7071066}
       scale: {x: 0.357731, y: 0.357731, z: 0.357731}
     - name: Wings
       parentName: Character (1)(Clone)
-      position: {x: 0.00000009689331, y: 0.9699499, z: -0.08365056}
+      position: {x: 0.0000000036916352, y: 0.036955092, z: -0.0031870864}
       rotation: {x: 0.00000040133926, y: 0.0000000059624403, z: 1, w: -2.454194e-15}
       scale: {x: -0.731181, y: -0.731181, z: -2.274715}
     - name: Ribbon
       parentName: Character (1)(Clone)
-      position: {x: 0.000000047437542, y: 1.0970334, z: 0.1859091}
+      position: {x: 0.0000000018073704, y: 0.04179697, z: 0.007083137}
       rotation: {x: 0.9848078, y: -0, z: 0, w: 0.17364813}
       scale: {x: -1, y: -0.899407, z: -0.77867603}
     - name: Box001
       parentName: Character (1)(Clone)
-      position: {x: -0, y: 0.76199996, z: 0.000000033308076}
+      position: {x: -0, y: 0.029032199, z: 0.0000000012690378}
       rotation: {x: 0.00000008146034, y: 0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Clothes001
       parentName: Character (1)(Clone)
-      position: {x: -0.000000001240648, y: 0.8816917, z: 0.07378416}
+      position: {x: -4.726869e-11, y: 0.033592455, z: 0.0028111765}
       rotation: {x: 0.50000024, y: 0.49999976, z: 0.5000001, w: -0.49999988}
       scale: {x: 1, y: 1.2709401, z: 1}
     - name: Box003
       parentName: Character (1)(Clone)
-      position: {x: -0, y: 0.6671923, z: -0.08046462}
+      position: {x: -0, y: 0.025420027, z: -0.003065702}
       rotation: {x: 0.9961947, y: -0, z: 0, w: -0.087155804}
       scale: {x: -0.516811, y: -0.516811, z: -0.264968}
     armTwist: 0.5
@@ -132,7 +131,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 0.0381
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 1
