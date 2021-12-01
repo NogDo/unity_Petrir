@@ -52,22 +52,22 @@ public class PlayerController : MonoBehaviour
 
             if (isRunning)
             {
-                animator.SetBool("isWalk", true);
-                animator.SetBool("isRun", true);
+                //animator.SetBool("isWalk", true);
+                //animator.SetBool("isRun", true);
                 isRunning = true;
                 rigidbody_Hips.AddForce(rigidbody_Hips.transform.forward * fSpeed * 1.5f);
             }
             else
             {
-                animator.SetBool("isRun", false);
-                animator.SetBool("isWalk", true);
+                //animator.SetBool("isRun", false);
+                //animator.SetBool("isWalk", true);
                 rigidbody_Hips.AddForce(rigidbody_Hips.transform.forward * fSpeed);
             }
         }
         else
         {
-            animator.SetBool("isWalk", false);
-            animator.SetBool("isRun", false);
+            //animator.SetBool("isWalk", false);
+            //animator.SetBool("isRun", false);
             isRunning = false;
         }
 
@@ -75,54 +75,54 @@ public class PlayerController : MonoBehaviour
         {
             if (isRunning)
             {
-                animator.SetBool("isLeft", true);
+                //animator.SetBool("isLeft", true);
                 rigidbody_Hips.AddForce(-rigidbody_Hips.transform.right * fStrafeSpeed * 1.5f);
             }
             else
             {
-                animator.SetBool("isLeft", true);
+                //animator.SetBool("isLeft", true);
                 rigidbody_Hips.AddForce(-rigidbody_Hips.transform.right * fStrafeSpeed);
             }
         }
         else
         {
-            animator.SetBool("isLeft", false);
+            //animator.SetBool("isLeft", false);
         }
 
         if (Input.GetKey(KeyCode.S))
         {
             if (isRunning)
             {
-                animator.SetBool("isWalk", true);
+                //animator.SetBool("isWalk", true);
                 rigidbody_Hips.AddForce(-rigidbody_Hips.transform.forward * fSpeed * 1.5f);
             }
             else
             {
-                animator.SetBool("isWalk", true);
+                //animator.SetBool("isWalk", true);
                 rigidbody_Hips.AddForce(-rigidbody_Hips.transform.forward * fSpeed);
             }
         }
         else if (!Input.GetKey(KeyCode.W))
         {
-            animator.SetBool("isWalk", false);
+            //animator.SetBool("isWalk", false);
         }
 
         if (Input.GetKey(KeyCode.D))
         {
             if (isRunning)
             {
-                animator.SetBool("isRight", true);
+                //animator.SetBool("isRight", true);
                 rigidbody_Hips.AddForce(rigidbody_Hips.transform.right * fStrafeSpeed * 1.5f);
             }
             else
             {
-                animator.SetBool("isRight", true);
+                //animator.SetBool("isRight", true);
                 rigidbody_Hips.AddForce(rigidbody_Hips.transform.right * fStrafeSpeed);
             }
         }
         else
         {
-            animator.SetBool("isRight", false);
+            //animator.SetBool("isRight", false);
         }
     }
 
@@ -137,14 +137,14 @@ public class PlayerController : MonoBehaviour
             isRunning = false;
         }
 
-        if (isRunning)
-        {
-            objPassWall.GetComponent<BoxCollider>().enabled = false;
-        }
-        else
-        {
-            objPassWall.GetComponent<BoxCollider>().enabled = true;
-        }
+        //if (isRunning)
+        //{
+        //    objPassWall.GetComponent<BoxCollider>().enabled = false;
+        //}
+        //else
+        //{
+        //    objPassWall.GetComponent<BoxCollider>().enabled = true;
+        //}
     }
 
     public void AddJumpForce()
