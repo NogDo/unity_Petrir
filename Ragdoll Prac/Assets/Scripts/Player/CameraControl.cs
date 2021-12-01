@@ -12,7 +12,6 @@ public class CameraControl : MonoBehaviour
 
     float mouseX, mouseY;
 
-
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
