@@ -8,8 +8,10 @@ public class CopyMotion : MonoBehaviour
     public bool mirror;
     ConfigurableJoint configurableJoint;
 
+    private Quaternion startingRotation;
     void Start()
     {
+        startingRotation = transform.localRotation;
         configurableJoint = GetComponent<ConfigurableJoint>();
     }
 
@@ -17,11 +19,13 @@ public class CopyMotion : MonoBehaviour
     {
         if (!mirror)
         {
-            configurableJoint.targetRotation = transform_TargetLimb.rotation;
+            //configurableJoint.targetRotation = transform_TargetLimb.rotation;
+            configurableJoint.SetTargetRotation(transform_TargetLimb.localRotation, startingRotation);
         }
         else
         {
-            configurableJoint.targetRotation = Quaternion.Inverse(transform_TargetLimb.rotation);
+            //configurableJoint.targetRotation = Quaternion.Inverse(transform_TargetLimb.rotation);
+            configurableJoint.SetTargetRotation(Quaternion.Inverse(transform_TargetLimb.localRotation), startingRotation);
         }
     }
 }

@@ -24,4 +24,19 @@ public class LimbCollision : MonoBehaviour
             playerController.ResetJumpForce();
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Collision 작동확인 : " + collision.gameObject);
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            playerController.isGrounded = true;
+            playerController.ResetJumpForce();
+        }
+        else if (collision.gameObject.CompareTag("Wall"))
+        {
+            playerController.isGrounded = true;
+            playerController.ResetJumpForce();
+        }
+    }
 }

@@ -61,7 +61,8 @@ public class PlayerController : MonoBehaviour
             {
                 //animator.SetBool("isRun", false);
                 //animator.SetBool("isWalk", true);
-                rigidbody_Hips.AddForce(rigidbody_Hips.transform.forward * fSpeed);
+                //rigidbody_Hips.AddForce(rigidbody_Hips.transform.forward * fSpeed);
+                rigidbody_Hips.AddRelativeForce(Vector3.up * fSpeed);
             }
         }
         else
@@ -81,7 +82,8 @@ public class PlayerController : MonoBehaviour
             else
             {
                 //animator.SetBool("isLeft", true);
-                rigidbody_Hips.AddForce(-rigidbody_Hips.transform.right * fStrafeSpeed);
+                //rigidbody_Hips.AddForce(-rigidbody_Hips.transform.right * fStrafeSpeed);
+                rigidbody_Hips.AddRelativeForce(Vector3.forward * fSpeed);
             }
         }
         else
@@ -99,7 +101,8 @@ public class PlayerController : MonoBehaviour
             else
             {
                 //animator.SetBool("isWalk", true);
-                rigidbody_Hips.AddForce(-rigidbody_Hips.transform.forward * fSpeed);
+                //rigidbody_Hips.AddForce(-rigidbody_Hips.transform.forward * fSpeed);
+                rigidbody_Hips.AddRelativeForce(Vector3.down * fSpeed);
             }
         }
         else if (!Input.GetKey(KeyCode.W))
@@ -117,7 +120,8 @@ public class PlayerController : MonoBehaviour
             else
             {
                 //animator.SetBool("isRight", true);
-                rigidbody_Hips.AddForce(rigidbody_Hips.transform.right * fStrafeSpeed);
+                //rigidbody_Hips.AddForce(rigidbody_Hips.transform.right * fStrafeSpeed);
+                rigidbody_Hips.AddRelativeForce(Vector3.back * fSpeed);
             }
         }
         else
