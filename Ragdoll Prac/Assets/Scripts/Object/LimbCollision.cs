@@ -6,37 +6,33 @@ public class LimbCollision : MonoBehaviour
 {
     public PlayerController playerController;
 
-    private void Start()
+    private void Update()
     {
+        CheckGround();
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void CheckGround()
     {
-        Debug.Log("Trigger 작동확인 : " + other.gameObject);
-        if (other.gameObject.CompareTag("Ground"))
-        {
-            playerController.isGrounded = true;
-            playerController.ResetJumpForce();
-        }
-        else if (other.gameObject.CompareTag("Wall"))
-        {
-            playerController.isGrounded = true;
-            playerController.ResetJumpForce();
-        }
-    }
+        RaycastHit hit;
+        Debug.DrawRay(transform.position, Vector3.down * 0.15f, Color.red);
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("Collision 작동확인 : " + collision.gameObject);
-        if (collision.gameObject.CompareTag("Ground"))
+        if(Physics.Raycast(transform.position, Vector3.down, out hit, 0.15f))
         {
-            playerController.isGrounded = true;
-            playerController.ResetJumpForce();
-        }
-        else if (collision.gameObject.CompareTag("Wall"))
-        {
-            playerController.isGrounded = true;
-            playerController.ResetJumpForce();
+            if (hit.transform.CompareTag("Ground"))
+            {
+                playerController.isGrounded = true;
+                playerController.ResetJumpForce();
+            }
+            else if (hit.transform.CompareTag("Wall"))
+            {
+                playerController.isGrounded = true;
+                playerController.ResetJumpForce();
+            }
+            else if (hit.transform.CompareTag("Item"))
+            {
+                playerController.isGrounded = true;
+                playerController.ResetJumpForce();
+            }
         }
     }
 }

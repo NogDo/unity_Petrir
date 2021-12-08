@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public float fSpeed;
     public float fStrafeSpeed;
     public float fJumpForce;
+    private float fFirstJumpForce;
     public bool isGrounded;
     public bool isRunning;
     public int nJumpForceCount;
@@ -17,6 +18,11 @@ public class PlayerController : MonoBehaviour
 
     public GameObject objPassWall;
 
+    private void Start()
+    {
+        fFirstJumpForce = fJumpForce;
+    }
+
     private void FixedUpdate()
     {
         Run();
@@ -26,8 +32,9 @@ public class PlayerController : MonoBehaviour
         {
             if (isGrounded)
             {
-                rigidbody_Hips.AddForce(new Vector3(0, fJumpForce, 0));
+                rigidbody_Hips.AddForce(Vector3.up * fJumpForce, ForceMode.Impulse);
                 isGrounded = false;
+                animator.SetBool("Jump", true);
             }
         }
     }
@@ -36,39 +43,38 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W))
         {
-            //if (Input.GetKey(KeyCode.LeftShift))
-            //{
-            //    animator.SetBool("isWalk", true);
-            //    animator.SetBool("isRun", true);
-            //    isRunning = true;
-            //    rigidbody_Hips.AddForce(rigidbody_Hips.transform.forward * fSpeed * 1.5f);
-            //}
-            //else
-            //{
-            //    animator.SetBool("isRun", false);
-            //    animator.SetBool("isWalk", true);
-            //    rigidbody_Hips.AddForce(rigidbody_Hips.transform.forward * fSpeed);
-            //}
-
-            if (isRunning)
+            if (Input.GetKey(KeyCode.LeftShift))
             {
-                //animator.SetBool("isWalk", true);
-                //animator.SetBool("isRun", true);
+                animator.SetBool("Move", true);
+                animator.SetBool("Run", true);
                 isRunning = true;
-                rigidbody_Hips.AddForce(rigidbody_Hips.transform.forward * fSpeed * 1.5f);
+                rigidbody_Hips.AddRelativeForce(Vector3.up * fSpeed * 1.5f);
             }
             else
             {
-                //animator.SetBool("isRun", false);
-                //animator.SetBool("isWalk", true);
-                //rigidbody_Hips.AddForce(rigidbody_Hips.transform.forward * fSpeed);
+                animator.SetBool("Run", false);
+                animator.SetBool("Move", true);
+                rigidbody_Hips.AddRelativeForce(Vector3.up * fSpeed);
+            }
+
+            if (isRunning)
+            {
+                animator.SetBool("Move", true);
+                animator.SetBool("Run", true);
+                isRunning = true;
+                rigidbody_Hips.AddRelativeForce(Vector3.up * fSpeed * 1.5f);
+            }
+            else
+            {
+                animator.SetBool("Run", false);
+                animator.SetBool("Move", true);
                 rigidbody_Hips.AddRelativeForce(Vector3.up * fSpeed);
             }
         }
         else
         {
-            //animator.SetBool("isWalk", false);
-            //animator.SetBool("isRun", false);
+            animator.SetBool("Run", false);
+            animator.SetBool("Move", false);
             isRunning = false;
         }
 
@@ -95,19 +101,18 @@ public class PlayerController : MonoBehaviour
         {
             if (isRunning)
             {
-                //animator.SetBool("isWalk", true);
-                rigidbody_Hips.AddForce(-rigidbody_Hips.transform.forward * fSpeed * 1.5f);
+                animator.SetBool("Move", true);
+                rigidbody_Hips.AddRelativeForce(Vector3.down * fSpeed * 1.5f);
             }
             else
             {
-                //animator.SetBool("isWalk", true);
-                //rigidbody_Hips.AddForce(-rigidbody_Hips.transform.forward * fSpeed);
+                animator.SetBool("Move", true);
                 rigidbody_Hips.AddRelativeForce(Vector3.down * fSpeed);
             }
         }
         else if (!Input.GetKey(KeyCode.W))
         {
-            //animator.SetBool("isWalk", false);
+            animator.SetBool("Move", false);
         }
 
         if (Input.GetKey(KeyCode.D))
@@ -156,17 +161,18 @@ public class PlayerController : MonoBehaviour
         if(nJumpForceCount <= 5)
         {
             nJumpForceCount++;
-            fJumpForce += 2000 * nJumpForceCount;
+            fJumpForce += 100 * nJumpForceCount;
             Debug.Log("점프력 : " + fJumpForce);
         }
 
-        rigidbody_Hips.AddForce(new Vector3(0, fJumpForce, 0));
+        rigidbody_Hips.AddForce(Vector3.up * fJumpForce);
         isGrounded = false;
     }
 
     public void ResetJumpForce()
     {
-        fJumpForce = 6000.0f;
+        animator.SetBool("Jump", false);
+        fJumpForce = fFirstJumpForce;
         nJumpForceCount = 0;
     }
 }

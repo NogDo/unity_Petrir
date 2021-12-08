@@ -8,7 +8,7 @@ public class UIButtonManager : MonoBehaviour
 {
     public void GameStart()
     {
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("Tutorial");
     }
 
     public void QuitGame()
