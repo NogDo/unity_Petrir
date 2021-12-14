@@ -12,6 +12,7 @@ TagManager:
   - MoveWall
   - Spring
   - Player_Foot
+  - Static
   layers:
   - Default
   - TransparentFX

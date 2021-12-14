@@ -6,11 +6,16 @@ public class PlayerController : MonoBehaviour
 {
     public float fSpeed;
     public float fStrafeSpeed;
+    public float fRunSpeed;
+
     public float fJumpForce;
     private float fFirstJumpForce;
+    public int nJumpForceCount;
+
     public bool isGrounded;
     public bool isRunning;
-    public int nJumpForceCount;
+
+    
 
     public Rigidbody rigidbody_Hips;
     public GameObject objHips;
@@ -48,7 +53,7 @@ public class PlayerController : MonoBehaviour
                 animator.SetBool("Move", true);
                 animator.SetBool("Run", true);
                 isRunning = true;
-                rigidbody_Hips.AddRelativeForce(Vector3.up * fSpeed * 1.5f);
+                rigidbody_Hips.AddRelativeForce(Vector3.up * fSpeed * fRunSpeed);
             }
             else
             {
@@ -62,7 +67,7 @@ public class PlayerController : MonoBehaviour
                 animator.SetBool("Move", true);
                 animator.SetBool("Run", true);
                 isRunning = true;
-                rigidbody_Hips.AddRelativeForce(Vector3.up * fSpeed * 1.5f);
+                rigidbody_Hips.AddRelativeForce(Vector3.up * fSpeed * fRunSpeed);
             }
             else
             {
@@ -83,7 +88,7 @@ public class PlayerController : MonoBehaviour
             if (isRunning)
             {
                 //animator.SetBool("isLeft", true);
-                rigidbody_Hips.AddForce(-rigidbody_Hips.transform.right * fStrafeSpeed * 1.5f);
+                rigidbody_Hips.AddForce(-rigidbody_Hips.transform.right * fStrafeSpeed * fRunSpeed);
             }
             else
             {
@@ -102,7 +107,7 @@ public class PlayerController : MonoBehaviour
             if (isRunning)
             {
                 animator.SetBool("Move", true);
-                rigidbody_Hips.AddRelativeForce(Vector3.down * fSpeed * 1.5f);
+                rigidbody_Hips.AddRelativeForce(Vector3.down * fSpeed * fRunSpeed);
             }
             else
             {
@@ -120,7 +125,7 @@ public class PlayerController : MonoBehaviour
             if (isRunning)
             {
                 //animator.SetBool("isRight", true);
-                rigidbody_Hips.AddForce(rigidbody_Hips.transform.right * fStrafeSpeed * 1.5f);
+                rigidbody_Hips.AddForce(rigidbody_Hips.transform.right * fStrafeSpeed * fRunSpeed);
             }
             else
             {

@@ -22,46 +22,29 @@ public class Grab : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(isLeftorRight))
         {
-            Debug.Log("마우스 다운");
             if (isLeftorRight == 0)
             {
-                Debug.Log("마우스 왼쪽");
-                animator.SetBool("isLeftHandUp", true);
+                animator.SetBool("LeftGrab", true);
                 isCanGrab = true;
             }
             else if (isLeftorRight == 1)
             {
-                Debug.Log("마우스 오른쪽");
-                animator.SetBool("isRightHandUp", true);
+                animator.SetBool("RightGrab", true);
                 isCanGrab = true;
             }
-
-            //if(objGrabble != null)
-            //{
-            //    Debug.Log("물체 생성 확인");
-            //    FixedJoint fj = objGrabble.AddComponent<FixedJoint>();
-            //    fj.connectedBody = rb;
-            //    fj.breakForce = 9000;
-            //}
         }
         else if (Input.GetMouseButtonUp(isLeftorRight))
         {
-            Debug.Log("마우스 업");
             if (isLeftorRight == 0)
             {
-                animator.SetBool("isLeftHandUp", false);
+                animator.SetBool("LeftGrab", false);
                 isCanGrab = false;
             }
             else if (isLeftorRight == 1)
             {
-                animator.SetBool("isRightHandUp", false);
+                animator.SetBool("RightGrab", false);
                 isCanGrab = false;
             }
-
-            //if(objGrabble != null)
-            //{
-            //    Destroy(objGrabble.GetComponent<FixedJoint>());
-            //}
 
             if (objGrabble != null)
             {
@@ -82,6 +65,20 @@ public class Grab : MonoBehaviour
         if (other.gameObject.CompareTag("Wall"))
         {
             Debug.Log("벽 잡기");
+            objGrabble = other.gameObject;
+            Grabble();
+        }
+
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            Debug.Log("바닥 잡기");
+            objGrabble = other.gameObject;
+            Grabble();
+        }
+
+        if (other.gameObject.CompareTag("Static"))
+        {
+            Debug.Log("정지 물체 잡기");
             objGrabble = other.gameObject;
             Grabble();
         }
