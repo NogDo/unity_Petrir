@@ -16,27 +16,34 @@ public class LimbCollision : MonoBehaviour
         RaycastHit hit;
         Debug.DrawRay(transform.position, Vector3.down * 0.15f, Color.red);
 
-        if(Physics.Raycast(transform.position, Vector3.down, out hit, 0.15f))
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 0.15f))
         {
-            if (hit.transform.CompareTag("Ground"))
+            if (!playerController.isDelayToJump)
             {
-                playerController.isGrounded = true;
-                playerController.ResetJumpForce();
-            }
-            else if (hit.transform.CompareTag("Wall"))
-            {
-                playerController.isGrounded = true;
-                playerController.ResetJumpForce();
-            }
-            else if (hit.transform.CompareTag("Item"))
-            {
-                playerController.isGrounded = true;
-                playerController.ResetJumpForce();
-            }
-            else if (hit.transform.CompareTag("Static"))
-            {
-                playerController.isGrounded = true;
-                playerController.ResetJumpForce();
+                if (hit.transform.CompareTag("Ground"))
+                {
+                    playerController.isGrounded = true;
+                    playerController.ResetJumpForce();
+                }
+                else if (hit.transform.CompareTag("Wall"))
+                {
+                    playerController.isGrounded = true;
+                    playerController.ResetJumpForce();
+                }
+                else if (hit.transform.CompareTag("Item"))
+                {
+                    playerController.isGrounded = true;
+                    playerController.ResetJumpForce();
+                }
+                else if (hit.transform.CompareTag("Static"))
+                {
+                    playerController.isGrounded = true;
+                    playerController.ResetJumpForce();
+                }
+                else 
+                {
+                    playerController.isGrounded = false;
+                }
             }
         }
     }

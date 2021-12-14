@@ -14,12 +14,15 @@ public class PlayerController : MonoBehaviour
 
     public bool isGrounded;
     public bool isRunning;
-
-    
+    public bool isDelayToJump;
+    public bool isPlayerControl;
 
     public Rigidbody rigidbody_Hips;
     public GameObject objHips;
+
     public Animator animator;
+
+    public AudioSource audioSource_Jump;
 
     public GameObject objPassWall;
 
@@ -30,17 +33,18 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Run();
-        Move();
-
-        if (Input.GetAxis("Jump") > 0)
+        if (isPlayerControl)
         {
-            if (isGrounded)
-            {
-                rigidbody_Hips.AddForce(Vector3.up * fJumpForce, ForceMode.Impulse);
-                isGrounded = false;
-                animator.SetBool("Jump", true);
-            }
+            Run();
+            Move();
+        }
+    }
+
+    private void Update()
+    {
+        if (isPlayerControl)
+        {
+            Jump();
         }
     }
 
@@ -88,13 +92,13 @@ public class PlayerController : MonoBehaviour
             if (isRunning)
             {
                 //animator.SetBool("isLeft", true);
-                rigidbody_Hips.AddForce(-rigidbody_Hips.transform.right * fStrafeSpeed * fRunSpeed);
+                rigidbody_Hips.AddRelativeForce(Vector3.forward * fStrafeSpeed * fRunSpeed);
             }
             else
             {
                 //animator.SetBool("isLeft", true);
                 //rigidbody_Hips.AddForce(-rigidbody_Hips.transform.right * fStrafeSpeed);
-                rigidbody_Hips.AddRelativeForce(Vector3.forward * fSpeed);
+                rigidbody_Hips.AddRelativeForce(Vector3.forward * fStrafeSpeed);
             }
         }
         else
@@ -112,7 +116,7 @@ public class PlayerController : MonoBehaviour
             else
             {
                 animator.SetBool("Move", true);
-                rigidbody_Hips.AddRelativeForce(Vector3.down * fSpeed);
+                rigidbody_Hips.AddRelativeForce(Vector3.down * fSpeed * 2.0f);
             }
         }
         else if (!Input.GetKey(KeyCode.W))
@@ -125,13 +129,13 @@ public class PlayerController : MonoBehaviour
             if (isRunning)
             {
                 //animator.SetBool("isRight", true);
-                rigidbody_Hips.AddForce(rigidbody_Hips.transform.right * fStrafeSpeed * fRunSpeed);
+                rigidbody_Hips.AddRelativeForce(Vector3.back * fStrafeSpeed * fRunSpeed);
             }
             else
             {
                 //animator.SetBool("isRight", true);
                 //rigidbody_Hips.AddForce(rigidbody_Hips.transform.right * fStrafeSpeed);
-                rigidbody_Hips.AddRelativeForce(Vector3.back * fSpeed);
+                rigidbody_Hips.AddRelativeForce(Vector3.back * fStrafeSpeed);
             }
         }
         else
@@ -161,6 +165,22 @@ public class PlayerController : MonoBehaviour
         //}
     }
 
+    public void Jump()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (isGrounded)
+            {
+                audioSource_Jump.Play();
+                rigidbody_Hips.AddForce(Vector3.up * fJumpForce, ForceMode.Impulse);
+                animator.SetBool("Jump", true);
+                isGrounded = false;
+                isDelayToJump = true;
+                StartCoroutine(DelayToJump());
+            }
+        }
+    }
+
     public void AddJumpForce()
     {
         if(nJumpForceCount <= 5)
@@ -179,5 +199,23 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("Jump", false);
         fJumpForce = fFirstJumpForce;
         nJumpForceCount = 0;
+    }
+
+    IEnumerator DelayToJump()
+    {
+        Debug.Log("딜레이 시작");
+        yield return new WaitForSeconds(0.1f);
+        Debug.Log("딜레이 끝");
+        isDelayToJump = false;
+    }
+
+    public void UnablePlayerControl()
+    {
+        isPlayerControl = false;
+    }
+
+    public void AblePlayerControl()
+    {
+        isPlayerControl = true;
     }
 }

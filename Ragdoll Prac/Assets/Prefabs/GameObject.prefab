@@ -15936,7 +15936,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: marshmallow
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8642839400413898993, guid: a303ea67b4941d24fbb5cd6a9e0d9d84, type: 3}
+    - {fileID: 6035266414184363895, guid: a303ea67b4941d24fbb5cd6a9e0d9d84, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a303ea67b4941d24fbb5cd6a9e0d9d84, type: 3}
 --- !u!4 &625657803623100076 stripped
 Transform:

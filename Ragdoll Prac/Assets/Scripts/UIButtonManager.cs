@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class UIButtonManager : MonoBehaviour
 {
-    public AudioSource audio;
+    public AudioSource audioSource;
 
     public void GameStart(AudioClip startSound)
     {
@@ -20,7 +20,7 @@ public class UIButtonManager : MonoBehaviour
 
     IEnumerator StartGame(AudioClip startSound)
     {
-        audio.PlayOneShot(startSound);
+        audioSource.PlayOneShot(startSound);
         yield return new WaitForSeconds(startSound.length);
 
         SceneManager.LoadScene("Tutorial");
@@ -28,7 +28,7 @@ public class UIButtonManager : MonoBehaviour
     
     IEnumerator EndGame(AudioClip endSound)
     {
-        audio.PlayOneShot(endSound);
+        audioSource.PlayOneShot(endSound);
         yield return new WaitForSeconds(endSound.length);
 
 #if UNITY_EDITOR

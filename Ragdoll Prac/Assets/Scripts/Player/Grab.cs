@@ -10,8 +10,10 @@ public class Grab : MonoBehaviour
     public FixedJoint fixedJoint;
 
     public int isLeftorRight;
+
     public bool alreadyGrabbing = false;
     public bool isCanGrab = false;
+    public bool isCanGrabBehavior;
 
     void Start()
     {
@@ -20,35 +22,38 @@ public class Grab : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(isLeftorRight))
+        if (isCanGrabBehavior)
         {
-            if (isLeftorRight == 0)
+            if (Input.GetMouseButtonDown(isLeftorRight))
             {
-                animator.SetBool("LeftGrab", true);
-                isCanGrab = true;
+                if (isLeftorRight == 0)
+                {
+                    animator.SetBool("LeftGrab", true);
+                    isCanGrab = true;
+                }
+                else if (isLeftorRight == 1)
+                {
+                    animator.SetBool("RightGrab", true);
+                    isCanGrab = true;
+                }
             }
-            else if (isLeftorRight == 1)
+            else if (Input.GetMouseButtonUp(isLeftorRight))
             {
-                animator.SetBool("RightGrab", true);
-                isCanGrab = true;
-            }
-        }
-        else if (Input.GetMouseButtonUp(isLeftorRight))
-        {
-            if (isLeftorRight == 0)
-            {
-                animator.SetBool("LeftGrab", false);
-                isCanGrab = false;
-            }
-            else if (isLeftorRight == 1)
-            {
-                animator.SetBool("RightGrab", false);
-                isCanGrab = false;
-            }
+                if (isLeftorRight == 0)
+                {
+                    animator.SetBool("LeftGrab", false);
+                    isCanGrab = false;
+                }
+                else if (isLeftorRight == 1)
+                {
+                    animator.SetBool("RightGrab", false);
+                    isCanGrab = false;
+                }
 
-            if (objGrabble != null)
-            {
-                RemoveJoint();
+                if (objGrabble != null)
+                {
+                    RemoveJoint();
+                }
             }
         }
     }
@@ -112,5 +117,15 @@ public class Grab : MonoBehaviour
     {
         Destroy(fixedJoint);
         objGrabble = null;
+    }
+
+    public void UnAbleGrabBehavior()
+    {
+        isCanGrabBehavior = false;
+    }
+
+    public void AbleGrabBehavior()
+    {
+        isCanGrabBehavior = true;
     }
 }

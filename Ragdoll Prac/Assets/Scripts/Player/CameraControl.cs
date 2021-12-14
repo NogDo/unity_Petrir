@@ -13,6 +13,8 @@ public class CameraControl : MonoBehaviour
     private float mouseX, mouseY;
     private Quaternion lastHipRotation, lastStomachRotation;
 
+    public bool isScreenRotation;
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -20,13 +22,16 @@ public class CameraControl : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.LeftAlt))
+        if (!isScreenRotation)
         {
-            OnlyCamControl();
-        }
-        else
-        {
-            CamControl();
+            if (Input.GetKey(KeyCode.LeftAlt))
+            {
+                OnlyCamControl();
+            }
+            else
+            {
+                CamControl();
+            }
         }
     }
 
@@ -56,5 +61,15 @@ public class CameraControl : MonoBehaviour
         transform_Root.rotation = rootRatation;
         hipJoint.targetRotation = lastHipRotation;
         stomachJoint.targetRotation = lastStomachRotation;
+    }
+
+    public void StopScreenRotation()
+    {
+        isScreenRotation = true;
+    }
+
+    public void StartScreenRotation()
+    {
+        isScreenRotation = false;
     }
 }
