@@ -9,6 +9,7 @@ public class OvenManager : MonoBehaviour
     public List<Sprite> list_MaterialImage;
 
     public GameObject obj_OvenUI;
+    public Image image_Create;
 
     public AudioSource audioSource_Tutorial;
     public AudioSource audioSource_Oven;
@@ -17,6 +18,9 @@ public class OvenManager : MonoBehaviour
     public PlayerController playerController;
     public Grab grabLeft;
     public Grab grabRight;
+
+    public RecipeManager recipeManager;
+    private int nMaterialIndex = 0;
 
     public void OpenOvenUI()
     {
@@ -58,5 +62,28 @@ public class OvenManager : MonoBehaviour
         playerController.AblePlayerControl();
         grabLeft.AbleGrabBehavior();
         grabRight.AbleGrabBehavior();
+    }
+
+    public void CheckMaterial(GameObject material)
+    {
+        if(material.GetComponent<Image>().sprite == recipeManager.GetTutorialRecipe()[nMaterialIndex])
+        {
+            Debug.Log("재료 맞춤");
+            Sprite currentMaterial = material.GetComponent<Image>().sprite;
+
+            image_Create.color = Color.white;
+
+            image_Create.sprite = recipeManager.GetTutorialCreate()[nMaterialIndex];
+            list_MaterialImage.Remove(recipeManager.GetTutorialRecipe()[nMaterialIndex]);
+            chestManager.list_Material.Remove(recipeManager.GetTutorialRecipe()[nMaterialIndex]);
+            material.SetActive(false);
+
+            nMaterialIndex++;
+        }
+        else
+        {
+            Debug.Log("재료 틀림");
+            material.transform.position = material.GetComponent<MaterialDrag>().vector_StartPosition;
+        }
     }
 }
