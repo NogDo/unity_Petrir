@@ -8,33 +8,49 @@ public class UIButtonManager : MonoBehaviour
 {
     public AudioSource audioSource;
 
-    public void GameStart(AudioClip startSound)
+    public GameObject objMain;
+    public GameObject objStage;
+
+    public void GameStart()
     {
-        StartCoroutine(StartGame(startSound));
+        objMain.SetActive(false);
+        objStage.SetActive(true);
     }
 
-    public void QuitGame(AudioClip endSound)
+    public void QuitGame(AudioClip clickSound)
     {
-        StartCoroutine(EndGame(endSound));
+        StartCoroutine(EndGame(clickSound));
     }
 
-    IEnumerator StartGame(AudioClip startSound)
+    IEnumerator EndGame(AudioClip clickSound)
     {
-        audioSource.PlayOneShot(startSound);
-        yield return new WaitForSeconds(startSound.length);
-
-        SceneManager.LoadScene("Tutorial");
-    }
-    
-    IEnumerator EndGame(AudioClip endSound)
-    {
-        audioSource.PlayOneShot(endSound);
-        yield return new WaitForSeconds(endSound.length);
+        audioSource.PlayOneShot(clickSound);
+        yield return new WaitForSeconds(clickSound.length);
 
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
         Application.Quit();
 #endif
+    }
+
+    public void StartTutorial()
+    {
+        SceneManager.LoadScene("Tutorial");
+    }
+
+    public void StartStage01()
+    {
+
+    }
+
+    public void StartStage02()
+    {
+
+    }
+
+    public void StartStage03()
+    {
+
     }
 }

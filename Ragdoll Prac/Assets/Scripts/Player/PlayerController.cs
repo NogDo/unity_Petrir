@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     public float fSpeed;
     public float fStrafeSpeed;
     public float fRunSpeed;
+    public float fMaxRunSpeed;
+    public float fMaxWalkSpeed;
 
     public float fJumpForce;
     private float fFirstJumpForce;
@@ -37,6 +39,21 @@ public class PlayerController : MonoBehaviour
         {
             Run();
             Move();
+
+            if (isRunning)
+            {
+                if (rigidbody_Hips.velocity.magnitude >= fMaxRunSpeed)
+                {
+                    rigidbody_Hips.velocity = rigidbody_Hips.velocity.normalized * fMaxRunSpeed;
+                }
+            }
+            //else
+            //{
+            //    if (rigidbody_Hips.velocity.magnitude >= fMaxWalkSpeed)
+            //    {
+            //        rigidbody_Hips.velocity = rigidbody_Hips.velocity.normalized * fMaxWalkSpeed;
+            //    }
+            //}
         }
     }
 
@@ -91,7 +108,6 @@ public class PlayerController : MonoBehaviour
         {
             if (isRunning)
             {
-                //animator.SetBool("isLeft", true);
                 rigidbody_Hips.AddRelativeForce(Vector3.forward * fStrafeSpeed * fRunSpeed);
             }
             else
@@ -155,6 +171,7 @@ public class PlayerController : MonoBehaviour
             isRunning = false;
         }
 
+
         //if (isRunning)
         //{
         //    objPassWall.GetComponent<BoxCollider>().enabled = false;
@@ -177,6 +194,7 @@ public class PlayerController : MonoBehaviour
                 isGrounded = false;
                 isDelayToJump = true;
                 StartCoroutine(DelayToJump());
+                fRunSpeed = 1.0f;
             }
         }
     }

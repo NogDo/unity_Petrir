@@ -24,21 +24,25 @@ public class LimbCollision : MonoBehaviour
                 {
                     playerController.isGrounded = true;
                     playerController.ResetJumpForce();
+                    playerController.fRunSpeed = 2.0f;
                 }
                 else if (hit.transform.CompareTag("Wall"))
                 {
                     playerController.isGrounded = true;
                     playerController.ResetJumpForce();
+                    playerController.fRunSpeed = 2.0f;
                 }
                 else if (hit.transform.CompareTag("Item"))
                 {
                     playerController.isGrounded = true;
                     playerController.ResetJumpForce();
+                    playerController.fRunSpeed = 2.0f;
                 }
                 else if (hit.transform.CompareTag("Static"))
                 {
                     playerController.isGrounded = true;
                     playerController.ResetJumpForce();
+                    playerController.fRunSpeed = 2.0f;
                 }
                 else 
                 {
