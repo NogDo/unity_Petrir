@@ -9,15 +9,20 @@ public class Grab : MonoBehaviour
     public Rigidbody rb;
     public FixedJoint fixedJoint;
 
+    public TutorialManager tutorialManager;
+
     public int isLeftorRight;
 
     public bool alreadyGrabbing = false;
     public bool isCanGrab = false;
     public bool isCanGrabBehavior;
 
+    private bool isEndGrabTutorial;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        isEndGrabTutorial = false;
     }
 
     void Update()
@@ -64,35 +69,35 @@ public class Grab : MonoBehaviour
         {
             Debug.Log("아이템 잡기");
             objGrabble = other.gameObject;
-            Grabble();
+            Grabble(true);
         }
 
         if (other.gameObject.CompareTag("Wall"))
         {
             Debug.Log("벽 잡기");
             objGrabble = other.gameObject;
-            Grabble();
+            Grabble(false);
         }
 
         if (other.gameObject.CompareTag("Ground"))
         {
             Debug.Log("바닥 잡기");
             objGrabble = other.gameObject;
-            Grabble();
+            Grabble(false);
         }
 
         if (other.gameObject.CompareTag("Static"))
         {
             Debug.Log("정지 물체 잡기");
             objGrabble = other.gameObject;
-            Grabble();
+            Grabble(false);
         }
 
         if (other.gameObject.CompareTag("Lever"))
         {
             Debug.Log("레버 잡기");
             objGrabble = other.gameObject;
-            Grabble();
+            Grabble(false);
         }
     }
 
@@ -101,7 +106,7 @@ public class Grab : MonoBehaviour
     //    objGrabble = null;
     //}
 
-    public void Grabble()
+    public void Grabble(bool isItem)
     {
         if (isCanGrab)
         {
@@ -109,6 +114,12 @@ public class Grab : MonoBehaviour
             fixedJoint = objGrabble.AddComponent<FixedJoint>();
             fixedJoint.connectedBody = rb;
             fixedJoint.breakForce = 9000;
+            if (tutorialManager.IsStartGrabTutorial() && !isEndGrabTutorial && isItem && (isLeftorRight == 0))
+            {
+                Debug.Log("그랩 튜토리얼 완료 확인");
+                tutorialManager.EndGrabTutorial();
+                isEndGrabTutorial = true;
+            }
             isCanGrab = false;
         }
     }

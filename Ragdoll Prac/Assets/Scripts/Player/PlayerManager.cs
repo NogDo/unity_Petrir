@@ -5,7 +5,12 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     private Vector3 vector_StartPosition;
-   
+
+    [Header("플레이어 텔레포트 위치")]
+    public Vector3 vector_TutorialStartPosition;
+
+    [Header("플레이어 캐릭터 최상위 부모")]
+    public GameObject objCharacter;
 
     private void Start()
     {
@@ -18,5 +23,12 @@ public class PlayerManager : MonoBehaviour
         {
             transform.position = vector_StartPosition;
         }
+    }
+
+    public void MoveToTutorialStage()
+    {
+        objCharacter.transform.position = vector_TutorialStartPosition;
+        transform.position = vector_TutorialStartPosition;
+        vector_StartPosition = vector_TutorialStartPosition;
     }
 }

@@ -6,7 +6,14 @@ public class GameManager : MonoBehaviour
 {
     bool isPause = false;
 
-    // Update is called once per frame
+    public Texture2D texture_Cursor;
+
+    private void Start()
+    {
+        Cursor.SetCursor(texture_Cursor, Vector2.zero, CursorMode.ForceSoftware);
+        Cursor.visible = false;
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.F2))

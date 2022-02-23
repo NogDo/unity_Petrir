@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public int nJumpForceCount;
 
     public bool isGrounded;
+    public bool isJump;
     public bool isRunning;
     public bool isDelayToJump;
     public bool isPlayerControl;
@@ -191,6 +192,7 @@ public class PlayerController : MonoBehaviour
                 audioSource_Jump.Play();
                 rigidbody_Hips.AddForce(Vector3.up * fJumpForce, ForceMode.Impulse);
                 animator.SetBool("Jump", true);
+                isJump = true;
                 isGrounded = false;
                 isDelayToJump = true;
                 StartCoroutine(DelayToJump());

@@ -7,11 +7,19 @@ public class OvenCheckArea : MonoBehaviour
     public PlayerController playerController;
 
     public OvenManager ovenManager;
+    public TutorialManager tutorialManager;
 
     public GameObject obj_Text;
 
     public bool isPlayerInArea;
     public bool isOvenInterfaceOn;
+
+    private bool isEndOvenTutorial;
+
+    private void Start()
+    {
+        isEndOvenTutorial = false;
+    }
 
     void Update()
     {
@@ -19,6 +27,12 @@ public class OvenCheckArea : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
+                if (tutorialManager.IsStartOvenTutorial() && !isEndOvenTutorial && (ovenManager.stage == Stage.Oven))
+                {
+                    tutorialManager.EndOvenTutorial();
+                    isEndOvenTutorial = true;
+                }
+
                 ovenManager.OpenOvenUI();
                 isOvenInterfaceOn = true;
             }
