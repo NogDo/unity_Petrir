@@ -203,7 +203,7 @@ public class PlayerController : MonoBehaviour
 
     public void AddJumpForce()
     {
-        if(nJumpForceCount <= 5)
+        if (nJumpForceCount <= 5)
         {
             nJumpForceCount++;
             fJumpForce += 100 * nJumpForceCount;
@@ -237,5 +237,20 @@ public class PlayerController : MonoBehaviour
     public void AblePlayerControl()
     {
         isPlayerControl = true;
+    }
+
+    public void StopRunAnimation()
+    {
+        animator.SetBool("Run", false);
+    }
+
+    public void StopMoveAnimation()
+    {
+        animator.SetBool("Move", false);
+    }
+
+    public void SetSpeedZero()
+    {
+        rigidbody_Hips.velocity = rigidbody_Hips.velocity.normalized;
     }
 }

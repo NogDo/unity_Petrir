@@ -2,12 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Ingredient
+{
+    None,
+    Biscuit,
+    Marshmallow,
+    Chocolate
+}
+
 public class ObjectManager : MonoBehaviour
 {
     private Vector3 vector_StartPosition;
     private Quaternion quaternion_StartRoatation;
 
     public Sprite sprite_ObjectImage;
+    public Ingredient ingredient;
 
     void Start()
     {

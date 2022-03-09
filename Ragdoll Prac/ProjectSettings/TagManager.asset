@@ -53,3 +53,6 @@ TagManager:
   - name: Ingredient
     uniqueID: 3929963165
     locked: 0
+  - name: Recipe
+    uniqueID: 3993148605
+    locked: 0

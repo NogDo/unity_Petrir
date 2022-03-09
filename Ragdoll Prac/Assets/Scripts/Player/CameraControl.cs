@@ -33,6 +33,11 @@ public class CameraControl : MonoBehaviour
                 CamControl();
             }
         }
+        else
+        {
+            hipJoint.targetRotation = lastHipRotation;
+            stomachJoint.targetRotation = lastStomachRotation;
+        }
     }
 
     public void CamControl()

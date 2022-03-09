@@ -11,9 +11,11 @@ public class TutorialManager : MonoBehaviour
     public PlayerController playerController;
     public CameraControl cameraControl;
     public PlayerManager playerManager;
+    public GameUIManager gameUIManager;
 
     [Header("이미지")]
-    public GameObject objRecipeImage;
+    public GameObject objTutorialGuideRecipeImage;
+    public GameObject objTutorialStageRecipeImage;
     public GameObject objBottomArrowImage;
     public GameObject objBlackImage;
     public GameObject objExplainTextBoardImage;
@@ -133,14 +135,14 @@ public class TutorialManager : MonoBehaviour
         if (nTutorialGuideIndex == 2)
         {
             objBlackImage.SetActive(true);
-            objRecipeImage.SetActive(true);
-            PlayDoTweenAnimation(objRecipeImage);
+            objTutorialGuideRecipeImage.SetActive(true);
+            PlayDoTweenAnimation(objTutorialGuideRecipeImage);
         }
 
         if (nTutorialGuideIndex == 3)
         {
-            KillDoTweenAnimation(objRecipeImage);
-            objRecipeImage.GetComponent<RectTransform>().sizeDelta = new Vector2(150, 150);
+            KillDoTweenAnimation(objTutorialGuideRecipeImage);
+            objTutorialGuideRecipeImage.GetComponent<RectTransform>().sizeDelta = new Vector2(150, 150);
         }
 
         if (nTutorialGuideIndex == 5)
@@ -226,6 +228,9 @@ public class TutorialManager : MonoBehaviour
             objExplainTextBoardImage.SetActive(false);
             objTutorialMap02.SetActive(true);
             playerManager.MoveToTutorialStage();
+            gameUIManager.SetIsTutorialGuideFalse();
+            objTutorialGuideRecipeImage.SetActive(false);
+            objTutorialStageRecipeImage.SetActive(true);
             objTutorialMap01.SetActive(false);
             return;
         }
@@ -251,6 +256,9 @@ public class TutorialManager : MonoBehaviour
     public void EndWalkTutorial()
     {
         UnPlayable();
+        playerController.StopMoveAnimation();
+        playerController.StopRunAnimation();
+        playerController.SetSpeedZero();
         objExplainTextBoardImage.SetActive(true);
         objRunTutorial.SetActive(true);
         objBottomArrowImage.SetActive(false);
@@ -259,6 +267,9 @@ public class TutorialManager : MonoBehaviour
     public void EndRunTutorial()
     {
         UnPlayable();
+        playerController.StopMoveAnimation();
+        playerController.StopRunAnimation();
+        playerController.SetSpeedZero();
         objExplainTextBoardImage.SetActive(true);
         objJumpTutorial.SetActive(true);
         objBottomArrowImage.SetActive(false);
