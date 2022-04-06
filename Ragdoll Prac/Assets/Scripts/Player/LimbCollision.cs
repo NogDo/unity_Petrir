@@ -21,20 +21,24 @@ public class LimbCollision : MonoBehaviour
     private void Update()
     {
         CheckGround();
-        if (tutorialManager.IsStartJumpTutorial() && !isOnce && playerController.isJump && (isLeftorRight == 0))
+        if(tutorialManager != null)
         {
-            Debug.Log("이게 문젠가3");
-            StartJumpTutorial();
-            isOnce = true;
+            if (tutorialManager.IsStartJumpTutorial() && !isOnce && playerController.isJump && (isLeftorRight == 0))
+            {
+                Debug.Log("이게 문젠가3");
+                StartJumpTutorial();
+                isOnce = true;
+            }
         }
     }
 
     public void CheckGround()
     {
         RaycastHit hit;
-        Debug.DrawRay(transform.position, Vector3.down * 0.15f, Color.red);
+        Vector3 down = transform.TransformDirection(Vector3.left);
+        Debug.DrawRay(transform.position, down * 0.25f, Color.red);
 
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, 0.15f))
+        if (Physics.Raycast(transform.position, down, out hit, 0.25f))
         {
             if (!playerController.isDelayToJump)
             {
@@ -46,30 +50,29 @@ public class LimbCollision : MonoBehaviour
                         isStartJumpTutorial = false;
                         Debug.Log("이게문젠가2" + isStartJumpTutorial);
                     }
-                    playerController.isGrounded = true;
-                    playerController.isJump = false;
-                    playerController.ResetJumpForce();
-                    playerController.fRunSpeed = 2.0f;
+                    InitJumpState();
                 }
                 else if (hit.transform.CompareTag("Wall"))
                 {
-                    playerController.isGrounded = true;
-                    playerController.isJump = false;
-                    playerController.ResetJumpForce();
-                    playerController.fRunSpeed = 2.0f;
+                    InitJumpState();
                 }
                 else if (hit.transform.CompareTag("Item"))
                 {
-                    playerController.isGrounded = true;
-                    playerController.isJump = false;
-                    playerController.ResetJumpForce();
-                    playerController.fRunSpeed = 2.0f;
+                    InitJumpState();
                 }
                 else if (hit.transform.CompareTag("Static"))
                 {
-                    playerController.isGrounded = true;
+                    
+                    InitJumpState();
+                }
+                else if (hit.transform.CompareTag("MoveWall"))
+                {
+                    InitJumpState();
+                }
+                else if (hit.transform.CompareTag("Spring"))
+                {
+                    playerController.isGrounded = false;
                     playerController.isJump = false;
-                    playerController.ResetJumpForce();
                     playerController.fRunSpeed = 2.0f;
                 }
                 else 
@@ -78,6 +81,14 @@ public class LimbCollision : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void InitJumpState()
+    {
+        playerController.isGrounded = true;
+        playerController.isJump = false;
+        playerController.ResetJumpForce();
+        playerController.fRunSpeed = 2.0f;
     }
 
     public void StartJumpTutorial()

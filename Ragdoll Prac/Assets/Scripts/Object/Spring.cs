@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Spring : MonoBehaviour
 {
-    public GameObject objPlayer;
     public PlayerController playerController;
 
-    private void OnTriggerEnter(Collider other)
+    public float fJumpPower;
+
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.gameObject.CompareTag("Player_Foot"))
+        if (collision.gameObject.CompareTag("Player_Foot"))
         {
             playerController.isGrounded = true;
-            playerController.AddJumpForce();
+            playerController.AddJumpForce(fJumpPower);
         }
     }
 }

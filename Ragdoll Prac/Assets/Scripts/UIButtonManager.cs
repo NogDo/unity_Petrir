@@ -41,7 +41,7 @@ public class UIButtonManager : MonoBehaviour
 
     public void StartStage01()
     {
-
+        SceneManager.LoadScene("1-1");
     }
 
     public void StartStage02()

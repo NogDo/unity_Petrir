@@ -7,7 +7,11 @@ public enum Ingredient
     None,
     Biscuit,
     Marshmallow,
-    Chocolate
+    Chocolate,
+    Strawberry,
+    Bread,
+    Pastry_Bag,
+
 }
 
 public class ObjectManager : MonoBehaviour

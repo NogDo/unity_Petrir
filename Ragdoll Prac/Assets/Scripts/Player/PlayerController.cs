@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour
 
     public GameObject objPassWall;
 
+    public PhysicMaterial physicMaterial_FootSlide;
+
     private void Start()
     {
         fFirstJumpForce = fJumpForce;
@@ -166,10 +168,20 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift))
         {
             isRunning = true;
+            physicMaterial_FootSlide.dynamicFriction = 0.5f;
         }
         else
         {
             isRunning = false;
+            if(animator.GetBool("Move") == true)
+            {
+                physicMaterial_FootSlide.dynamicFriction = 0.25f;
+            }
+            else
+            {
+                physicMaterial_FootSlide.dynamicFriction = 0.5f;
+            }
+            
         }
 
 
@@ -190,7 +202,7 @@ public class PlayerController : MonoBehaviour
             if (isGrounded)
             {
                 audioSource_Jump.Play();
-                rigidbody_Hips.AddForce(Vector3.up * fJumpForce, ForceMode.Impulse);
+                rigidbody_Hips.AddForce(Vector3.up * fJumpForce, ForceMode.VelocityChange);
                 animator.SetBool("Jump", true);
                 isJump = true;
                 isGrounded = false;
@@ -201,16 +213,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void AddJumpForce()
+    public void AddJumpForce(float fJumpPower)
     {
         if (nJumpForceCount <= 5)
         {
             nJumpForceCount++;
-            fJumpForce += 100 * nJumpForceCount;
+            fJumpForce += fJumpPower * nJumpForceCount;
             Debug.Log("점프력 : " + fJumpForce);
         }
 
-        rigidbody_Hips.AddForce(Vector3.up * fJumpForce);
+        rigidbody_Hips.AddForce(Vector3.up * fJumpForce, ForceMode.VelocityChange);
         isGrounded = false;
     }
 

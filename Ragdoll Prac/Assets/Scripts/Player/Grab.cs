@@ -99,6 +99,13 @@ public class Grab : MonoBehaviour
             objGrabble = other.gameObject;
             Grabble(false);
         }
+
+        if (other.gameObject.CompareTag("MoveWall"))
+        {
+            Debug.Log("이동발판 잡기");
+            objGrabble = other.gameObject;
+            Grabble(false);
+        }
     }
 
     //private void OnTriggerExit(Collider other)
@@ -114,11 +121,14 @@ public class Grab : MonoBehaviour
             fixedJoint = objGrabble.AddComponent<FixedJoint>();
             fixedJoint.connectedBody = rb;
             fixedJoint.breakForce = 9000;
-            if (tutorialManager.IsStartGrabTutorial() && !isEndGrabTutorial && isItem && (isLeftorRight == 0))
+            if(tutorialManager != null)
             {
-                Debug.Log("그랩 튜토리얼 완료 확인");
-                tutorialManager.EndGrabTutorial();
-                isEndGrabTutorial = true;
+                if (tutorialManager.IsStartGrabTutorial() && !isEndGrabTutorial && isItem && (isLeftorRight == 0))
+                {
+                    Debug.Log("그랩 튜토리얼 완료 확인");
+                    tutorialManager.EndGrabTutorial();
+                    isEndGrabTutorial = true;
+                }
             }
             isCanGrab = false;
         }

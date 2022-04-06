@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -963,7 +963,7 @@ Transform:
   - {fileID: 94500236}
   - {fileID: 692998529}
   m_Father: {fileID: 2005134363}
-  m_RootOrder: 18
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &88511115
 PrefabInstance:
@@ -1282,7 +1282,7 @@ Transform:
   - {fileID: 888716525}
   - {fileID: 2091750327}
   m_Father: {fileID: 2005134363}
-  m_RootOrder: 19
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &113799174
 PrefabInstance:
@@ -15856,6 +15856,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character 1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: dbde5ab499fc1974290448294fe0a48a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbde5ab499fc1974290448294fe0a48a, type: 3}
 --- !u!1001 &1957560652
@@ -16147,7 +16152,9 @@ Transform:
   - {fileID: 1876694463}
   - {fileID: 1463312293}
   - {fileID: 1116436446}
+  - {fileID: 85400058}
   - {fileID: 1773988713}
+  - {fileID: 98315985}
   - {fileID: 418453074}
   - {fileID: 802608522}
   - {fileID: 772715329}
@@ -16158,8 +16165,6 @@ Transform:
   - {fileID: 564637581}
   - {fileID: 1846626540}
   - {fileID: 1036924900}
-  - {fileID: 85400058}
-  - {fileID: 98315985}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17244,6 +17249,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Character 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: dbde5ab499fc1974290448294fe0a48a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbde5ab499fc1974290448294fe0a48a, type: 3}

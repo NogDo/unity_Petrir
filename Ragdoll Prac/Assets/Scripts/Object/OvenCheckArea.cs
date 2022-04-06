@@ -27,10 +27,13 @@ public class OvenCheckArea : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
-                if (tutorialManager.IsStartOvenTutorial() && !isEndOvenTutorial && (ovenManager.stage == Stage.Oven))
+                if(tutorialManager != null)
                 {
-                    tutorialManager.EndOvenTutorial();
-                    isEndOvenTutorial = true;
+                    if (tutorialManager.IsStartOvenTutorial() && !isEndOvenTutorial && (ovenManager.stage == Stage.Oven))
+                    {
+                        tutorialManager.EndOvenTutorial();
+                        isEndOvenTutorial = true;
+                    }
                 }
 
                 ovenManager.OpenOvenUI();

@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class RecipeManager : MonoBehaviour
 {
+    [Header("튜토리얼 레시피")]
     public Sprite[] sprite_OvenTutorialRecipe;
     public Sprite[] sprite_OvenTutorialCreate;
     public Sprite[] sprite_TutorialRecipe;
     public Sprite[] sprite_TutorialCreate;
+
+    [Header("스테이지1 레시피")]
+    public Sprite[] sprite_Stage1Recipe;
+    public Sprite[] sprite_Stage1Create;
 
     public List<Sprite> GetTutorialRecipe()
     {
@@ -51,5 +56,27 @@ public class RecipeManager : MonoBehaviour
         }
 
         return list_OvenTutorialCreate;
+    }
+
+    public List<Sprite> GetStage1Recipe()
+    {
+        List<Sprite> list_Stage1Recipe = new List<Sprite>();
+        for (int i = 0; i < sprite_Stage1Recipe.Length; i++)
+        {
+            list_Stage1Recipe.Add(sprite_OvenTutorialRecipe[i]);
+        }
+
+        return list_Stage1Recipe;
+    }
+
+    public List<Sprite> GetStage1Create()
+    {
+        List<Sprite> list_Stage1Create = new List<Sprite>();
+        for (int i = 0; i < sprite_Stage1Create.Length; i++)
+        {
+            list_Stage1Create.Add(sprite_OvenTutorialRecipe[i]);
+        }
+
+        return list_Stage1Create;
     }
 }
