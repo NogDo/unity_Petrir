@@ -156,7 +156,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.25
+  m_Radius: 0.35
   m_Center: {x: -0.14, y: 0, z: 0}
 --- !u!114 &164413525722639155
 MonoBehaviour:
@@ -357,7 +357,7 @@ MonoBehaviour:
   fRunSpeed: 1.5
   fMaxRunSpeed: 10
   fMaxWalkSpeed: 5
-  fJumpForce: 350
+  fJumpForce: 45
   nJumpForceCount: 0
   isGrounded: 1
   isJump: 0
@@ -3487,7 +3487,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.25
+  m_Radius: 0.35
   m_Center: {x: -0.14, y: 0, z: 0}
 --- !u!114 &7440223482911487537
 MonoBehaviour:

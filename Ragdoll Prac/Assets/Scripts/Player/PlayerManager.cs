@@ -19,7 +19,7 @@ public class PlayerManager : MonoBehaviour
 
     void Update()
     {
-        if(transform.localPosition.z <= -20.0f)
+        if(transform.position.y <= -20.0f)
         {
             transform.position = vector_StartPosition;
         }

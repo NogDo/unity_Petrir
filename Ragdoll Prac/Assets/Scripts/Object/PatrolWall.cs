@@ -9,19 +9,29 @@ public class PatrolWall : MonoBehaviour
     public GameObject objPlayer;
     public GameObject objPlayerParent;
 
-    private void OnCollisionEnter(Collision collision)
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if(collision.gameObject == collision_LeftFoot)
+    //    {
+    //        objPlayer.transform.SetParent(transform);
+    //    }
+    //}
+
+    //private void OnCollisionExit(Collision collision)
+    //{
+    //    if (collision.gameObject == collision_LeftFoot)
+    //    {
+    //        objPlayer.transform.SetParent(objPlayerParent.transform);
+    //    }
+    //}
+
+    public void SetPlayerParent_To_PatrolWall()
     {
-        if(collision.gameObject == collision_LeftFoot)
-        {
-            objPlayer.transform.SetParent(transform);
-        }
+        objPlayer.transform.SetParent(transform);
     }
 
-    private void OnCollisionExit(Collision collision)
+    public void SetPlayerParent_To_Character()
     {
-        if (collision.gameObject == collision_LeftFoot)
-        {
-            objPlayer.transform.SetParent(objPlayerParent.transform);
-        }
+        objPlayer.transform.SetParent(objPlayerParent.transform);
     }
 }

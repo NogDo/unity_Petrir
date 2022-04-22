@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameUIManager : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class GameUIManager : MonoBehaviour
     public GameObject objRecipePopupLargeTutorialGuide;
     public GameObject objRecipePopupSmall;
     public GameObject objRecipePopupLarge;
+
+    public GameObject objKnifeImage;
+    public GameObject objKnife;
 
     public TutorialManager tutorialManager;
 
@@ -52,10 +56,27 @@ public class GameUIManager : MonoBehaviour
             }
             
         }
+
+        // 칼 꺼내기
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            objKnifeImage.GetComponent<Image>().color = new Color(200.0f / 255.0f, 200.0f / 255.0f, 200.0f / 255.0f, 1.0f);
+        }
+
+        if (Input.GetKeyUp(KeyCode.F))
+        {
+            objKnifeImage.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+            objKnife.SetActive(true);
+        }
     }
 
     public void SetIsTutorialGuideFalse()
     {
         isTutorialGuide = false;
+    }
+
+    public void SetKnifeImageVisible()
+    {
+        objKnifeImage.SetActive(true);
     }
 }

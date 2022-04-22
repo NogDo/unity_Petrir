@@ -3629,7 +3629,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 8f36a2ecfa89a44489d257dce0dc9f15,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8f36a2ecfa89a44489d257dce0dc9f15,
         type: 3}
@@ -4249,7 +4249,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 6f856e0ee22bbc541a4baad6aefeb47d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6f856e0ee22bbc541a4baad6aefeb47d,
         type: 3}
@@ -4858,7 +4858,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 7bb6518290526b8449e00e5761de6b41,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7bb6518290526b8449e00e5761de6b41,
         type: 3}
@@ -6496,6 +6496,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 990317871}
+  tutorialManager: {fileID: 0}
+  isLeftorRight: 0
 --- !u!1001 &786593654
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7018,7 +7020,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 2ea78c178db267247a65c6227c842039,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2ea78c178db267247a65c6227c842039,
         type: 3}
@@ -7092,7 +7094,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 3805fa421e598ab438d00e4ba6a6a97d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3805fa421e598ab438d00e4ba6a6a97d,
         type: 3}
@@ -7314,6 +7316,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 990317871}
+  tutorialManager: {fileID: 0}
+  isLeftorRight: 0
 --- !u!153 &945367864
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -7597,6 +7601,7 @@ MonoBehaviour:
   transform_Root: {fileID: 2119610290}
   hipJoint: {fileID: 1199059276}
   stomachJoint: {fileID: 57448044}
+  isScreenRotation: 0
 --- !u!1001 &963650987
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7607,7 +7612,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 74c02d70b25e99f4081af39bea13fac3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 74c02d70b25e99f4081af39bea13fac3,
         type: 3}
@@ -7811,14 +7816,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fSpeed: 150
   fStrafeSpeed: 100
+  fRunSpeed: 0
+  fMaxRunSpeed: 0
+  fMaxWalkSpeed: 0
   fJumpForce: 6000
-  isGrounded: 1
-  isRunning: 0
   nJumpForceCount: 0
+  isGrounded: 1
+  isJump: 0
+  isRunning: 0
+  isDelayToJump: 0
+  isPlayerControl: 0
   rigidbody_Hips: {fileID: 990317873}
   objHips: {fileID: 0}
   animator: {fileID: 1744409386}
+  audioSource_Jump: {fileID: 0}
   objPassWall: {fileID: 37916295}
+  physicMaterial_FootSlide: {fileID: 0}
 --- !u!153 &990317872
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -9809,7 +9822,7 @@ PrefabInstance:
     - target: {fileID: 7393485981515834803, guid: 3221b2c4d19e39545b618c516d95a65f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7393485981515834803, guid: 3221b2c4d19e39545b618c516d95a65f,
         type: 3}
@@ -10322,14 +10335,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fSpeed: 150
   fStrafeSpeed: 100
+  fRunSpeed: 0
+  fMaxRunSpeed: 0
+  fMaxWalkSpeed: 0
   fJumpForce: 6000
-  isGrounded: 1
-  isRunning: 0
   nJumpForceCount: 0
+  isGrounded: 1
+  isJump: 0
+  isRunning: 0
+  isDelayToJump: 0
+  isPlayerControl: 0
   rigidbody_Hips: {fileID: 1199059277}
   objHips: {fileID: 0}
   animator: {fileID: 1744409386}
+  audioSource_Jump: {fileID: 0}
   objPassWall: {fileID: 37916295}
+  physicMaterial_FootSlide: {fileID: 0}
 --- !u!114 &1199059283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10512,7 +10533,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: acfa3887869d57b4e84d9baa12482d61,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: acfa3887869d57b4e84d9baa12482d61,
         type: 3}
@@ -10856,9 +10877,11 @@ MonoBehaviour:
   objGrabble: {fileID: 0}
   rb: {fileID: 0}
   fixedJoint: {fileID: 0}
+  tutorialManager: {fileID: 0}
   isLeftorRight: 1
   alreadyGrabbing: 0
   isCanGrab: 0
+  isCanGrabBehavior: 0
 --- !u!1001 &1252367840
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11228,8 +11251,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e55f44c4ac970c144aaba91f8fe4aec5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objPlayer: {fileID: 1853889681}
   playerController: {fileID: 1199059281}
+  audio_JellyJump: {fileID: 0}
+  fJumpPower: 0
 --- !u!1001 &1286494875
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11325,7 +11349,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 19472bfcfb0c9134487de4585cb0b40c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 19472bfcfb0c9134487de4585cb0b40c,
         type: 3}
@@ -12348,6 +12372,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 1199059281}
+  tutorialManager: {fileID: 0}
+  isLeftorRight: 0
 --- !u!153 &1493363634
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -12674,6 +12700,7 @@ MonoBehaviour:
   transform_Root: {fileID: 629149771}
   hipJoint: {fileID: 990317872}
   stomachJoint: {fileID: 369105242}
+  isScreenRotation: 0
 --- !u!81 &1509013479
 AudioListener:
   m_ObjectHideFlags: 0
@@ -13748,9 +13775,11 @@ MonoBehaviour:
   objGrabble: {fileID: 0}
   rb: {fileID: 0}
   fixedJoint: {fileID: 0}
+  tutorialManager: {fileID: 0}
   isLeftorRight: 0
   alreadyGrabbing: 0
   isCanGrab: 0
+  isCanGrabBehavior: 0
 --- !u!1 &1618444734 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3805fa421e598ab438d00e4ba6a6a97d,
@@ -14345,8 +14374,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e802a7395e43e34593dcb9be0b038c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 1714266493}
+  collision_LeftFoot: {fileID: 0}
+  collision_RightFoot: {fileID: 0}
   objPlayer: {fileID: 1853889681}
+  objPlayerParent: {fileID: 0}
 --- !u!95 &1744409386 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 7393485981515834802, guid: 3221b2c4d19e39545b618c516d95a65f,
@@ -15233,6 +15264,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 1199059281}
+  tutorialManager: {fileID: 0}
+  isLeftorRight: 0
 --- !u!4 &1867074392 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 69ea72f8baa4dbd4ba5650620c4d1411,
@@ -15618,6 +15651,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109d91ef3d1cc774da9e519791f40b57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texture_Cursor: {fileID: 0}
+  TutorialClearCheck: {fileID: 0}
 --- !u!1001 &1927102286
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17014,7 +17049,7 @@ Transform:
   - {fileID: 4057347388582526138}
   - {fileID: 1764910268569023281}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &826702035043747665
 Transform:
@@ -17065,7 +17100,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1022128441047341547
 Transform:
   m_ObjectHideFlags: 0

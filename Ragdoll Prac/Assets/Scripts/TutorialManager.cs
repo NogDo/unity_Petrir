@@ -42,6 +42,7 @@ public class TutorialManager : MonoBehaviour
 
     [Header("Oven 인터페이스 UI")]
     public GameObject objBakeItButton;
+    public GameObject objCantTouchButton;
 
     [Header("튜토리얼 설명 텍스트")]
     public TextMeshProUGUI tmp_TutorialExplain;
@@ -79,7 +80,7 @@ public class TutorialManager : MonoBehaviour
             objBottomArrowImage.transform.LookAt(playerController.gameObject.transform);
         }
 
-        if (Input.GetKeyDown(KeyCode.Return) && isCanEnter)
+        if (Input.GetKeyDown(KeyCode.Q) && isCanEnter)
         {
             ShowNextText();
             Debug.Log(nTutorialGuideIndex);
@@ -210,6 +211,7 @@ public class TutorialManager : MonoBehaviour
         {
             isCanEnter = false;
             objExplainTextBoardImage.SetActive(false);
+            objCantTouchButton.SetActive(false);
             isStartDragTutorial = true;
         }
 
@@ -229,6 +231,7 @@ public class TutorialManager : MonoBehaviour
             objTutorialMap02.SetActive(true);
             playerManager.MoveToTutorialStage();
             gameUIManager.SetIsTutorialGuideFalse();
+            gameUIManager.SetKnifeImageVisible();
             objTutorialGuideRecipeImage.SetActive(false);
             objTutorialStageRecipeImage.SetActive(true);
             objTutorialMap01.SetActive(false);

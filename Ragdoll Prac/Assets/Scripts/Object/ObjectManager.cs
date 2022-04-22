@@ -9,6 +9,7 @@ public enum Ingredient
     Marshmallow,
     Chocolate,
     Strawberry,
+    Strawberry_Cut,
     Bread,
     Pastry_Bag,
 
@@ -30,10 +31,19 @@ public class ObjectManager : MonoBehaviour
 
     void Update()
     {
-        if (transform.position.y <= -20.0f)
+        if (transform.position.y <= -20.0f || transform.position.y >= 100.0f)
         {
+            while(gameObject.GetComponent<FixedJoint>() != null)
+            {
+                Destroy(gameObject.GetComponent<FixedJoint>());
+            }
+
+            gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+
             transform.position = vector_StartPosition;
             transform.rotation = quaternion_StartRoatation;
+
+            gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
     }
 }

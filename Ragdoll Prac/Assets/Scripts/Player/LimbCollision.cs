@@ -20,16 +20,16 @@ public class LimbCollision : MonoBehaviour
 
     private void Update()
     {
-        CheckGround();
         if(tutorialManager != null)
         {
-            if (tutorialManager.IsStartJumpTutorial() && !isOnce && playerController.isJump && (isLeftorRight == 0))
+            if (tutorialManager.IsStartJumpTutorial() && !isOnce && playerController.isJump)
             {
                 Debug.Log("이게 문젠가3");
                 StartJumpTutorial();
                 isOnce = true;
             }
         }
+        CheckGround();
     }
 
     public void CheckGround()
@@ -38,18 +38,34 @@ public class LimbCollision : MonoBehaviour
         Vector3 down = transform.TransformDirection(Vector3.left);
         Debug.DrawRay(transform.position, down * 0.25f, Color.red);
 
-        if (Physics.Raycast(transform.position, down, out hit, 0.25f))
+        // 튜토리얼 가이드에서만 쓰이는 점프 판정 (왼발에만)
+        if (isStartJumpTutorial && isLeftorRight == 0)
+        {
+            if (Physics.Raycast(transform.position, down, out hit, 0.25f))
+            {
+                if (!playerController.isDelayToJump)
+                {
+                    if (hit.transform.CompareTag("Ground"))
+                    {
+                        if (isStartJumpTutorial && !playerController.isGrounded)
+                        {
+                            tutorialManager.EndJumpTutorial();
+                            isStartJumpTutorial = false;
+                            Debug.Log("점프 튜토리얼 완료");
+                        }
+                        InitJumpState();
+                    }
+                }
+            }
+        }
+        
+        // 튜토리얼 가이드 이후에 쓰는 점프판정 (양발)
+        if (Physics.Raycast(transform.position, down, out hit, 0.25f) && !isStartJumpTutorial)
         {
             if (!playerController.isDelayToJump)
             {
                 if (hit.transform.CompareTag("Ground"))
                 {
-                    if (isStartJumpTutorial && !playerController.isGrounded)
-                    {
-                        tutorialManager.EndJumpTutorial();
-                        isStartJumpTutorial = false;
-                        Debug.Log("이게문젠가2" + isStartJumpTutorial);
-                    }
                     InitJumpState();
                 }
                 else if (hit.transform.CompareTag("Wall"))
@@ -62,7 +78,6 @@ public class LimbCollision : MonoBehaviour
                 }
                 else if (hit.transform.CompareTag("Static"))
                 {
-                    
                     InitJumpState();
                 }
                 else if (hit.transform.CompareTag("MoveWall"))

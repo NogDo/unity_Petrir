@@ -215,14 +215,14 @@ public class PlayerController : MonoBehaviour
 
     public void AddJumpForce(float fJumpPower)
     {
-        if (nJumpForceCount <= 5)
+        if (nJumpForceCount <= 4)
         {
             nJumpForceCount++;
             fJumpForce += fJumpPower * nJumpForceCount;
-            Debug.Log("점프력 : " + fJumpForce);
         }
 
         rigidbody_Hips.AddForce(Vector3.up * fJumpForce, ForceMode.VelocityChange);
+        Debug.Log("점프력 : " + fJumpForce);
         isGrounded = false;
     }
 

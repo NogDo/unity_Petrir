@@ -63,7 +63,7 @@ public class RecipeManager : MonoBehaviour
         List<Sprite> list_Stage1Recipe = new List<Sprite>();
         for (int i = 0; i < sprite_Stage1Recipe.Length; i++)
         {
-            list_Stage1Recipe.Add(sprite_OvenTutorialRecipe[i]);
+            list_Stage1Recipe.Add(sprite_Stage1Recipe[i]);
         }
 
         return list_Stage1Recipe;
@@ -74,7 +74,7 @@ public class RecipeManager : MonoBehaviour
         List<Sprite> list_Stage1Create = new List<Sprite>();
         for (int i = 0; i < sprite_Stage1Create.Length; i++)
         {
-            list_Stage1Create.Add(sprite_OvenTutorialRecipe[i]);
+            list_Stage1Create.Add(sprite_Stage1Create[i]);
         }
 
         return list_Stage1Create;

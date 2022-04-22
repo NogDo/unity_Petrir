@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1685518103691134532}
   - component: {fileID: 9147695425123428535}
   - component: {fileID: 3121963459183025525}
+  - component: {fileID: 3850952336908797261}
   m_Layer: 0
   m_Name: knife
   m_TagString: Untagged
@@ -112,6 +113,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 5060444177187149915, guid: 7bb6518290526b8449e00e5761de6b41, type: 3}
+--- !u!65 &3850952336908797261
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893073615861294993}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.4222746, y: 0.17078434, z: 0.11208606}
+  m_Center: {x: -0.31182823, y: 0.009341443, z: -0.0074146036}
 --- !u!1 &2215686825079108031
 GameObject:
   m_ObjectHideFlags: 0
