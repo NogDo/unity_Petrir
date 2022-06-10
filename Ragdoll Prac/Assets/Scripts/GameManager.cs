@@ -9,14 +9,14 @@ public class GameManager : MonoBehaviour
 
     public Texture2D texture_Cursor;
 
-    public DontDestroy TutorialClearCheck;
+    public DontDestroy ClearCheck;
 
     private void Start()
     {
         Cursor.SetCursor(texture_Cursor, Vector2.zero, CursorMode.ForceSoftware);
         Cursor.visible = false;
 
-        TutorialClearCheck = GameObject.Find("TutorialClearCheck").GetComponent<DontDestroy>();
+        ClearCheck = GameObject.Find("ClearCheck").GetComponent<DontDestroy>();
     }
 
     void Update()
@@ -48,16 +48,32 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene("UI");
         }
+
+        if (Input.GetKeyDown(KeyCode.F4))
+        {
+            PlayerPrefs.DeleteAll();
+        }
     }
 
     public void TutorialStageClear()
     {
         SceneManager.LoadScene("UI");
-        TutorialClearCheck.isTutorialClear = true;
+        ClearCheck.isTutorialClear = true;
+        PlayerPrefs.SetInt("TutorialClear", 1);
     }
 
-    public void Chapter1_Stage1Clear()
+    public void Stage1Clear()
     {
         SceneManager.LoadScene("UI");
+        ClearCheck.isStage1Clear = true;
+        PlayerPrefs.SetInt("Stage1Clear", 1);
     }
+
+    public void Stage2Clear()
+    {
+        SceneManager.LoadScene("UI");
+        ClearCheck.isStage2Clear = true;
+        PlayerPrefs.SetInt("Stage2Clear", 1);
+    }
+
 }

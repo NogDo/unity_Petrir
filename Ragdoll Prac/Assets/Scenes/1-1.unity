@@ -6596,7 +6596,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   texture_Cursor: {fileID: 2800000, guid: 6a7cbc5f2cfb3574db80a10e99c8e126, type: 3}
-  TutorialClearCheck: {fileID: 0}
+  ClearCheck: {fileID: 0}
 --- !u!4 &287567298
 Transform:
   m_ObjectHideFlags: 0
@@ -7021,6 +7021,8 @@ MonoBehaviour:
   objMainCanvas: {fileID: 2057701899}
   objIngredientImage: {fileID: 347577153}
   ovenManager: {fileID: 1686051304}
+  plateManager: {fileID: 0}
+  gameUIManager: {fileID: 441922399}
 --- !u!114 &319887331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8176,7 +8178,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 287567297}
-        m_MethodName: Chapter1_Stage1Clear
+        m_MethodName: Stage1Clear
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9478,6 +9480,8 @@ MonoBehaviour:
   objMainCanvas: {fileID: 2057701899}
   objIngredientImage: {fileID: 1404497060}
   ovenManager: {fileID: 1686051304}
+  plateManager: {fileID: 0}
+  gameUIManager: {fileID: 441922399}
 --- !u!114 &427060435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9952,6 +9956,8 @@ MonoBehaviour:
   objKnife: {fileID: 1940553098}
   tutorialManager: {fileID: 0}
   isTutorialGuide: 1
+  isOvenUIOn: 0
+  isPlateUIOn: 0
 --- !u!4 &441922400
 Transform:
   m_ObjectHideFlags: 0
@@ -10454,7 +10460,7 @@ PrefabInstance:
         type: 3}
       propertyPath: objPlayer
       value: 
-      objectReference: {fileID: 742196738}
+      objectReference: {fileID: 1207198005}
     - target: {fileID: -8949789829872464633, guid: ce8c68649ea41f64a9cae304c6924f60,
         type: 3}
       propertyPath: objPlayerParent
@@ -10488,7 +10494,7 @@ PrefabInstance:
     - target: {fileID: 5189958741697970436, guid: ce8c68649ea41f64a9cae304c6924f60,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5189958741697970436, guid: ce8c68649ea41f64a9cae304c6924f60,
         type: 3}
@@ -13097,6 +13103,8 @@ MonoBehaviour:
   objMainCanvas: {fileID: 2057701899}
   objIngredientImage: {fileID: 1043172065}
   ovenManager: {fileID: 1686051304}
+  plateManager: {fileID: 0}
+  gameUIManager: {fileID: 441922399}
 --- !u!114 &542708627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14124,7 +14132,7 @@ PrefabInstance:
         type: 3}
       propertyPath: objPlayer
       value: 
-      objectReference: {fileID: 742196738}
+      objectReference: {fileID: 1207198005}
     - target: {fileID: -8949789829872464633, guid: ce8c68649ea41f64a9cae304c6924f60,
         type: 3}
       propertyPath: objPlayerParent
@@ -14158,7 +14166,7 @@ PrefabInstance:
     - target: {fileID: 5189958741697970436, guid: ce8c68649ea41f64a9cae304c6924f60,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5189958741697970436, guid: ce8c68649ea41f64a9cae304c6924f60,
         type: 3}
@@ -17716,12 +17724,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8351697363840772956, guid: dca720346cf92c2488f5bf3537f3d674,
     type: 3}
   m_PrefabInstance: {fileID: 726428858}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &742196738 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7052043696954538961, guid: faf1e9dccb16bf84babbcbeea0bcbfea,
-    type: 3}
-  m_PrefabInstance: {fileID: 796464796}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &744773588
 PrefabInstance:
@@ -22948,7 +22950,7 @@ PrefabInstance:
         type: 3}
       propertyPath: objPlayer
       value: 
-      objectReference: {fileID: 742196738}
+      objectReference: {fileID: 1207198005}
     - target: {fileID: -8949789829872464633, guid: ce8c68649ea41f64a9cae304c6924f60,
         type: 3}
       propertyPath: objPlayerParent
@@ -22982,7 +22984,7 @@ PrefabInstance:
     - target: {fileID: 5189958741697970436, guid: ce8c68649ea41f64a9cae304c6924f60,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5189958741697970436, guid: ce8c68649ea41f64a9cae304c6924f60,
         type: 3}
@@ -23257,6 +23259,8 @@ MonoBehaviour:
   objMainCanvas: {fileID: 2057701899}
   objIngredientImage: {fileID: 1879275545}
   ovenManager: {fileID: 1686051304}
+  plateManager: {fileID: 0}
+  gameUIManager: {fileID: 441922399}
 --- !u!114 &960781499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26075,6 +26079,8 @@ MonoBehaviour:
   objMainCanvas: {fileID: 2057701899}
   objIngredientImage: {fileID: 1980349147}
   ovenManager: {fileID: 1686051304}
+  plateManager: {fileID: 0}
+  gameUIManager: {fileID: 441922399}
 --- !u!114 &1069268312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29813,6 +29819,8 @@ MonoBehaviour:
   objMainCanvas: {fileID: 2057701899}
   objIngredientImage: {fileID: 1469754943}
   ovenManager: {fileID: 1686051304}
+  plateManager: {fileID: 0}
+  gameUIManager: {fileID: 441922399}
 --- !u!114 &1223413967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37547,27 +37555,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1532095561}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1535226064 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7745834852324699195, guid: f0b92fd92e489a049b821f3dfb337086,
-    type: 3}
-  m_PrefabInstance: {fileID: 7133599241493530844}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1535226066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1535226064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e55f44c4ac970c144aaba91f8fe4aec5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerController: {fileID: 796464797}
-  audio_JellyJump: {fileID: 60558485}
-  fJumpPower: 12.5
 --- !u!1 &1535387499 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5762f9b5a10a48446a243c0bdf8051f5,
@@ -39316,7 +39303,7 @@ PrefabInstance:
         type: 3}
       propertyPath: objPlayer
       value: 
-      objectReference: {fileID: 742196738}
+      objectReference: {fileID: 1207198005}
     - target: {fileID: -8949789829872464633, guid: ce8c68649ea41f64a9cae304c6924f60,
         type: 3}
       propertyPath: objPlayerParent
@@ -39350,7 +39337,7 @@ PrefabInstance:
     - target: {fileID: 5189958741697970436, guid: ce8c68649ea41f64a9cae304c6924f60,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5189958741697970436, guid: ce8c68649ea41f64a9cae304c6924f60,
         type: 3}
@@ -41798,6 +41785,16 @@ PrefabInstance:
       objectReference: {fileID: 796464798}
     - target: {fileID: 7350403165555393908, guid: 037739d1cda83004cb30be33ee83f669,
         type: 3}
+      propertyPath: gameUIManager
+      value: 
+      objectReference: {fileID: 441922399}
+    - target: {fileID: 7350403165555393908, guid: 037739d1cda83004cb30be33ee83f669,
+        type: 3}
+      propertyPath: objKnifeImage
+      value: 
+      objectReference: {fileID: 1449125315}
+    - target: {fileID: 7350403165555393908, guid: 037739d1cda83004cb30be33ee83f669,
+        type: 3}
       propertyPath: recipeManager
       value: 
       objectReference: {fileID: 1719779448}
@@ -41827,6 +41824,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: be79aef3444888344bda47287d05ba85,
         type: 3}
+    - target: {fileID: 7350403165555393908, guid: 037739d1cda83004cb30be33ee83f669,
+        type: 3}
+      propertyPath: audioSource_Stage
+      value: 
+      objectReference: {fileID: 2037318437}
     - target: {fileID: 7350403165555393908, guid: 037739d1cda83004cb30be33ee83f669,
         type: 3}
       propertyPath: audioSource_Tutorial
@@ -43500,6 +43502,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 7deb0922c7b272c409fdfba8e9b0be95, type: 3}
   - {fileID: 21300000, guid: a94837632c87cc449bf606ff2a1b6108, type: 3}
   - {fileID: 21300000, guid: 91bcfe0f4605b5940a8eac98fe6519e3, type: 3}
+  sprite_Stage2StrawberryTartRecipe: []
+  sprite_Stage2StrawberryTartCreate: []
+  sprite_Stage2MuscatTartRecipe: []
+  sprite_Stage2MuscatTartCreate: []
+  sprite_Stage2TartRecipe: []
+  sprite_Stage2TartCreate: []
 --- !u!4 &1719779449
 Transform:
   m_ObjectHideFlags: 0
@@ -47900,6 +47908,8 @@ MonoBehaviour:
   objMainCanvas: {fileID: 2057701899}
   objIngredientImage: {fileID: 1482823034}
   ovenManager: {fileID: 1686051304}
+  plateManager: {fileID: 0}
+  gameUIManager: {fileID: 441922399}
 --- !u!114 &1893869463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51300,7 +51310,7 @@ PrefabInstance:
         type: 3}
       propertyPath: objPlayer
       value: 
-      objectReference: {fileID: 742196738}
+      objectReference: {fileID: 1207198005}
     - target: {fileID: -8949789829872464633, guid: ce8c68649ea41f64a9cae304c6924f60,
         type: 3}
       propertyPath: objPlayerParent
@@ -51334,7 +51344,7 @@ PrefabInstance:
     - target: {fileID: 5189958741697970436, guid: ce8c68649ea41f64a9cae304c6924f60,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5189958741697970436, guid: ce8c68649ea41f64a9cae304c6924f60,
         type: 3}
@@ -54262,7 +54272,7 @@ PrefabInstance:
         type: 3}
       propertyPath: objPlayer
       value: 
-      objectReference: {fileID: 742196738}
+      objectReference: {fileID: 1207198005}
     - target: {fileID: -8949789829872464633, guid: ce8c68649ea41f64a9cae304c6924f60,
         type: 3}
       propertyPath: objPlayerParent
@@ -54296,7 +54306,7 @@ PrefabInstance:
     - target: {fileID: 5189958741697970436, guid: ce8c68649ea41f64a9cae304c6924f60,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5189958741697970436, guid: ce8c68649ea41f64a9cae304c6924f60,
         type: 3}
@@ -54436,6 +54446,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 173006175}
     m_Modifications:
+    - target: {fileID: 5168470848979481664, guid: f0b92fd92e489a049b821f3dfb337086,
+        type: 3}
+      propertyPath: fJumpPower
+      value: 12.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5168470848979481664, guid: f0b92fd92e489a049b821f3dfb337086,
+        type: 3}
+      propertyPath: audio_JellyJump
+      value: 
+      objectReference: {fileID: 60558485}
+    - target: {fileID: 5168470848979481664, guid: f0b92fd92e489a049b821f3dfb337086,
+        type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 796464797}
     - target: {fileID: 5897306882655763054, guid: f0b92fd92e489a049b821f3dfb337086,
         type: 3}
       propertyPath: m_Enabled

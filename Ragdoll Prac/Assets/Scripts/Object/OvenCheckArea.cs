@@ -2,11 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Manager
+{
+    Oven,
+    Plate
+}
+
 public class OvenCheckArea : MonoBehaviour
 {
+    public Manager manager;
+
     public PlayerController playerController;
 
     public OvenManager ovenManager;
+    public PlateManager plateManager;
     public TutorialManager tutorialManager;
 
     public GameObject obj_Text;
@@ -36,8 +45,16 @@ public class OvenCheckArea : MonoBehaviour
                     }
                 }
 
-                ovenManager.OpenOvenUI();
+                if(manager == Manager.Oven)
+                {
+                    ovenManager.OpenOvenUI();
+                }
+                else if(manager == Manager.Plate)
+                {
+                    plateManager.OpenPlateUI();
+                }
                 isOvenInterfaceOn = true;
+
             }
         }
 
@@ -45,7 +62,14 @@ public class OvenCheckArea : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                ovenManager.CloseOvenUI();
+                if (manager == Manager.Oven)
+                {
+                    ovenManager.CloseOvenUI();
+                }
+                else if (manager == Manager.Plate)
+                {
+                    plateManager.ClosePlateUI();
+                }
                 isOvenInterfaceOn = false;
             }
         }

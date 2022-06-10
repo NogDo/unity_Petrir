@@ -14,6 +14,14 @@ public class RecipeManager : MonoBehaviour
     public Sprite[] sprite_Stage1Recipe;
     public Sprite[] sprite_Stage1Create;
 
+    [Header("스테이지2 레시피")]
+    public Sprite[] sprite_Stage2StrawberryTartRecipe;
+    public Sprite[] sprite_Stage2StrawberryTartCreate;
+    public Sprite[] sprite_Stage2MuscatTartRecipe;
+    public Sprite[] sprite_Stage2MuscatTartCreate;
+    public Sprite[] sprite_Stage2TartRecipe;
+    public Sprite[] sprite_Stage2TartCreate;
+
     public List<Sprite> GetTutorialRecipe()
     {
         List<Sprite> list_TutorialRecipe = new List<Sprite>();
@@ -78,5 +86,71 @@ public class RecipeManager : MonoBehaviour
         }
 
         return list_Stage1Create;
+    }
+
+    public List<Sprite> GetStage2StrawberryTartRecipe()
+    {
+        List<Sprite> list_Stage2Recipe = new List<Sprite>();
+        for (int i = 0; i < sprite_Stage2StrawberryTartRecipe.Length; i++)
+        {
+            list_Stage2Recipe.Add(sprite_Stage2StrawberryTartRecipe[i]);
+        }
+
+        return list_Stage2Recipe;
+    }
+
+    public List<Sprite> GetStage2StrawberryTartCreate()
+    {
+        List<Sprite> list_Stage2Create = new List<Sprite>();
+        for (int i = 0; i < sprite_Stage2StrawberryTartCreate.Length; i++)
+        {
+            list_Stage2Create.Add(sprite_Stage2StrawberryTartCreate[i]);
+        }
+
+        return list_Stage2Create;
+    }
+
+    public List<Sprite> GetStage2MuscatTartRecipe()
+    {
+        List<Sprite> list_Stage2Recipe = new List<Sprite>();
+        for (int i = 0; i < sprite_Stage2MuscatTartRecipe.Length; i++)
+        {
+            list_Stage2Recipe.Add(sprite_Stage2MuscatTartRecipe[i]);
+        }
+
+        return list_Stage2Recipe;
+    }
+
+    public List<Sprite> GetStage2MuscatTartCreate()
+    {
+        List<Sprite> list_Stage2Create = new List<Sprite>();
+        for (int i = 0; i < sprite_Stage2MuscatTartCreate.Length; i++)
+        {
+            list_Stage2Create.Add(sprite_Stage2MuscatTartCreate[i]);
+        }
+
+        return list_Stage2Create;
+    }
+
+    public List<Sprite> GetStage2TartRecipe()
+    {
+        List<Sprite> list_Stage2Recipe = new List<Sprite>();
+        for (int i = 0; i < sprite_Stage2TartRecipe.Length; i++)
+        {
+            list_Stage2Recipe.Add(sprite_Stage2TartRecipe[i]);
+        }
+
+        return list_Stage2Recipe;
+    }
+
+    public List<Sprite> GetStage2TartCreate()
+    {
+        List<Sprite> list_Stage2Create = new List<Sprite>();
+        for(int i = 0; i < sprite_Stage2TartCreate.Length; i++)
+        {
+            list_Stage2Create.Add(sprite_Stage2TartCreate[i]);
+        }
+
+        return list_Stage2Create;
     }
 }

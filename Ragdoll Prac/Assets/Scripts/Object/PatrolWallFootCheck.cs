@@ -9,10 +9,26 @@ public class PatrolWallFootCheck : MonoBehaviour
     public GameObject collision_LeftFoot;
     public GameObject collision_RightFoot;
 
+    public bool isLeftFootExit;
+    public bool isRightFootExit;
+
+    private void Start()
+    {
+        isLeftFootExit = true;
+        isRightFootExit = true;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject == collision_LeftFoot)
         {
+            isLeftFootExit = false;
+            patrolWall.SetPlayerParent_To_PatrolWall();
+        }
+
+        if(other.gameObject == collision_RightFoot)
+        {
+            isRightFootExit = false;
             patrolWall.SetPlayerParent_To_PatrolWall();
         }
     }
@@ -20,6 +36,16 @@ public class PatrolWallFootCheck : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject == collision_LeftFoot)
+        {
+            isLeftFootExit = true;
+        }
+
+        if(other.gameObject == collision_RightFoot)
+        {
+            isRightFootExit = true;
+        }
+
+        if(isLeftFootExit && isRightFootExit)
         {
             patrolWall.SetPlayerParent_To_Character();
         }

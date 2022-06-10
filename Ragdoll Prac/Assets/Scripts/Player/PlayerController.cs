@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public bool isRunning;
     public bool isDelayToJump;
     public bool isPlayerControl;
+    public bool isEnterPassWall;
 
     public Rigidbody rigidbody_Hips;
     public GameObject objHips;
@@ -118,11 +119,13 @@ public class PlayerController : MonoBehaviour
                 //animator.SetBool("isLeft", true);
                 //rigidbody_Hips.AddForce(-rigidbody_Hips.transform.right * fStrafeSpeed);
                 rigidbody_Hips.AddRelativeForce(Vector3.forward * fStrafeSpeed);
+                animator.SetBool("SideMoveLeft", true);
             }
         }
         else
         {
             //animator.SetBool("isLeft", false);
+            animator.SetBool("SideMoveLeft", false);
         }
 
         if (Input.GetKey(KeyCode.S))
@@ -155,11 +158,13 @@ public class PlayerController : MonoBehaviour
                 //animator.SetBool("isRight", true);
                 //rigidbody_Hips.AddForce(rigidbody_Hips.transform.right * fStrafeSpeed);
                 rigidbody_Hips.AddRelativeForce(Vector3.back * fStrafeSpeed);
+                animator.SetBool("SideMoveRight", true);
             }
         }
         else
         {
             //animator.SetBool("isRight", false);
+            animator.SetBool("SideMoveRight", false);
         }
     }
 
@@ -168,7 +173,14 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift))
         {
             isRunning = true;
-            physicMaterial_FootSlide.dynamicFriction = 0.5f;
+            if (animator.GetBool("SideMoveLeft") == true || animator.GetBool("SideMoveRight") == true)
+            {
+                physicMaterial_FootSlide.dynamicFriction = 0.15f;
+            }
+            else
+            {
+                physicMaterial_FootSlide.dynamicFriction = 0.5f;
+            }
         }
         else
         {
@@ -177,6 +189,10 @@ public class PlayerController : MonoBehaviour
             {
                 physicMaterial_FootSlide.dynamicFriction = 0.25f;
             }
+            else if(animator.GetBool("SideMoveLeft") == true || animator.GetBool("SideMoveRight") == true)
+            {
+                physicMaterial_FootSlide.dynamicFriction = 0.15f;
+            }
             else
             {
                 physicMaterial_FootSlide.dynamicFriction = 0.5f;
@@ -184,15 +200,17 @@ public class PlayerController : MonoBehaviour
             
         }
 
-
-        //if (isRunning)
-        //{
-        //    objPassWall.GetComponent<BoxCollider>().enabled = false;
-        //}
-        //else
-        //{
-        //    objPassWall.GetComponent<BoxCollider>().enabled = true;
-        //}
+        if(objPassWall != null)
+        {
+            if (isRunning || isEnterPassWall)
+            {
+                objPassWall.GetComponent<MeshCollider>().enabled = false;
+            }
+            else
+            {
+                objPassWall.GetComponent<MeshCollider>().enabled = true;
+            }
+        }
     }
 
     public void Jump()
@@ -264,5 +282,15 @@ public class PlayerController : MonoBehaviour
     public void SetSpeedZero()
     {
         rigidbody_Hips.velocity = rigidbody_Hips.velocity.normalized;
+    }
+
+    public void EnterPassWall()
+    {
+        isEnterPassWall = true;
+    }
+
+    public void ExitPassWall()
+    {
+        isEnterPassWall = false;
     }
 }

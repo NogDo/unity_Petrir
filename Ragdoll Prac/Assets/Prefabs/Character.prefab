@@ -364,6 +364,7 @@ MonoBehaviour:
   isRunning: 0
   isDelayToJump: 0
   isPlayerControl: 1
+  isEnterPassWall: 0
   rigidbody_Hips: {fileID: 172145336046117808}
   objHips: {fileID: 172145336046117811}
   animator: {fileID: 0}
@@ -385,6 +386,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vector_TutorialStartPosition: {x: -15, y: 10, z: -15}
   objCharacter: {fileID: 6302432711321044526}
+  sequenceAerial: {fileID: 0}
 --- !u!114 &172145336046117813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -748,6 +750,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 172145336046117812}
   tutorialManager: {fileID: 0}
+  grab_R: {fileID: 164413525722639155}
+  grab_L: {fileID: 7440223482911487537}
   isLeftorRight: 0
 --- !u!114 &550613732851214651
 MonoBehaviour:
@@ -2544,6 +2548,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 172145336046117812}
   tutorialManager: {fileID: 0}
+  grab_R: {fileID: 164413525722639155}
+  grab_L: {fileID: 7440223482911487537}
   isLeftorRight: 1
 --- !u!114 &4599679312132872364
 MonoBehaviour:

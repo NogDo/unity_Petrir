@@ -151,6 +151,10 @@ public class ChestManager : MonoBehaviour
                         break;
                 }
                 break;
+
+            case Stage.Stage1_2:
+
+                break;
             default:
                 Debug.Log("스테이지가 정의되지 않은 오븐입니다. (이 디버그는 재료 체크박스에서 발생했습니다.)");
                 break;
@@ -171,6 +175,11 @@ public class ChestManager : MonoBehaviour
         }
 
         if (ovenManager.stage == Stage.Stage1_1 && sprite_Ingredient == sprite_Strawberry)
+        {
+            return;
+        }
+
+        if(ovenManager.stage == Stage.Stage1_2 && sprite_Ingredient == sprite_Strawberry)
         {
             return;
         }

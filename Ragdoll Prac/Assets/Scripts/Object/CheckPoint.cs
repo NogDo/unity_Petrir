@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class CheckPoint : MonoBehaviour
 {
-    public GameObject objPlayer;
-    public GameObject ojbPlayerHips;
+    //public GameObject objPlayer;
+    public PlayerManager playerManager;
     public Vector3 vector3_CheckPoint;
 
+    public GameObject objCheckPoint;
     public Material material_Pink;
     public Material material_Green;
+
+    [Header("예외로 다뤄야할 오브젝트들")]
+    public GameObject objCandy;
 
     private bool isChecked = false;
 
@@ -21,26 +25,16 @@ public class CheckPoint : MonoBehaviour
             {
                 Debug.Log("체크포인트 활성화!");
                 Vector3 check = transform.position;
-                vector3_CheckPoint = new Vector3(check.x, check.y + 10.0f, check.z);
-                isChecked = true;
+                vector3_CheckPoint = new Vector3(check.x, check.y + 5.0f, check.z);
+                playerManager.CheckPoint(vector3_CheckPoint);
 
-                GetComponent<MeshRenderer>().material = material_Green;
+                objCheckPoint.GetComponent<MeshRenderer>().material.color = new Color(150.0f / 255.0f, 150.0f / 255.0f, 150.0f / 255.0f);
                 StartCoroutine(CheckPoint_To_ChangeColor());
-            }
-        }
-    }
 
-    private void Update()
-    {
-        if (isChecked)
-        {
-            if (ojbPlayerHips.transform.position.y <= -40.0f)
-            {
-                for(int i = 0; i < objPlayer.transform.childCount; i++)
+                if(objCandy != null)
                 {
-                    objPlayer.transform.GetChild(i).transform.localPosition = Vector3.zero;
+                    objCandy.SetActive(true);
                 }
-                objPlayer.transform.position = vector3_CheckPoint;
             }
         }
     }
@@ -48,6 +42,6 @@ public class CheckPoint : MonoBehaviour
     IEnumerator CheckPoint_To_ChangeColor()
     {
         yield return new WaitForSeconds(1.0f);
-        GetComponent<MeshRenderer>().material = material_Pink;
+        objCheckPoint.GetComponent<MeshRenderer>().material.color = Color.white;
     }
 }

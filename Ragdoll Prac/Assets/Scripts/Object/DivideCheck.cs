@@ -36,8 +36,16 @@ public class DivideCheck : MonoBehaviour
                 if (divideObject1.GetIsKnifeEnter())
                 {
                     Debug.Log("딸기 자르기 확인");
-                    objDivideObject1.gameObject.transform.parent = null;
-                    objDivideObject2.gameObject.transform.parent = null;
+                    if(objMap == null)
+                    {
+                        objDivideObject1.gameObject.transform.parent = null;
+                        objDivideObject2.gameObject.transform.parent = null;
+                    }
+                    else
+                    {
+                        objDivideObject1.gameObject.transform.parent = objMap.transform;
+                        objDivideObject2.gameObject.transform.parent = objMap.transform;
+                    }
                     objDivideObject1.gameObject.SetActive(true);
                     objDivideObject2.gameObject.SetActive(true);
                     chestManager.CutStrawberryTrue();

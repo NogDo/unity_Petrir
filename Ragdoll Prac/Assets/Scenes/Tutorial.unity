@@ -2159,6 +2159,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 18a57e129f2d89e45852b90c43a9e70b, type: 3}
   sprite_Stage1Recipe: []
   sprite_Stage1Create: []
+  sprite_Stage2StrawberryTartRecipe: []
+  sprite_Stage2StrawberryTartCreate: []
+  sprite_Stage2MuscatTartRecipe: []
+  sprite_Stage2MuscatTartCreate: []
+  sprite_Stage2TartRecipe: []
+  sprite_Stage2TartCreate: []
 --- !u!4 &254374234
 Transform:
   m_ObjectHideFlags: 0
@@ -5527,7 +5533,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -100}
+  m_AnchoredPosition: {x: 0, y: -125}
   m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &866767772
@@ -5549,7 +5555,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 18a57e129f2d89e45852b90c43a9e70b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9284f67b4a13dec4088c03a223deab1a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5816,7 +5822,8 @@ MonoBehaviour:
   obj_Ingredient: {fileID: 927157258}
   obj_BakeItButton: {fileID: 964021278}
   image_Create: {fileID: 1626586378}
-  audioSource_Tutorial: {fileID: 388955318}
+  objKnifeImage: {fileID: 247246243}
+  audioSource_Stage: {fileID: 388955318}
   audioSource_Oven: {fileID: 1176077115}
   cameraControl: {fileID: 1073751153}
   playerController: {fileID: 1700030761209657942}
@@ -5824,7 +5831,13 @@ MonoBehaviour:
   grabRight: {fileID: 1710295311602168529}
   recipeManager: {fileID: 254374233}
   tutorialManager: {fileID: 1423183771}
+  gameUIManager: {fileID: 1468655708}
   sprite_PastryBag: {fileID: 0}
+  sprite_Crust: {fileID: 0}
+  sprite_BakedCrust: {fileID: 0}
+  objTartFinished: {fileID: 0}
+  objStrawberryTartFinished: {fileID: 0}
+  objShineMuskatTartFinished: {fileID: 0}
 --- !u!54 &921072554
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9700,7 +9713,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: NaN, w: -0.0000000013862582}
+  m_BoundingSphereOverride: {x: 4.5905e-41, y: 0, z: 0, w: NaN}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -10631,6 +10644,8 @@ MonoBehaviour:
   objMainCanvas: {fileID: 1341454369}
   objIngredientImage: {fileID: 1790269377}
   ovenManager: {fileID: 1357096450}
+  plateManager: {fileID: 0}
+  gameUIManager: {fileID: 1468655708}
 --- !u!114 &1361735138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10830,6 +10845,8 @@ MonoBehaviour:
   objMainCanvas: {fileID: 1341454369}
   objIngredientImage: {fileID: 389671422}
   ovenManager: {fileID: 1357096450}
+  plateManager: {fileID: 0}
+  gameUIManager: {fileID: 1468655708}
 --- !u!114 &1411292806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11314,6 +11331,8 @@ MonoBehaviour:
   objKnife: {fileID: 1683377922}
   tutorialManager: {fileID: 1423183771}
   isTutorialGuide: 1
+  isOvenUIOn: 0
+  isPlateUIOn: 0
 --- !u!1 &1505027091
 GameObject:
   m_ObjectHideFlags: 0
@@ -12219,6 +12238,8 @@ MonoBehaviour:
   objMainCanvas: {fileID: 1341454369}
   objIngredientImage: {fileID: 265389390}
   ovenManager: {fileID: 1357096450}
+  plateManager: {fileID: 0}
+  gameUIManager: {fileID: 1468655708}
 --- !u!114 &1577155390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13008,8 +13029,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49e190ed9c1906940847f268da8bc0af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: 0
   playerController: {fileID: 1700030761209657942}
   ovenManager: {fileID: 921072553}
+  plateManager: {fileID: 0}
   tutorialManager: {fileID: 1423183771}
   obj_Text: {fileID: 2045763921}
   isPlayerInArea: 0
@@ -13353,6 +13376,8 @@ MonoBehaviour:
   objMainCanvas: {fileID: 1341454369}
   objIngredientImage: {fileID: 1950431887}
   ovenManager: {fileID: 1357096450}
+  plateManager: {fileID: 0}
+  gameUIManager: {fileID: 1468655708}
 --- !u!114 &1659847411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13914,6 +13939,8 @@ MonoBehaviour:
   objMainCanvas: {fileID: 2128736231}
   objIngredientImage: {fileID: 1799609046}
   ovenManager: {fileID: 921072553}
+  plateManager: {fileID: 0}
+  gameUIManager: {fileID: 1468655708}
 --- !u!114 &1732369620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14212,7 +14239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   texture_Cursor: {fileID: 2800000, guid: 6a7cbc5f2cfb3574db80a10e99c8e126, type: 3}
-  TutorialClearCheck: {fileID: 0}
+  ClearCheck: {fileID: 0}
 --- !u!4 &1749815946
 Transform:
   m_ObjectHideFlags: 0
@@ -16840,6 +16867,16 @@ PrefabInstance:
       objectReference: {fileID: 1073751153}
     - target: {fileID: 7350403165555393908, guid: 037739d1cda83004cb30be33ee83f669,
         type: 3}
+      propertyPath: gameUIManager
+      value: 
+      objectReference: {fileID: 1468655708}
+    - target: {fileID: 7350403165555393908, guid: 037739d1cda83004cb30be33ee83f669,
+        type: 3}
+      propertyPath: objKnifeImage
+      value: 
+      objectReference: {fileID: 247246243}
+    - target: {fileID: 7350403165555393908, guid: 037739d1cda83004cb30be33ee83f669,
+        type: 3}
       propertyPath: recipeManager
       value: 
       objectReference: {fileID: 254374233}
@@ -16868,6 +16905,11 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 1700030761209657942}
+    - target: {fileID: 7350403165555393908, guid: 037739d1cda83004cb30be33ee83f669,
+        type: 3}
+      propertyPath: audioSource_Stage
+      value: 
+      objectReference: {fileID: 388955318}
     - target: {fileID: 7350403165555393908, guid: 037739d1cda83004cb30be33ee83f669,
         type: 3}
       propertyPath: audioSource_Tutorial

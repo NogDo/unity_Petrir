@@ -6,13 +6,24 @@ public class PassWall : MonoBehaviour
 {
     public BoxCollider boxCollider;
 
-    void Start()
+    public PlayerController playerController;
+    public GameObject objPlayer;
+
+    private void OnTriggerEnter(Collider other)
     {
-        boxCollider = GetComponent<BoxCollider>();
+        if(other.gameObject == objPlayer)
+        {
+            Debug.Log("PassWall 엔터");
+            playerController.EnterPassWall();
+        }
     }
 
-    void Update()
+    private void OnTriggerExit(Collider other)
     {
-        
+        if (other.gameObject == objPlayer)
+        {
+            Debug.Log("PassWall 나감");
+            playerController.ExitPassWall();
+        }
     }
 }

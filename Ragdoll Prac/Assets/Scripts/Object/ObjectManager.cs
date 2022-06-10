@@ -12,7 +12,9 @@ public enum Ingredient
     Strawberry_Cut,
     Bread,
     Pastry_Bag,
-
+    Blueberry,
+    ShineMuskat,
+    Crust
 }
 
 public class ObjectManager : MonoBehaviour

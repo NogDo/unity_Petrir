@@ -18,7 +18,7 @@ public class UIButtonManager : MonoBehaviour
 
     public Texture2D texture_Cursor;
 
-    public DontDestroy TutorialClearCheck;
+    public DontDestroy ClearCheck;
 
     private void OnEnable()
     {
@@ -26,13 +26,25 @@ public class UIButtonManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        TutorialClearCheck = GameObject.Find("TutorialClearCheck").GetComponent<DontDestroy>();
+        ClearCheck = GameObject.Find("ClearCheck").GetComponent<DontDestroy>();
     }
 
     public void ShowChapter()
     {
         objMain.SetActive(false);
         objChapter.SetActive(true);
+
+        if (PlayerPrefs.GetInt("Stage1Clear") == 1)
+        {
+            objChapter1Stage.transform.GetChild(1).GetChild(0).gameObject.SetActive(true);
+            objChapter1Stage.transform.GetChild(1).GetChild(2).gameObject.SetActive(true);
+        }
+
+        if (PlayerPrefs.GetInt("Stage2Clear") == 1)
+        {
+            objChapter1Stage.transform.GetChild(2).GetChild(0).gameObject.SetActive(true);
+            objChapter1Stage.transform.GetChild(2).GetChild(2).gameObject.SetActive(true);
+        }
     }
 
     public void QuitGame(AudioClip clickSound)
@@ -54,7 +66,7 @@ public class UIButtonManager : MonoBehaviour
 
     public void StartTutorial()
     {
-        if (TutorialClearCheck.isTutorialClear)
+        if (ClearCheck.isTutorialClear)
         {
             audio_StartScreen.Stop();
             audio_StageSelection.Play();
@@ -66,6 +78,12 @@ public class UIButtonManager : MonoBehaviour
         }
     }
 
+    public void SkipTutorial()
+    {
+        ClearCheck.isTutorialClear = true;
+        PlayerPrefs.SetInt("TutorialClear", 1);
+    }
+
     public void StartStage01()
     {
         SceneManager.LoadScene("1-1");
@@ -73,11 +91,11 @@ public class UIButtonManager : MonoBehaviour
 
     public void StartStage02()
     {
-
+        SceneManager.LoadScene("1-2");
     }
 
     public void StartStage03()
     {
-
+        SceneManager.LoadScene("1-4");
     }
 }

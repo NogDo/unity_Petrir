@@ -12,6 +12,8 @@ public class MaterialDrag : MonoBehaviour, IDragHandler, IDropHandler
     public GameObject objIngredientImage;
 
     public OvenManager ovenManager;
+    public PlateManager plateManager;
+    public GameUIManager gameUIManager;
 
     private void Start()
     {
@@ -22,8 +24,6 @@ public class MaterialDrag : MonoBehaviour, IDragHandler, IDropHandler
     {
         transform.position = eventData.position;
         transform.SetParent(objMainCanvas.transform);
-
-        Debug.Log(objCreatePanel.transform.position);
     }
 
     public void OnDrop(PointerEventData eventData)
@@ -37,7 +37,14 @@ public class MaterialDrag : MonoBehaviour, IDragHandler, IDropHandler
             && (eventData.position.y >= fPanelPositionY - fPanelHeight / 2 && eventData.position.y <= fPanelPositionY + fPanelHeight / 2))
         {
             Debug.Log("OnDrop 중 재료가 안에 들어간경우 실행");
-            ovenManager.CheckMaterial(gameObject);
+            if (gameUIManager.isOvenUIOn)
+            {
+                ovenManager.CheckMaterial(gameObject);
+            }
+            else if (gameUIManager.isPlateUIOn)
+            {
+                plateManager.CheckMaterial(gameObject);
+            }
         }
         else
         {
@@ -47,7 +54,7 @@ public class MaterialDrag : MonoBehaviour, IDragHandler, IDropHandler
 
     public void Reset_Ingredient_PositionAndParent()
     {
-        transform.position = vector_StartPosition;
         transform.SetParent(objIngredientImage.transform);
+        GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
     }
 }

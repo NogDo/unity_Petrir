@@ -8,6 +8,9 @@ public enum Stage
     Oven,
     Tutorial,
     Stage1_1,
+    Stage1_2,
+    Stage1_3,
+    Stage1_4
 }
 
 public class OvenManager : MonoBehaviour
@@ -25,8 +28,11 @@ public class OvenManager : MonoBehaviour
     public GameObject obj_BakeItButton;
     public Image image_Create;
 
+    [Header("오븐열릴때 비활성화될 오브젝트")]
+    public GameObject objKnifeImage;
+
     [Header("BGM")]
-    public AudioSource audioSource_Tutorial;
+    public AudioSource audioSource_Stage;
     public AudioSource audioSource_Oven;
 
     [Header("플레이어 관련 스크립트")]
@@ -38,12 +44,22 @@ public class OvenManager : MonoBehaviour
     [Header("외부 매니저 파일")]
     public RecipeManager recipeManager;
     public TutorialManager tutorialManager;
+    public GameUIManager gameUIManager;
 
     [Header("예외처리 해야하는 Sprite")]
     public Sprite sprite_PastryBag;
+    public Sprite sprite_Crust;
+    public Sprite sprite_BakedCrust;
+    public GameObject objTartFinished;
+    public GameObject objStrawberryTartFinished;
+    public GameObject objShineMuskatTartFinished;
 
     private int nMaterialIndex = 0;
     private int nPastryCount = 0;
+
+    private void Start()
+    {
+    }
 
     public void OpenOvenUI()
     {
@@ -53,8 +69,19 @@ public class OvenManager : MonoBehaviour
         }
 
         obj_OvenUI.SetActive(true);
+        objKnifeImage.SetActive(false);
 
-        audioSource_Tutorial.Stop();
+        gameUIManager.OvenUIOn();
+
+        if (stage == Stage.Stage1_2)
+        {
+            objTartFinished.SetActive(false);
+            objStrawberryTartFinished.SetActive(false);
+            objShineMuskatTartFinished.SetActive(false);
+        }
+        image_Create.gameObject.SetActive(true);
+
+        audioSource_Stage.Stop();
         audioSource_Oven.Play();
 
         Cursor.lockState = CursorLockMode.None;
@@ -76,6 +103,8 @@ public class OvenManager : MonoBehaviour
     public void CloseOvenUI()
     {
         obj_OvenUI.SetActive(false);
+        objKnifeImage.SetActive(true);
+
         for (int i = 0; i < obj_Ingredient.transform.childCount; i++)
         {
             if (obj_Ingredient.transform.GetChild(i).childCount != 0)
@@ -85,8 +114,10 @@ public class OvenManager : MonoBehaviour
             }
         }
 
+        gameUIManager.OvenUIOff();
+
         audioSource_Oven.Stop();
-        audioSource_Tutorial.Play();
+        audioSource_Stage.Play();
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -102,7 +133,6 @@ public class OvenManager : MonoBehaviour
         switch (stage)
         {
             case Stage.Oven:
-                Debug.Log("오븐튜토리얼확인");
                 if (material.GetComponent<Image>().sprite == recipeManager.GetOvenTutorialRecipe()[nMaterialIndex])
                 {
                     Sprite currentMaterial = material.GetComponent<Image>().sprite;
@@ -158,7 +188,7 @@ public class OvenManager : MonoBehaviour
                     image_Create.color = Color.white;
                     image_Create.sprite = recipeManager.GetStage1Create()[nMaterialIndex];
 
-                    if(currentMaterial == sprite_PastryBag && nPastryCount == 0)
+                    if (currentMaterial == sprite_PastryBag && nPastryCount == 0)
                     {
                         material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
                         nPastryCount++;
@@ -183,9 +213,48 @@ public class OvenManager : MonoBehaviour
                 }
                 break;
 
+            case Stage.Stage1_2:
+                if(nMaterialIndex < 1)
+                {
+                    if (material.GetComponent<Image>().sprite == recipeManager.GetStage2TartRecipe()[nMaterialIndex])
+                    {
+                        Debug.Log("재료 맞춤");
+                        Sprite currentMaterial = material.GetComponent<Image>().sprite;
+
+                        image_Create.color = Color.white;
+                        image_Create.sprite = recipeManager.GetStage2TartCreate()[nMaterialIndex];
+
+                        chestManager.list_Material.Remove(recipeManager.GetStage2TartRecipe()[nMaterialIndex]);
+                        material.gameObject.SetActive(false);
+                        material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
+
+                        nMaterialIndex++;
+                        if (nMaterialIndex >= recipeManager.GetStage2TartRecipe().Count)
+                        {
+                            obj_BakeItButton.SetActive(true);
+                        }
+                    }
+                    else
+                    {
+                        Debug.Log("재료 틀림");
+                        material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
+                    }
+                }
+                else
+                {
+                    Debug.Log("재료 틀림");
+                    material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
+                }
+                break;
+
             default:
                 Debug.Log("스테이지가 정의되지 않은 오븐입니다. (이 오류는 오븐매니저에서 발생했습니다.)");
                 break;
         }
+    }
+
+    public int GetMaterialIndex()
+    {
+        return nMaterialIndex;
     }
 }

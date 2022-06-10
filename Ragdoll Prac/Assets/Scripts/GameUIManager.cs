@@ -16,6 +16,14 @@ public class GameUIManager : MonoBehaviour
     public TutorialManager tutorialManager;
 
     public bool isTutorialGuide;
+    public bool isOvenUIOn;
+    public bool isPlateUIOn;
+
+    private void Start()
+    {
+        isOvenUIOn = false;
+        isPlateUIOn = false;
+    }
 
     void Update()
     {
@@ -54,7 +62,7 @@ public class GameUIManager : MonoBehaviour
                     objRecipePopupLarge.SetActive(false);
                 }
             }
-            
+
         }
 
         // 칼 꺼내기
@@ -78,5 +86,25 @@ public class GameUIManager : MonoBehaviour
     public void SetKnifeImageVisible()
     {
         objKnifeImage.SetActive(true);
+    }
+
+    public void OvenUIOn()
+    {
+        isOvenUIOn = true;
+    }
+
+    public void OvenUIOff()
+    {
+        isOvenUIOn = false;
+    }
+
+    public void PlateUIOn()
+    {
+        isPlateUIOn = true;
+    }
+
+    public void PlateUIOff()
+    {
+        isPlateUIOn = false;
     }
 }
