@@ -19,11 +19,17 @@ public enum Ingredient
 
 public class ObjectManager : MonoBehaviour
 {
-    private Vector3 vector_StartPosition;
+    public Vector3 vector_StartPosition;
     private Quaternion quaternion_StartRoatation;
 
     public Sprite sprite_ObjectImage;
     public Ingredient ingredient;
+
+    private void Awake()
+    {
+        vector_StartPosition = transform.position;
+        quaternion_StartRoatation = transform.rotation;
+    }
 
     void Start()
     {
@@ -40,12 +46,15 @@ public class ObjectManager : MonoBehaviour
                 Destroy(gameObject.GetComponent<FixedJoint>());
             }
 
-            gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-
-            transform.position = vector_StartPosition;
-            transform.rotation = quaternion_StartRoatation;
-
-            gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            ResetTransform();
         }
+    }
+
+    public void ResetTransform()
+    {
+        gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        transform.position = vector_StartPosition;
+        transform.rotation = quaternion_StartRoatation;
+        gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
 }

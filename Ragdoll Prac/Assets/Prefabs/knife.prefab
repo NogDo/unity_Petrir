@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 9147695425123428535}
   - component: {fileID: 3121963459183025525}
   - component: {fileID: 3850952336908797261}
+  - component: {fileID: 6207243798491882540}
   m_Layer: 0
   m_Name: knife
   m_TagString: Untagged
@@ -126,6 +127,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.4222746, y: 0.17078434, z: 0.11208606}
   m_Center: {x: -0.31182823, y: 0.009341443, z: -0.0074146036}
+--- !u!114 &6207243798491882540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893073615861294993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f39b589f15830e746a44f194a4ddf636, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vector_StartPosition: {x: 0, y: 0, z: 0}
+  sprite_ObjectImage: {fileID: 0}
+  ingredient: 0
 --- !u!1 &2215686825079108031
 GameObject:
   m_ObjectHideFlags: 0
