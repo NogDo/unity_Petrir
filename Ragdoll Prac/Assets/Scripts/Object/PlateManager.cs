@@ -17,6 +17,7 @@ public class PlateManager : MonoBehaviour
     public GameObject obj_Ingredient;
     public GameObject obj_BakeItButton;
     public GameObject obj_BakeItButton2;
+    public GameObject obj_Plate;
     public Image image_Create;
 
     [Header("오븐열릴때 비활성화될 오브젝트")]
@@ -65,6 +66,7 @@ public class PlateManager : MonoBehaviour
 
         obj_OvenUI.SetActive(true);
         objKnifeImage.SetActive(false);
+        obj_Plate.SetActive(true);
 
         gameUIManager.PlateUIOn();
 
@@ -99,6 +101,7 @@ public class PlateManager : MonoBehaviour
     {
         obj_OvenUI.SetActive(false);
         objKnifeImage.SetActive(true);
+        obj_Plate.SetActive(false);
 
         for (int i = 0; i < obj_Ingredient.transform.childCount; i++)
         {

@@ -20,6 +20,8 @@ public class OvenCheckArea : MonoBehaviour
 
     public GameObject obj_Text;
 
+    public Animator animator_Oven;
+
     public bool isPlayerInArea;
     public bool isOvenInterfaceOn;
 
@@ -36,25 +38,7 @@ public class OvenCheckArea : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
-                if(tutorialManager != null)
-                {
-                    if (tutorialManager.IsStartOvenTutorial() && !isEndOvenTutorial && (ovenManager.stage == Stage.Oven))
-                    {
-                        tutorialManager.EndOvenTutorial();
-                        isEndOvenTutorial = true;
-                    }
-                }
-
-                if(manager == Manager.Oven)
-                {
-                    ovenManager.OpenOvenUI();
-                }
-                else if(manager == Manager.Plate)
-                {
-                    plateManager.OpenPlateUI();
-                }
-                isOvenInterfaceOn = true;
-
+                animator_Oven.SetBool("isF", true);
             }
         }
 
@@ -72,6 +56,8 @@ public class OvenCheckArea : MonoBehaviour
                 }
                 isOvenInterfaceOn = false;
             }
+
+            animator_Oven.SetBool("isF", false);
         }
     }
 
@@ -101,5 +87,27 @@ public class OvenCheckArea : MonoBehaviour
     public void HideText()
     {
         obj_Text.SetActive(false);
+    }
+
+    public void OpenUI()
+    {
+        if (tutorialManager != null)
+        {
+            if (tutorialManager.IsStartOvenTutorial() && !isEndOvenTutorial && (ovenManager.stage == Stage.Oven))
+            {
+                tutorialManager.EndOvenTutorial();
+                isEndOvenTutorial = true;
+            }
+        }
+
+        if (manager == Manager.Oven)
+        {
+            ovenManager.OpenOvenUI();
+        }
+        else if (manager == Manager.Plate)
+        {
+            plateManager.OpenPlateUI();
+        }
+        isOvenInterfaceOn = true;
     }
 }
