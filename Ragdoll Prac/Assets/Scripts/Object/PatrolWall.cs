@@ -4,43 +4,27 @@ using UnityEngine;
 
 public class PatrolWall : MonoBehaviour
 {
-    public Animator animator;
     public GameObject objPlayer;
 
-    void Start()
-    {
-        animator.SetTrigger("WallMove");
-    }
+    private bool isOnFloor;
+    private Vector3 distance;
 
-    void Update()
+    private void Update()
     {
-
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        //Debug.Log("Trigger Enter : " + other.gameObject);
-        //if (objPlayer.transform.parent == null)
-        //{
-        //    objPlayer.transform.SetParent(transform);
-        //}
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (objPlayer.transform.parent == null)
+        if (isOnFloor)
         {
-            Debug.Log("Trigger Stay : " + other.gameObject);
-            objPlayer.transform.SetParent(transform);
+            objPlayer.transform.position = transform.position - distance;
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    public void SetPlayerParent_To_PatrolWall()
     {
-        Debug.Log("Trigger Exit : " + other.gameObject);
-        if(objPlayer.transform.parent != null)
-        {
-            objPlayer.transform.parent = null;
-        }
+        isOnFloor = true;
+        distance = transform.position - objPlayer.transform.position;
+    }
+
+    public void SetPlayerParent_To_Character()
+    {
+        isOnFloor = false;
     }
 }

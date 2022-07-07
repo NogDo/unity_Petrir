@@ -9,63 +9,56 @@ public class Grab : MonoBehaviour
     public Rigidbody rb;
     public FixedJoint fixedJoint;
 
+    public TutorialManager tutorialManager;
+
     public int isLeftorRight;
+
     public bool alreadyGrabbing = false;
     public bool isCanGrab = false;
+    public bool isCanGrabBehavior;
+
+    private bool isEndGrabTutorial;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        isEndGrabTutorial = false;
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(isLeftorRight))
+        if (isCanGrabBehavior)
         {
-            Debug.Log("마우스 다운");
-            if (isLeftorRight == 0)
+            if (Input.GetMouseButtonDown(isLeftorRight))
             {
-                Debug.Log("마우스 왼쪽");
-                animator.SetBool("isLeftHandUp", true);
-                isCanGrab = true;
+                if (isLeftorRight == 0)
+                {
+                    animator.SetBool("LeftGrab", true);
+                    isCanGrab = true;
+                }
+                else if (isLeftorRight == 1)
+                {
+                    animator.SetBool("RightGrab", true);
+                    isCanGrab = true;
+                }
             }
-            else if (isLeftorRight == 1)
+            else if (Input.GetMouseButtonUp(isLeftorRight))
             {
-                Debug.Log("마우스 오른쪽");
-                animator.SetBool("isRightHandUp", true);
-                isCanGrab = true;
-            }
+                if (isLeftorRight == 0)
+                {
+                    animator.SetBool("LeftGrab", false);
+                    isCanGrab = false;
+                }
+                else if (isLeftorRight == 1)
+                {
+                    animator.SetBool("RightGrab", false);
+                    isCanGrab = false;
+                }
 
-            //if(objGrabble != null)
-            //{
-            //    Debug.Log("물체 생성 확인");
-            //    FixedJoint fj = objGrabble.AddComponent<FixedJoint>();
-            //    fj.connectedBody = rb;
-            //    fj.breakForce = 9000;
-            //}
-        }
-        else if (Input.GetMouseButtonUp(isLeftorRight))
-        {
-            Debug.Log("마우스 업");
-            if (isLeftorRight == 0)
-            {
-                animator.SetBool("isLeftHandUp", false);
-                isCanGrab = false;
-            }
-            else if (isLeftorRight == 1)
-            {
-                animator.SetBool("isRightHandUp", false);
-                isCanGrab = false;
-            }
-
-            //if(objGrabble != null)
-            //{
-            //    Destroy(objGrabble.GetComponent<FixedJoint>());
-            //}
-
-            if (objGrabble != null)
-            {
-                RemoveJoint();
+                if (objGrabble != null)
+                {
+                    RemoveJoint();
+                }
             }
         }
     }
@@ -76,21 +69,42 @@ public class Grab : MonoBehaviour
         {
             Debug.Log("아이템 잡기");
             objGrabble = other.gameObject;
-            Grabble();
+            Grabble(true);
         }
 
         if (other.gameObject.CompareTag("Wall"))
         {
             Debug.Log("벽 잡기");
             objGrabble = other.gameObject;
-            Grabble();
+            Grabble(false);
+        }
+
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            Debug.Log("바닥 잡기");
+            objGrabble = other.gameObject;
+            Grabble(false);
+        }
+
+        if (other.gameObject.CompareTag("Static"))
+        {
+            Debug.Log("정지 물체 잡기");
+            objGrabble = other.gameObject;
+            Grabble(false);
         }
 
         if (other.gameObject.CompareTag("Lever"))
         {
             Debug.Log("레버 잡기");
             objGrabble = other.gameObject;
-            Grabble();
+            Grabble(false);
+        }
+
+        if (other.gameObject.CompareTag("MoveWall"))
+        {
+            Debug.Log("이동발판 잡기");
+            objGrabble = other.gameObject;
+            Grabble(false);
         }
     }
 
@@ -99,7 +113,7 @@ public class Grab : MonoBehaviour
     //    objGrabble = null;
     //}
 
-    public void Grabble()
+    public void Grabble(bool isItem)
     {
         if (isCanGrab)
         {
@@ -107,6 +121,15 @@ public class Grab : MonoBehaviour
             fixedJoint = objGrabble.AddComponent<FixedJoint>();
             fixedJoint.connectedBody = rb;
             fixedJoint.breakForce = 9000;
+            if(tutorialManager != null)
+            {
+                if (tutorialManager.IsStartGrabTutorial() && !isEndGrabTutorial && isItem && (isLeftorRight == 0))
+                {
+                    Debug.Log("그랩 튜토리얼 완료 확인");
+                    tutorialManager.EndGrabTutorial();
+                    isEndGrabTutorial = true;
+                }
+            }
             isCanGrab = false;
         }
     }
@@ -115,5 +138,15 @@ public class Grab : MonoBehaviour
     {
         Destroy(fixedJoint);
         objGrabble = null;
+    }
+
+    public void UnAbleGrabBehavior()
+    {
+        isCanGrabBehavior = false;
+    }
+
+    public void AbleGrabBehavior()
+    {
+        isCanGrabBehavior = true;
     }
 }

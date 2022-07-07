@@ -9,9 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7237000603244744794}
+  - component: {fileID: 1336641916872113226}
+  - component: {fileID: 7048364850378946136}
   m_Layer: 0
   m_Name: icecream3
-  m_TagString: Untagged
+  m_TagString: Static
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -31,6 +33,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &1336641916872113226
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4511215541918357907}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 973877516759717424, guid: 5762f9b5a10a48446a243c0bdf8051f5, type: 3}
+--- !u!54 &7048364850378946136
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4511215541918357907}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1992118455187187731
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -117,6 +149,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: icecream3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5762f9b5a10a48446a243c0bdf8051f5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Static
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5762f9b5a10a48446a243c0bdf8051f5,
         type: 3}
