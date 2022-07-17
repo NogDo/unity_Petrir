@@ -23,6 +23,7 @@ public class ChestManager : MonoBehaviour
     private bool isAlreadyInChocolate;
     private bool isChocolateCut;
     private bool isStrawberryCut;
+    private bool isKiwiCut;
 
     private int nBreadCount;
     private int nStrawberryCount;
@@ -155,6 +156,11 @@ public class ChestManager : MonoBehaviour
             case Stage.Stage1_2:
 
                 break;
+
+            case Stage.Stage1_3:
+
+                break;
+
             default:
                 Debug.Log("스테이지가 정의되지 않은 오븐입니다. (이 디버그는 재료 체크박스에서 발생했습니다.)");
                 break;
@@ -204,5 +210,10 @@ public class ChestManager : MonoBehaviour
     public void CutStrawberryTrue()
     {
         isStrawberryCut = true;
+    }
+
+    public void CutKiwiTrue()
+    {
+        isKiwiCut = true;
     }
 }

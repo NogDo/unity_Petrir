@@ -22,12 +22,14 @@ public class ExtinctionAerial : MonoBehaviour
         gameObject.transform.GetChild(0).gameObject.SetActive(false);
         GetComponent<BoxCollider>().isTrigger = true;
         StartCoroutine(Rewind());
+
     }
 
     IEnumerator Rewind()
     {
         yield return new WaitForSeconds(fRewindTime);
         gameObject.transform.GetChild(0).gameObject.SetActive(true);
+        gameObject.SetActive(true);
         GetComponent<BoxCollider>().isTrigger = false;
     }
 }

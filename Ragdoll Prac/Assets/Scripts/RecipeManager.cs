@@ -22,6 +22,12 @@ public class RecipeManager : MonoBehaviour
     public Sprite[] sprite_Stage2TartRecipe;
     public Sprite[] sprite_Stage2TartCreate;
 
+    [Header("스테이지3 레시피")]
+    public Sprite[] sprite_Stage3RollcakeDoughRecipe;
+    public Sprite[] sprite_Stage3RollcakeDoughCreate;
+    public Sprite[] sprite_Stage3RollcakeRecipe;
+    public Sprite[] sprite_Stage3RollcakeCreate;
+
     public List<Sprite> GetTutorialRecipe()
     {
         List<Sprite> list_TutorialRecipe = new List<Sprite>();
@@ -152,5 +158,49 @@ public class RecipeManager : MonoBehaviour
         }
 
         return list_Stage2Create;
+    }
+
+    public List<Sprite> GetStage3RollcakeDoughRecipe()
+    {
+        List<Sprite> list_Stage3Recipe = new List<Sprite>();
+        for(int i = 0; i < sprite_Stage3RollcakeDoughCreate.Length; i++)
+        {
+            list_Stage3Recipe.Add(sprite_Stage3RollcakeDoughCreate[i]);
+        }
+
+        return list_Stage3Recipe;
+    }
+
+    public List<Sprite> GetStage3RollcakeDoughCreate()
+    {
+        List<Sprite> list_Stage3Create = new List<Sprite>();
+        for(int i = 0; i < sprite_Stage3RollcakeDoughCreate.Length; i++)
+        {
+            list_Stage3Create.Add(sprite_Stage3RollcakeDoughCreate[i]);
+        }
+
+        return list_Stage3Create;
+    }
+
+    public List<Sprite> GetStage3RollcakeRecipe()
+    {
+        List<Sprite> list_Stage3Recipe = new List<Sprite>();
+        for (int i = 0; i < sprite_Stage3RollcakeCreate.Length; i++)
+        {
+            list_Stage3Recipe.Add(sprite_Stage3RollcakeCreate[i]);
+        }
+
+        return list_Stage3Recipe;
+    }
+
+    public List<Sprite> GetStage3RollcakeCreate()
+    {
+        List<Sprite> list_Stage3Create = new List<Sprite>();
+        for (int i = 0; i < sprite_Stage3RollcakeCreate.Length; i++)
+        {
+            list_Stage3Create.Add(sprite_Stage3RollcakeCreate[i]);
+        }
+
+        return list_Stage3Create;
     }
 }
