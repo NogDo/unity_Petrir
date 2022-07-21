@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 4d8ba9f7af5cfcb419ab76ce08b00df2, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.8052637, g: 0.6623895, b: 0.71002764, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10044,8 +10044,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objRecipePopupSmallTutorialGuide: {fileID: 1330896403}
   objRecipePopupLargeTutorialGuide: {fileID: 1671290510}
+  objRecipePopupRingTutorialGuide: {fileID: 0}
   objRecipePopupSmall: {fileID: 1330896403}
   objRecipePopupLarge: {fileID: 1671290510}
+  objRecipePopupRing: {fileID: 0}
   objKnifeImage: {fileID: 1449125315}
   objKnife: {fileID: 1940553098}
   tutorialManager: {fileID: 0}
@@ -43510,6 +43512,10 @@ MonoBehaviour:
   sprite_Stage2MuscatTartCreate: []
   sprite_Stage2TartRecipe: []
   sprite_Stage2TartCreate: []
+  sprite_Stage3RollcakeDoughRecipe: []
+  sprite_Stage3RollcakeDoughCreate: []
+  sprite_Stage3RollcakeRecipe: []
+  sprite_Stage3RollcakeCreate: []
 --- !u!4 &1719779449
 Transform:
   m_ObjectHideFlags: 0
