@@ -1459,7 +1459,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &140738510
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3587,8 +3587,11 @@ MonoBehaviour:
   sprite_Strawberry: {fileID: 0}
   tutorialManager: {fileID: 1423183771}
   ovenManager: {fileID: 921072553}
-  toggle_RecipeCheckBox:
-  - {fileID: 620387609}
+  plateManager: {fileID: 0}
+  Image_RecipeCheckBox:
+  - {fileID: 1981198725}
+  sprite_O: {fileID: 21300000, guid: eced5a9c06e1b24489fd5b67a619c5b8, type: 3}
+  sprite_X: {fileID: 21300000, guid: dd96539c9fe6d2e4f8fa326aa04e91bf, type: 3}
 --- !u!4 &428758345 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4372443412977879456, guid: c504a2aa94f52684a8a0b093ae4efea3,
@@ -4821,7 +4824,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &630588024
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7844,7 +7847,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &953462580
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11495,7 +11498,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 4.5905e-41, y: 0, z: 0, w: NaN}
+  m_BoundingSphereOverride: {x: 7.38e-43, y: -0.0000000032906424, z: 7.38e-43, w: -6.516383e-10}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -13889,8 +13892,8 @@ MonoBehaviour:
   objRecipePopupSmallTutorialGuide: {fileID: 2126506984}
   objRecipePopupLargeTutorialGuide: {fileID: 1960318339}
   objRecipePopupRingTutorialGuide: {fileID: 551460007}
-  objRecipePopupSmall: {fileID: 1974221825}
-  objRecipePopupLarge: {fileID: 1260083000}
+  objRecipePopupSmall: {fileID: 953462579}
+  objRecipePopupLarge: {fileID: 630588023}
   objRecipePopupRing: {fileID: 140738509}
   objKnifeImage: {fileID: 247246243}
   objKnife: {fileID: 1683377922}
@@ -14784,7 +14787,7 @@ GameObject:
   - component: {fileID: 1560235014}
   - component: {fileID: 1560235013}
   m_Layer: 0
-  m_Name: Image_Buiscuit
+  m_Name: Image_Smore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15419,7 +15422,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -50, y: -70}
+  m_AnchoredPosition: {x: -51.5, y: -70}
   m_SizeDelta: {x: 100, y: 32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1598527351
@@ -18100,11 +18103,14 @@ MonoBehaviour:
   sprite_Strawberry: {fileID: 0}
   tutorialManager: {fileID: 1423183771}
   ovenManager: {fileID: 1357096450}
-  toggle_RecipeCheckBox:
-  - {fileID: 1364328817}
-  - {fileID: 665265783}
-  - {fileID: 1358018912}
-  - {fileID: 1801990166}
+  plateManager: {fileID: 0}
+  Image_RecipeCheckBox:
+  - {fileID: 1728331897}
+  - {fileID: 2122877671}
+  - {fileID: 97170562}
+  - {fileID: 2050689827}
+  sprite_O: {fileID: 21300000, guid: eced5a9c06e1b24489fd5b67a619c5b8, type: 3}
+  sprite_X: {fileID: 21300000, guid: dd96539c9fe6d2e4f8fa326aa04e91bf, type: 3}
 --- !u!1 &1904490004 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3320752914040784152, guid: 19ddaf0476bb67e438e8f245bf18c51d,
@@ -19655,7 +19661,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -50, y: -111}
+  m_AnchoredPosition: {x: -51.5, y: -111}
   m_SizeDelta: {x: 100, y: 32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2084168691

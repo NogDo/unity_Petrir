@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.8947819, g: 0.7359377, b: 0.7889577, a: 1}
+  m_IndirectSpecularColor: {r: 0.8052637, g: 0.6623895, b: 0.71002764, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -340,14 +340,10 @@ MonoBehaviour:
   sprite_Strawberry: {fileID: 21300000, guid: 21e630a5146a82d48be376218c59eb99, type: 3}
   tutorialManager: {fileID: 0}
   ovenManager: {fileID: 1717101953}
-  toggle_RecipeCheckBox:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  plateManager: {fileID: 0}
+  Image_RecipeCheckBox: []
+  sprite_O: {fileID: 0}
+  sprite_X: {fileID: 0}
 --- !u!4 &16445399 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6811239697251016757, guid: a33fff2bdf20db743b63adeebf3cd05e,
@@ -8086,7 +8082,7 @@ PrefabInstance:
     - target: {fileID: 6646589040275987604, guid: faf1e9dccb16bf84babbcbeea0bcbfea,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.88
+      value: 7.48
       objectReference: {fileID: 0}
     - target: {fileID: 6646589040275987604, guid: faf1e9dccb16bf84babbcbeea0bcbfea,
         type: 3}
@@ -8096,7 +8092,7 @@ PrefabInstance:
     - target: {fileID: 6646589040275987604, guid: faf1e9dccb16bf84babbcbeea0bcbfea,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -29.04
+      value: -127
       objectReference: {fileID: 0}
     - target: {fileID: 6646589040275987604, guid: faf1e9dccb16bf84babbcbeea0bcbfea,
         type: 3}
@@ -13738,17 +13734,17 @@ PrefabInstance:
     - target: {fileID: 8346519991133168949, guid: a33fff2bdf20db743b63adeebf3cd05e,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -38.92
+      value: 2.24
       objectReference: {fileID: 0}
     - target: {fileID: 8346519991133168949, guid: a33fff2bdf20db743b63adeebf3cd05e,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 4.9208
+      value: 4.91
       objectReference: {fileID: 0}
     - target: {fileID: 8346519991133168949, guid: a33fff2bdf20db743b63adeebf3cd05e,
         type: 3}
       propertyPath: m_ConnectedAnchor.z
-      value: 67.12215
+      value: 11.362146
       objectReference: {fileID: 0}
     - target: {fileID: 8385265762333572279, guid: a33fff2bdf20db743b63adeebf3cd05e,
         type: 3}
@@ -15007,6 +15003,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 1936517020280081769, guid: ca6f80342d20ac840ac9845e4075ccf6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3920517144256897588, guid: ca6f80342d20ac840ac9845e4075ccf6,
         type: 3}
       propertyPath: m_Axis.x
@@ -15024,23 +15025,58 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3920517144256897588, guid: ca6f80342d20ac840ac9845e4075ccf6,
         type: 3}
+      propertyPath: m_UseSpring
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3920517144256897588, guid: ca6f80342d20ac840ac9845e4075ccf6,
+        type: 3}
+      propertyPath: m_Limits.max
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 3920517144256897588, guid: ca6f80342d20ac840ac9845e4075ccf6,
+        type: 3}
+      propertyPath: m_Limits.min
+      value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 3920517144256897588, guid: ca6f80342d20ac840ac9845e4075ccf6,
+        type: 3}
+      propertyPath: m_ConnectedBody
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3920517144256897588, guid: ca6f80342d20ac840ac9845e4075ccf6,
+        type: 3}
+      propertyPath: m_Spring.spring
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3920517144256897588, guid: ca6f80342d20ac840ac9845e4075ccf6,
+        type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -0.0000001402462
+      value: 28.800007
       objectReference: {fileID: 0}
     - target: {fileID: 3920517144256897588, guid: ca6f80342d20ac840ac9845e4075ccf6,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 0.42079043
+      value: 0.6000006
       objectReference: {fileID: 0}
     - target: {fileID: 3920517144256897588, guid: ca6f80342d20ac840ac9845e4075ccf6,
         type: 3}
       propertyPath: m_ConnectedAnchor.z
-      value: 0.00000007012311
+      value: 19.153439
+      objectReference: {fileID: 0}
+    - target: {fileID: 3920517144256897588, guid: ca6f80342d20ac840ac9845e4075ccf6,
+        type: 3}
+      propertyPath: m_Limits.bounciness
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3920517144256897588, guid: ca6f80342d20ac840ac9845e4075ccf6,
+        type: 3}
+      propertyPath: m_AutoConfigureConnectedAnchor
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6447746664159627644, guid: ca6f80342d20ac840ac9845e4075ccf6,
         type: 3}
       propertyPath: m_Constraints
-      value: 94
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca6f80342d20ac840ac9845e4075ccf6, type: 3}
@@ -19957,17 +19993,17 @@ PrefabInstance:
     - target: {fileID: 3920517144256897588, guid: ca6f80342d20ac840ac9845e4075ccf6,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 0
+      value: 72.7
       objectReference: {fileID: 0}
     - target: {fileID: 3920517144256897588, guid: ca6f80342d20ac840ac9845e4075ccf6,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 0.4207905
+      value: 0.5999994
       objectReference: {fileID: 0}
     - target: {fileID: 3920517144256897588, guid: ca6f80342d20ac840ac9845e4075ccf6,
         type: 3}
       propertyPath: m_ConnectedAnchor.z
-      value: 0
+      value: 4.8465624
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca6f80342d20ac840ac9845e4075ccf6, type: 3}
@@ -32141,8 +32177,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objRecipePopupSmallTutorialGuide: {fileID: 646465206}
   objRecipePopupLargeTutorialGuide: {fileID: 935240608}
+  objRecipePopupRingTutorialGuide: {fileID: 0}
   objRecipePopupSmall: {fileID: 646465206}
   objRecipePopupLarge: {fileID: 935240608}
+  objRecipePopupRing: {fileID: 0}
   objKnifeImage: {fileID: 662999125}
   objKnife: {fileID: 1402193579}
   tutorialManager: {fileID: 0}

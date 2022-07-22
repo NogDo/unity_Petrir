@@ -15,9 +15,12 @@ public class ChestManager : MonoBehaviour
     [Header("외부 스크립트")]
     public TutorialManager tutorialManager;
     public OvenManager ovenManager;
+    public PlateManager plateManager;
 
     [Header("레시피 체크박스")]
-    public Toggle[] toggle_RecipeCheckBox;
+    public Image[] Image_RecipeCheckBox;
+    public Sprite sprite_O;
+    public Sprite sprite_X;
 
     private bool isEndChestTutorial;
     private bool isAlreadyInChocolate;
@@ -27,6 +30,9 @@ public class ChestManager : MonoBehaviour
 
     private int nBreadCount;
     private int nStrawberryCount;
+    private int nBlueberryCount;
+
+    private Stage stage;
 
     private void Start()
     {
@@ -37,6 +43,15 @@ public class ChestManager : MonoBehaviour
 
         nBreadCount = 0;
         nStrawberryCount = 0;
+
+        if (ovenManager != null)
+        {
+            stage = ovenManager.stage;
+        }
+        else
+        {
+            stage = plateManager.stage;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -68,13 +83,13 @@ public class ChestManager : MonoBehaviour
 
     public void CheckIngredient_CheckBox(ObjectManager objectManager)
     {
-        switch (ovenManager.stage)
+        switch (stage)
         {
             case Stage.Oven:
                 switch (objectManager.ingredient)
                 {
                     case Ingredient.Biscuit:
-                        toggle_RecipeCheckBox[0].isOn = true;
+                        Image_RecipeCheckBox[0].sprite = sprite_O;
                         break;
                 }
                 break;
@@ -83,18 +98,14 @@ public class ChestManager : MonoBehaviour
                 switch (objectManager.ingredient)
                 {
                     case Ingredient.Biscuit:
-                        if (toggle_RecipeCheckBox[0].isOn == false)
+                        if (Image_RecipeCheckBox[0].sprite == sprite_X)
                         {
-                            toggle_RecipeCheckBox[0].isOn = true;
+                            Image_RecipeCheckBox[0].sprite = sprite_O;
                         }
                         else
                         {
-                            toggle_RecipeCheckBox[1].isOn = true;
+                            Image_RecipeCheckBox[1].sprite = sprite_O;
                         }
-                        break;
-
-                    case Ingredient.Marshmallow:
-                        toggle_RecipeCheckBox[2].isOn = true;
                         break;
 
                     case Ingredient.Chocolate:
@@ -102,7 +113,11 @@ public class ChestManager : MonoBehaviour
                         {
                             break;
                         }
-                        toggle_RecipeCheckBox[3].isOn = true;
+                        Image_RecipeCheckBox[2].sprite = sprite_O;
+                        break;
+
+                    case Ingredient.Marshmallow:
+                        Image_RecipeCheckBox[3].sprite = sprite_O;
                         break;
                 }
                 break;
@@ -113,11 +128,11 @@ public class ChestManager : MonoBehaviour
                     case Ingredient.Bread:
                         if(nBreadCount == 0)
                         {
-                            toggle_RecipeCheckBox[0].isOn = true;
+                            Image_RecipeCheckBox[0].sprite = sprite_O;
                         }
                         else if(nBreadCount == 1)
                         {
-                            toggle_RecipeCheckBox[1].isOn = true;
+                            Image_RecipeCheckBox[1].sprite = sprite_O;
                         }
                         nBreadCount++;
                         break;
@@ -126,21 +141,13 @@ public class ChestManager : MonoBehaviour
                         Debug.Log("딸기 상자에 넣는거 확인");
                         if (isStrawberryCut)
                         {
-                            if (nStrawberryCount == 0)
+                            if (nStrawberryCount == 1)
                             {
-                                toggle_RecipeCheckBox[2].isOn = true;
-                            }
-                            else if(nStrawberryCount == 1)
-                            {
-                                toggle_RecipeCheckBox[3].isOn = true;
-                            }
-                            else if (nStrawberryCount == 2)
-                            {
-                                toggle_RecipeCheckBox[4].isOn = true;
+                                Image_RecipeCheckBox[2].sprite = sprite_O;
                             }
                             else if (nStrawberryCount == 3)
                             {
-                                toggle_RecipeCheckBox[5].isOn = true;
+                                Image_RecipeCheckBox[3].sprite = sprite_O;
                             }
                             nStrawberryCount++;
                             break;
@@ -148,13 +155,50 @@ public class ChestManager : MonoBehaviour
                         break;
 
                     case Ingredient.Pastry_Bag:
-                        toggle_RecipeCheckBox[6].isOn = true;
+                        Image_RecipeCheckBox[4].sprite = sprite_O;
                         break;
                 }
                 break;
 
             case Stage.Stage1_2:
+                switch (objectManager.ingredient)
+                {
+                    case Ingredient.Crust:
+                        Image_RecipeCheckBox[0].sprite = sprite_O;
+                        Image_RecipeCheckBox[1].sprite = sprite_O;
+                        break;
 
+                    case Ingredient.Strawberry_Cut:
+                        if (isStrawberryCut)
+                        {
+                            if(nStrawberryCount == 1)
+                            {
+                                Image_RecipeCheckBox[2].sprite = sprite_O;
+                            }
+                            nStrawberryCount++;
+                        }
+                        break;
+
+                    case Ingredient.Blueberry:
+                        if(nBlueberryCount == 0)
+                        {
+                            Image_RecipeCheckBox[3].sprite = sprite_O;
+                        }
+                        else if(nBlueberryCount == 1)
+                        {
+                            Image_RecipeCheckBox[4].sprite = sprite_O;
+                        }
+                        nBlueberryCount++;
+                        break;
+
+                    case Ingredient.ShineMuskat:
+                        Image_RecipeCheckBox[5].sprite = sprite_O;
+                        break;
+
+                    case Ingredient.Pastry_Bag:
+                        Image_RecipeCheckBox[6].sprite = sprite_O;
+                        break;
+                }
                 break;
 
             case Stage.Stage1_3:
@@ -180,17 +224,17 @@ public class ChestManager : MonoBehaviour
             return;
         }
 
-        if (ovenManager.stage == Stage.Stage1_1 && sprite_Ingredient == sprite_Strawberry)
+        if (stage == Stage.Stage1_1 && sprite_Ingredient == sprite_Strawberry)
         {
             return;
         }
 
-        if(ovenManager.stage == Stage.Stage1_2 && sprite_Ingredient == sprite_Strawberry)
+        if(stage == Stage.Stage1_2 && sprite_Ingredient == sprite_Strawberry)
         {
             return;
         }
 
-        if(ovenManager.stage == Stage.Tutorial)
+        if(stage == Stage.Tutorial)
         {
             if (sprite_Ingredient == sprite_Chocolate)
             {
