@@ -58,6 +58,7 @@ public class OvenCheckArea : MonoBehaviour
             {
                 if (manager == Manager.Oven)
                 {
+                    animator_Oven.SetBool("isF", false);
                     ovenManager.CloseOvenUI();
                 }
                 else if (manager == Manager.Plate)
@@ -65,7 +66,6 @@ public class OvenCheckArea : MonoBehaviour
                     plateManager.ClosePlateUI();
                 }
                 isOvenInterfaceOn = false;
-                animator_Oven.SetBool("isF", false);
             }
         }
     }

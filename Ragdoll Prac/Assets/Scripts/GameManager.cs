@@ -52,6 +52,9 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F4))
         {
             PlayerPrefs.DeleteAll();
+            ClearCheck.isTutorialClear = false;
+            ClearCheck.isStage1Clear = false;
+            ClearCheck.isStage2Clear = false;
         }
     }
 
@@ -75,5 +78,4 @@ public class GameManager : MonoBehaviour
         ClearCheck.isStage2Clear = true;
         PlayerPrefs.SetInt("Stage2Clear", 1);
     }
-
 }

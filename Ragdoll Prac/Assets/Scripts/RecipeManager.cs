@@ -163,9 +163,9 @@ public class RecipeManager : MonoBehaviour
     public List<Sprite> GetStage3RollcakeDoughRecipe()
     {
         List<Sprite> list_Stage3Recipe = new List<Sprite>();
-        for(int i = 0; i < sprite_Stage3RollcakeDoughCreate.Length; i++)
+        for(int i = 0; i < sprite_Stage3RollcakeDoughRecipe.Length; i++)
         {
-            list_Stage3Recipe.Add(sprite_Stage3RollcakeDoughCreate[i]);
+            list_Stage3Recipe.Add(sprite_Stage3RollcakeDoughRecipe[i]);
         }
 
         return list_Stage3Recipe;
@@ -185,9 +185,9 @@ public class RecipeManager : MonoBehaviour
     public List<Sprite> GetStage3RollcakeRecipe()
     {
         List<Sprite> list_Stage3Recipe = new List<Sprite>();
-        for (int i = 0; i < sprite_Stage3RollcakeCreate.Length; i++)
+        for (int i = 0; i < sprite_Stage3RollcakeRecipe.Length; i++)
         {
-            list_Stage3Recipe.Add(sprite_Stage3RollcakeCreate[i]);
+            list_Stage3Recipe.Add(sprite_Stage3RollcakeRecipe[i]);
         }
 
         return list_Stage3Recipe;

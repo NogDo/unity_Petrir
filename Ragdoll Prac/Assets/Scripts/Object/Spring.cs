@@ -8,6 +8,8 @@ public class Spring : MonoBehaviour
 
     public AudioSource audio_JellyJump;
 
+    public Animator animator;
+
     public float fJumpPower;
 
     private void OnCollisionEnter(Collision collision)
@@ -24,6 +26,7 @@ public class Spring : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player_Foot"))
         {
+            animator.SetTrigger("Step");
             playerController.isGrounded = true;
             playerController.AddJumpForce(fJumpPower);
             audio_JellyJump.Play();
