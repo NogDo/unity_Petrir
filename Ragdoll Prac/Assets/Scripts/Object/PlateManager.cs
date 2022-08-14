@@ -45,6 +45,12 @@ public class PlateManager : MonoBehaviour
     public GameObject objTartFinished;
     public GameObject objStrawberryTartFinished;
     public GameObject objShineMuskatTartFinished;
+    public GameObject objRollcakeDoughFinished;
+    public GameObject objRollcakeFinished;
+    public GameObject objClickIt;
+    public GameObject objClickItButton;
+    public GameObject objArrow;
+    public Sprite objRollCakeFinishedAfterCilckIt;
 
     private int nMaterialIndex = 0;
     private int nPastryCount = 0;
@@ -75,6 +81,11 @@ public class PlateManager : MonoBehaviour
             objTartFinished.SetActive(false);
             objStrawberryTartFinished.SetActive(false);
             objShineMuskatTartFinished.SetActive(false);
+        }
+        else if (stage == Stage.Stage1_3)
+        {
+            objRollcakeDoughFinished.SetActive(false);
+            objRollcakeFinished.SetActive(false);
         }
         image_Create.gameObject.SetActive(true);
 
@@ -278,15 +289,22 @@ public class PlateManager : MonoBehaviour
 
                     image_Create.color = Color.white;
                     image_Create.sprite = recipeManager.GetStage3RollcakeCreate()[nMaterialIndex];
-                    chestManager.list_Material.Remove(recipeManager.GetStage2StrawberryTartRecipe()[nMaterialIndex]);
+                    chestManager.list_Material.Remove(recipeManager.GetStage3RollcakeRecipe()[nMaterialIndex]);
 
                     material.SetActive(false);
                     material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
                     nMaterialIndex++;
                     if (nMaterialIndex >= recipeManager.GetStage3RollcakeRecipe().Count)
                     {
-                        obj_BakeItButton.SetActive(true);
+                        objClickIt.SetActive(true);
+                        objArrow.SetActive(true);
+                        objClickItButton.SetActive(true);
                     }
+                }
+                else
+                {
+                    Debug.Log("재료 틀림");
+                    material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
                 }
                 break;
 
@@ -301,5 +319,11 @@ public class PlateManager : MonoBehaviour
         image_Create = objShineMuskatTartFinished.GetComponent<Image>();
         isStage2StrawberryTartEnd = true;
         nMaterialIndex = 0;
+    }
+
+    public void Stage3_ClickIt()
+    {
+        image_Create.sprite = objRollCakeFinishedAfterCilckIt;
+        obj_BakeItButton.SetActive(true);
     }
 }

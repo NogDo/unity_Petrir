@@ -31,6 +31,10 @@ public class ChestManager : MonoBehaviour
     private int nBreadCount;
     private int nStrawberryCount;
     private int nBlueberryCount;
+    private int nBananaCount;
+    private int nKiwiCount;
+    private int nOrangeCount;
+    private int nPeachCount;
 
     private Stage stage;
 
@@ -43,6 +47,11 @@ public class ChestManager : MonoBehaviour
 
         nBreadCount = 0;
         nStrawberryCount = 0;
+        nBlueberryCount = 0;
+        nBananaCount = 0;
+        nKiwiCount = 0;
+        nOrangeCount = 0;
+        nPeachCount = 0;
 
         if (ovenManager != null)
         {
@@ -202,7 +211,56 @@ public class ChestManager : MonoBehaviour
                 break;
 
             case Stage.Stage1_3:
+                switch (objectManager.ingredient)
+                {
+                    case Ingredient.Pastry_Bag:
+                        Image_RecipeCheckBox[0].sprite = sprite_O;
+                        break;
 
+                    case Ingredient.Whipping_Bag:
+                        Image_RecipeCheckBox[1].sprite = sprite_O;
+                        break;
+
+                    case Ingredient.Banana:
+                        if(nBananaCount >= 1)
+                        {
+                            Image_RecipeCheckBox[2].sprite = sprite_O;
+                        }
+                        nBananaCount++;
+                        break;
+
+                    case Ingredient.Kiwi_Cut:
+                        if (nKiwiCount >= 1)
+                        {
+                            Image_RecipeCheckBox[3].sprite = sprite_O;
+                        }
+                        nKiwiCount++;
+                        break;
+
+                    case Ingredient.Strawberry_Cut:
+                        if (nStrawberryCount >= 1)
+                        {
+                            Image_RecipeCheckBox[4].sprite = sprite_O;
+                        }
+                        nStrawberryCount++;
+                        break;
+
+                    case Ingredient.Peach:
+                        if (nPeachCount >= 1)
+                        {
+                            Image_RecipeCheckBox[5].sprite = sprite_O;
+                        }
+                        nPeachCount++;
+                        break;
+
+                    case Ingredient.Orange:
+                        if (nOrangeCount >= 1)
+                        {
+                            Image_RecipeCheckBox[6].sprite = sprite_O;
+                        }
+                        nOrangeCount++;
+                        break;
+                }
                 break;
 
             default:

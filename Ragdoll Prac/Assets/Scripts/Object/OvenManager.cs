@@ -54,6 +54,8 @@ public class OvenManager : MonoBehaviour
     public GameObject objTartFinished;
     public GameObject objStrawberryTartFinished;
     public GameObject objShineMuskatTartFinished;
+    public GameObject objRollcakeDoughFinished;
+    public GameObject objRollcakeFinished;
 
     private int nMaterialIndex = 0;
     private int nPastryCount = 0;
@@ -80,6 +82,11 @@ public class OvenManager : MonoBehaviour
             objTartFinished.SetActive(false);
             objStrawberryTartFinished.SetActive(false);
             objShineMuskatTartFinished.SetActive(false);
+        }
+        else if(stage == Stage.Stage1_3)
+        {
+            objRollcakeDoughFinished.SetActive(false);
+            objRollcakeFinished.SetActive(false);
         }
         image_Create.gameObject.SetActive(true);
 

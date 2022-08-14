@@ -36,7 +36,7 @@ public class DivideCheck : MonoBehaviour
                 if (divideObject1.GetIsKnifeEnter())
                 {
                     Debug.Log("딸기 자르기 확인");
-                    if(objMap == null)
+                    if (objMap == null)
                     {
                         objDivideObject1.gameObject.transform.parent = null;
                         objDivideObject2.gameObject.transform.parent = null;
@@ -57,7 +57,28 @@ public class DivideCheck : MonoBehaviour
                 if (divideObject1.GetIsKnifeEnter())
                 {
                     Debug.Log("키위 자르기 확인");
-                    if(objMap == null)
+                    if (objMap == null)
+                    {
+                        objDivideObject1.gameObject.transform.parent = null;
+                        objDivideObject2.gameObject.transform.parent = null;
+                    }
+                    else
+                    {
+                        objDivideObject1.gameObject.transform.parent = objMap.transform;
+                        objDivideObject2.gameObject.transform.parent = objMap.transform;
+                    }
+                    objDivideObject1.gameObject.SetActive(true);
+                    objDivideObject2.gameObject.SetActive(true);
+
+                    transform.parent.gameObject.SetActive(false);
+                }
+                break;
+
+            case Ingredient.Banana:
+                if (divideObject1.GetIsKnifeEnter())
+                {
+                    Debug.Log("바나나 자르기 확인");
+                    if (objMap == null)
                     {
                         objDivideObject1.gameObject.transform.parent = null;
                         objDivideObject2.gameObject.transform.parent = null;
@@ -74,6 +95,6 @@ public class DivideCheck : MonoBehaviour
                 }
                 break;
         }
-        
+
     }
 }
