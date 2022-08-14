@@ -17468,8 +17468,19 @@ MonoBehaviour:
   - {fileID: 21300000, guid: be79aef3444888344bda47287d05ba85, type: 3}
   sprite_Stage3RollcakeDoughCreate:
   - {fileID: 21300000, guid: d4f7e1c1849fb6e4c86f792827067963, type: 3}
-  sprite_Stage3RollcakeRecipe: []
-  sprite_Stage3RollcakeCreate: []
+  sprite_Stage3RollcakeRecipe:
+  - {fileID: 21300000, guid: d3bed4ed079190b4d843814f46d824c2, type: 3}
+  - {fileID: 21300000, guid: 593daa0a4f8f61a47b35e20c45851b83, type: 3}
+  - {fileID: 21300000, guid: b3535d6ec088d6245abe5dda653c5ac1, type: 3}
+  - {fileID: 21300000, guid: b8f7b7d106074fd498a8f871fe5f8c7d, type: 3}
+  - {fileID: 21300000, guid: f78907e089d354d46aa29dc5a43b4d77, type: 3}
+  - {fileID: 21300000, guid: f0e040cb760732e40a902579af7adb1e, type: 3}
+  sprite_Stage3RollcakeCreate:
+  - {fileID: 21300000, guid: 86e7d8a097e307647b98f81428b985de, type: 3}
+  - {fileID: 21300000, guid: 57f42fb4cfe5b32489331fc46bea2839, type: 3}
+  - {fileID: 21300000, guid: d3ca677ad8332ad4a9269a3b191bd2f8, type: 3}
+  - {fileID: 21300000, guid: fdf264b6766b69148af59763c80d71ee, type: 3}
+  - {fileID: 21300000, guid: 2bbe822d4a70c75419c6a5b343106cca, type: 3}
 --- !u!4 &849171268
 Transform:
   m_ObjectHideFlags: 0

@@ -270,6 +270,26 @@ public class PlateManager : MonoBehaviour
                 }
                 break;
 
+            case Stage.Stage1_3:
+                if (material.GetComponent<Image>().sprite == recipeManager.GetStage3RollcakeRecipe()[nMaterialIndex])
+                {
+                    Debug.Log("재료 맞춤");
+                    Sprite currentMaterial = material.GetComponent<Image>().sprite;
+
+                    image_Create.color = Color.white;
+                    image_Create.sprite = recipeManager.GetStage3RollcakeCreate()[nMaterialIndex];
+                    chestManager.list_Material.Remove(recipeManager.GetStage2StrawberryTartRecipe()[nMaterialIndex]);
+
+                    material.SetActive(false);
+                    material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
+                    nMaterialIndex++;
+                    if (nMaterialIndex >= recipeManager.GetStage3RollcakeRecipe().Count)
+                    {
+                        obj_BakeItButton.SetActive(true);
+                    }
+                }
+                break;
+
             default:
                 Debug.Log("스테이지가 정의되지 않은 오븐입니다. (이 오류는 오븐매니저에서 발생했습니다.)");
                 break;
