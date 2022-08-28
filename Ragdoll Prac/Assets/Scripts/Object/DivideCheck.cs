@@ -69,7 +69,7 @@ public class DivideCheck : MonoBehaviour
                     }
                     objDivideObject1.gameObject.SetActive(true);
                     objDivideObject2.gameObject.SetActive(true);
-
+                    chestManager.CutKiwiTrue();
                     transform.parent.gameObject.SetActive(false);
                 }
                 break;

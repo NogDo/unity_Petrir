@@ -276,6 +276,37 @@ public class OvenManager : MonoBehaviour
                         obj_BakeItButton.SetActive(true);
                     }
                 }
+                else
+                {
+                    Debug.Log("재료 틀림");
+                    material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
+                }
+                break;
+
+            case Stage.Stage1_4:
+                if(material.GetComponent<Image>().sprite == recipeManager.GetStage4ShouRecipe()[nMaterialIndex])
+                {
+                    Debug.Log("재료 맞춤");
+                    Sprite currentMaterial = material.GetComponent<Image>().sprite;
+
+                    image_Create.color = Color.white;
+                    image_Create.sprite = recipeManager.GetStage4ShouCreate()[nMaterialIndex];
+
+                    chestManager.list_Material.Remove(recipeManager.GetStage4ShouRecipe()[nMaterialIndex]);
+                    material.gameObject.SetActive(false);
+                    material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
+
+                    nMaterialIndex++;
+                    if(nMaterialIndex >= recipeManager.GetStage4ShouRecipe().Count)
+                    {
+                        obj_BakeItButton.SetActive(true);
+                    }
+                }
+                else
+                {
+                    Debug.Log("재료 틀림");
+                    material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
+                }
                 break;
 
             default:

@@ -55,6 +55,9 @@ public class GameManager : MonoBehaviour
             ClearCheck.isTutorialClear = false;
             ClearCheck.isStage1Clear = false;
             ClearCheck.isStage2Clear = false;
+            ClearCheck.isStage3Clear = false;
+            ClearCheck.isStage4Clear = false;
+            ClearCheck.isStage5Clear = false;
         }
     }
 
@@ -77,5 +80,12 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("UI");
         ClearCheck.isStage2Clear = true;
         PlayerPrefs.SetInt("Stage2Clear", 1);
+    }
+
+    public void Stage3Clear()
+    {
+        SceneManager.LoadScene("UI");
+        ClearCheck.isStage3Clear = true;
+        PlayerPrefs.SetInt("Stage3Clear", 1);
     }
 }

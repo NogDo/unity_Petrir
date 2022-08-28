@@ -51,16 +51,25 @@ public class PlateManager : MonoBehaviour
     public GameObject objClickItButton;
     public GameObject objArrow;
     public Sprite objRollCakeFinishedAfterCilckIt;
+    public Sprite sprite_SugarPowder;
+    public Sprite sprite_Shou;
+    public GameObject objShou;
+    public GameObject objSuecreamShou;
+    public GameObject objChocoCreamShou;
 
     private int nMaterialIndex = 0;
     private int nPastryCount = 0;
+    private int nSugarPowderCount = 0;
+    private int nShouCount = 0;
 
     private bool isStage2StrawberryTartEnd;
+    private bool isStage4SuecreamShouEnd;
 
     // Start is called before the first frame update
     void Start()
     {
         isStage2StrawberryTartEnd = false;
+        isStage4SuecreamShouEnd = false;
     }
 
     public void OpenPlateUI()
@@ -86,6 +95,12 @@ public class PlateManager : MonoBehaviour
         {
             objRollcakeDoughFinished.SetActive(false);
             objRollcakeFinished.SetActive(false);
+        }
+        else if(stage == Stage.Stage1_4)
+        {
+            objShou.SetActive(false);
+            objSuecreamShou.SetActive(false);
+            objChocoCreamShou.SetActive(false);
         }
         image_Create.gameObject.SetActive(true);
 
@@ -308,6 +323,68 @@ public class PlateManager : MonoBehaviour
                 }
                 break;
 
+            case Stage.Stage1_4:
+                if (material.GetComponent<Image>().sprite == recipeManager.GetStage4SuecreamShouRecipe()[nMaterialIndex] && !isStage4SuecreamShouEnd)
+                {
+                    Debug.Log("재료 맞춤");
+                    Sprite currentMaterial = material.GetComponent<Image>().sprite;
+
+                    image_Create.color = Color.white;
+                    image_Create.sprite = recipeManager.GetStage4SuecreamShouCreate()[nMaterialIndex];
+
+                    if(currentMaterial == sprite_SugarPowder && nSugarPowderCount < 1)
+                    {
+                        nSugarPowderCount++;
+                    }
+                    else if (currentMaterial == sprite_Shou && nShouCount < 1)
+                    {
+                        nShouCount++;
+                    }
+                    else
+                    {
+                        chestManager.list_Material.Remove(recipeManager.GetStage4SuecreamShouRecipe()[nMaterialIndex]);
+                        material.SetActive(false);
+                    }
+
+                    material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
+                    nMaterialIndex++;
+                    if (nMaterialIndex >= recipeManager.GetStage4SuecreamShouRecipe().Count)
+                    {
+                        obj_BakeItButton.SetActive(true);
+                    }
+                }
+                else if (material.GetComponent<Image>().sprite == recipeManager.GetStage4ChococreamShouRecipe()[nMaterialIndex])
+                {
+                    Debug.Log("재료 맞춤");
+                    Sprite currentMaterial = material.GetComponent<Image>().sprite;
+
+                    image_Create.color = Color.white;
+                    image_Create.sprite = recipeManager.GetStage4ChococreamShouCreate()[nMaterialIndex];
+                    
+                    if (currentMaterial == sprite_Shou && nShouCount < 1)
+                    {
+                        nShouCount++;
+                    }
+                    else
+                    {
+                        chestManager.list_Material.Remove(recipeManager.GetStage4ChococreamShouRecipe()[nMaterialIndex]);
+                        material.SetActive(false);
+                    }
+
+                    material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
+                    nMaterialIndex++;
+                    if (nMaterialIndex >= recipeManager.GetStage4ChococreamShouRecipe().Count)
+                    {
+                        obj_BakeItButton2.SetActive(true);
+                    }
+                }
+                else
+                {
+                    Debug.Log("재료 틀림");
+                    material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
+                }
+                break;
+
             default:
                 Debug.Log("스테이지가 정의되지 않은 오븐입니다. (이 오류는 오븐매니저에서 발생했습니다.)");
                 break;
@@ -325,5 +402,13 @@ public class PlateManager : MonoBehaviour
     {
         image_Create.sprite = objRollCakeFinishedAfterCilckIt;
         obj_BakeItButton.SetActive(true);
+    }
+
+    public void SuecreamShouFinish()
+    {
+        image_Create = objChocoCreamShou.GetComponent<Image>();
+        isStage4SuecreamShouEnd = true;
+        nMaterialIndex = 0;
+        nShouCount = 0;
     }
 }

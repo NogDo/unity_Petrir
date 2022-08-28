@@ -27,6 +27,9 @@ public class ChestManager : MonoBehaviour
     private bool isChocolateCut;
     private bool isStrawberryCut;
     private bool isKiwiCut;
+    private bool isBananaCut;
+    private bool isOrangeCut;
+    private bool isPeachCut;
 
     private int nBreadCount;
     private int nStrawberryCount;
@@ -44,6 +47,10 @@ public class ChestManager : MonoBehaviour
         isAlreadyInChocolate = false;
         isChocolateCut = false;
         isStrawberryCut = false;
+        isKiwiCut = false;
+        isBananaCut = false;
+        isOrangeCut = false;
+        isPeachCut = false;
 
         nBreadCount = 0;
         nStrawberryCount = 0;
@@ -222,43 +229,58 @@ public class ChestManager : MonoBehaviour
                         break;
 
                     case Ingredient.Banana:
-                        if(nBananaCount >= 1)
+                        if (isBananaCut)
                         {
-                            Image_RecipeCheckBox[2].sprite = sprite_O;
+                            if (nBananaCount >= 1)
+                            {
+                                Image_RecipeCheckBox[2].sprite = sprite_O;
+                            }
+                            nBananaCount++;
                         }
-                        nBananaCount++;
                         break;
 
                     case Ingredient.Kiwi_Cut:
-                        if (nKiwiCount >= 1)
+                        if (isKiwiCut)
                         {
-                            Image_RecipeCheckBox[3].sprite = sprite_O;
+                            if (nKiwiCount >= 1)
+                            {
+                                Image_RecipeCheckBox[3].sprite = sprite_O;
+                            }
+                            nKiwiCount++;
                         }
-                        nKiwiCount++;
                         break;
 
                     case Ingredient.Strawberry_Cut:
-                        if (nStrawberryCount >= 1)
+                        if (isStrawberryCut)
                         {
-                            Image_RecipeCheckBox[4].sprite = sprite_O;
+                            if (nStrawberryCount >= 1)
+                            {
+                                Image_RecipeCheckBox[4].sprite = sprite_O;
+                            }
+                            nStrawberryCount++;
                         }
-                        nStrawberryCount++;
                         break;
 
                     case Ingredient.Peach:
-                        if (nPeachCount >= 1)
+                        if (isPeachCut)
                         {
-                            Image_RecipeCheckBox[5].sprite = sprite_O;
+                            if (nPeachCount >= 1)
+                            {
+                                Image_RecipeCheckBox[5].sprite = sprite_O;
+                            }
+                            nPeachCount++;
                         }
-                        nPeachCount++;
                         break;
 
                     case Ingredient.Orange:
-                        if (nOrangeCount >= 1)
+                        if (isOrangeCut)
                         {
-                            Image_RecipeCheckBox[6].sprite = sprite_O;
+                            if (nOrangeCount >= 1)
+                            {
+                                Image_RecipeCheckBox[6].sprite = sprite_O;
+                            }
+                            nOrangeCount++;
                         }
-                        nOrangeCount++;
                         break;
                 }
                 break;
@@ -292,6 +314,16 @@ public class ChestManager : MonoBehaviour
             return;
         }
 
+        if(stage == Stage.Stage1_3 && sprite_Ingredient == sprite_Strawberry)
+        {
+            return;
+        }
+
+        if(stage == Stage.Stage1_3 && sprite_Ingredient == null)
+        {
+            return;
+        }
+
         if(stage == Stage.Tutorial)
         {
             if (sprite_Ingredient == sprite_Chocolate)
@@ -317,5 +349,20 @@ public class ChestManager : MonoBehaviour
     public void CutKiwiTrue()
     {
         isKiwiCut = true;
+    }
+
+    public void CutBananaTrue()
+    {
+        isBananaCut = true;
+    }
+
+    public void CutOrangeTrue()
+    {
+        isOrangeCut = true;
+    }
+
+    public void CutPeachTrue()
+    {
+        isPeachCut = true;
     }
 }

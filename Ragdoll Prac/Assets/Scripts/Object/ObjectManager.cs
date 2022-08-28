@@ -21,7 +21,10 @@ public enum Ingredient
     Peach,
     Orange,
     Banana,
-    Rollcake
+    Rollcake,
+    Choco_Bag,
+    SugarPowder,
+    Chou
 }
 
 public class ObjectManager : MonoBehaviour

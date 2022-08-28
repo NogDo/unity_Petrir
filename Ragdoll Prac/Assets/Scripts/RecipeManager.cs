@@ -28,6 +28,14 @@ public class RecipeManager : MonoBehaviour
     public Sprite[] sprite_Stage3RollcakeRecipe;
     public Sprite[] sprite_Stage3RollcakeCreate;
 
+    [Header("스테이지4 레시피")]
+    public Sprite[] sprite_Stage4ShouRecipe;
+    public Sprite[] sprite_Stage4ShouCreate;
+    public Sprite[] sprite_Stage4SuecreamShouRecipe;
+    public Sprite[] sprite_Stage4SuecreamShouCreate;
+    public Sprite[] sprite_Stage4ChococreamShouRecipe;
+    public Sprite[] sprite_Stage4ChococreamShouCreate;
+
     public List<Sprite> GetTutorialRecipe()
     {
         List<Sprite> list_TutorialRecipe = new List<Sprite>();
@@ -202,5 +210,71 @@ public class RecipeManager : MonoBehaviour
         }
 
         return list_Stage3Create;
+    }
+
+    public List<Sprite> GetStage4ShouRecipe()
+    {
+        List<Sprite> list_Stage4Recipe = new List<Sprite>();
+        for(int i = 0; i < sprite_Stage4ShouRecipe.Length; i++)
+        {
+            list_Stage4Recipe.Add(sprite_Stage4ShouRecipe[i]);
+        }
+
+        return list_Stage4Recipe;
+    }
+
+    public List<Sprite> GetStage4ShouCreate()
+    {
+        List<Sprite> list_Stage4Ceate = new List<Sprite>();
+        for (int i = 0; i < sprite_Stage4ShouCreate.Length; i++)
+        {
+            list_Stage4Ceate.Add(sprite_Stage4ShouCreate[i]);
+        }
+
+        return list_Stage4Ceate;
+    }
+
+    public List<Sprite> GetStage4SuecreamShouRecipe()
+    {
+        List<Sprite> list_Stage4Recipe = new List<Sprite>();
+        for (int i = 0; i < sprite_Stage4SuecreamShouRecipe.Length; i++)
+        {
+            list_Stage4Recipe.Add(sprite_Stage4SuecreamShouRecipe[i]);
+        }
+
+        return list_Stage4Recipe;
+    }
+
+    public List<Sprite> GetStage4SuecreamShouCreate()
+    {
+        List<Sprite> list_Stage4Ceate = new List<Sprite>();
+        for (int i = 0; i < sprite_Stage4SuecreamShouCreate.Length; i++)
+        {
+            list_Stage4Ceate.Add(sprite_Stage4SuecreamShouCreate[i]);
+        }
+
+        return list_Stage4Ceate;
+    }
+
+    public List<Sprite> GetStage4ChococreamShouRecipe()
+    {
+        List<Sprite> list_Stage4Recipe = new List<Sprite>();
+        for (int i = 0; i < sprite_Stage4ChococreamShouRecipe.Length; i++)
+        {
+            list_Stage4Recipe.Add(sprite_Stage4ChococreamShouRecipe[i]);
+        }
+
+        return list_Stage4Recipe;
+    }
+
+    public List<Sprite> GetStage4ChococreamShouCreate()
+    {
+        List<Sprite> list_Stage4Ceate = new List<Sprite>();
+        for (int i = 0; i < sprite_Stage4ChococreamShouCreate.Length; i++)
+        {
+            list_Stage4Ceate.Add(sprite_Stage4ChococreamShouCreate[i]);
+        }
+
+        return list_Stage4Ceate;
     }
 }
