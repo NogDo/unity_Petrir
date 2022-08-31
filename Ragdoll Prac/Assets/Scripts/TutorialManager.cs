@@ -47,6 +47,9 @@ public class TutorialManager : MonoBehaviour
     [Header("튜토리얼 설명 텍스트")]
     public TextMeshProUGUI tmp_TutorialExplain;
 
+    [Header("튜토리얼에 필요한 효과음")]
+    public AudioSource audioSource_GuideText;
+
     List<Dictionary<string, object>> list_TutorialGuide;
 
     private int nTutorialGuideIndex;
@@ -126,6 +129,7 @@ public class TutorialManager : MonoBehaviour
             {
                 return;
             }
+            audioSource_GuideText.Play();
             tmp_TutorialExplain.text = list_TutorialGuide[nTutorialGuideIndex]["Content"].ToString();
             isExcuteOnce = true;
         }

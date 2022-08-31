@@ -26,6 +26,8 @@ public class PlateManager : MonoBehaviour
     [Header("BGM")]
     public AudioSource audioSource_Stage;
     public AudioSource audioSource_Oven;
+    public AudioSource audioSource_OvenStack;
+    public AudioSource audioSource_OvenStackMiss;
 
     [Header("플레이어 관련 스크립트")]
     public CameraControl cameraControl;
@@ -169,12 +171,15 @@ public class PlateManager : MonoBehaviour
                     material.SetActive(false);
                     material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
 
+                    OvenStack();
+
                     nMaterialIndex++;
                     tutorialManager.EndDragTutorial();
                 }
                 else
                 {
                     material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
+                    OvenStackMiss();
                 }
                 break;
 
@@ -191,6 +196,8 @@ public class PlateManager : MonoBehaviour
                     material.SetActive(false);
                     material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
 
+                    OvenStack();
+
                     nMaterialIndex++;
                     if (nMaterialIndex >= recipeManager.GetTutorialRecipe().Count)
                     {
@@ -200,6 +207,7 @@ public class PlateManager : MonoBehaviour
                 else
                 {
                     material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
+                    OvenStackMiss();
                 }
                 break;
 
@@ -224,6 +232,8 @@ public class PlateManager : MonoBehaviour
                         material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
                     }
 
+                    OvenStack();
+
                     nMaterialIndex++;
                     if (nMaterialIndex >= recipeManager.GetStage1Recipe().Count)
                     {
@@ -234,6 +244,7 @@ public class PlateManager : MonoBehaviour
                 {
                     Debug.Log("재료 틀림");
                     material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
+                    OvenStackMiss();
                 }
                 break;
 
@@ -265,6 +276,8 @@ public class PlateManager : MonoBehaviour
                         material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
                     }
 
+                    OvenStack();
+
                     nMaterialIndex++;
                     if (nMaterialIndex >= recipeManager.GetStage2StrawberryTartRecipe().Count)
                     {
@@ -283,6 +296,8 @@ public class PlateManager : MonoBehaviour
                     material.SetActive(false);
                     material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
 
+                    OvenStack();
+
                     nMaterialIndex++;
                     if (nMaterialIndex >= recipeManager.GetStage2MuscatTartRecipe().Count)
                     {
@@ -293,6 +308,7 @@ public class PlateManager : MonoBehaviour
                 {
                     Debug.Log("재료 틀림");
                     material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
+                    OvenStackMiss();
                 }
                 break;
 
@@ -308,6 +324,9 @@ public class PlateManager : MonoBehaviour
 
                     material.SetActive(false);
                     material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
+
+                    OvenStack();
+
                     nMaterialIndex++;
                     if (nMaterialIndex >= recipeManager.GetStage3RollcakeRecipe().Count)
                     {
@@ -320,6 +339,7 @@ public class PlateManager : MonoBehaviour
                 {
                     Debug.Log("재료 틀림");
                     material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
+                    OvenStackMiss();
                 }
                 break;
 
@@ -347,6 +367,9 @@ public class PlateManager : MonoBehaviour
                     }
 
                     material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
+
+                    OvenStack();
+
                     nMaterialIndex++;
                     if (nMaterialIndex >= recipeManager.GetStage4SuecreamShouRecipe().Count)
                     {
@@ -372,6 +395,9 @@ public class PlateManager : MonoBehaviour
                     }
 
                     material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
+
+                    OvenStack();
+
                     nMaterialIndex++;
                     if (nMaterialIndex >= recipeManager.GetStage4ChococreamShouRecipe().Count)
                     {
@@ -382,6 +408,7 @@ public class PlateManager : MonoBehaviour
                 {
                     Debug.Log("재료 틀림");
                     material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
+                    OvenStackMiss();
                 }
                 break;
 
@@ -410,5 +437,15 @@ public class PlateManager : MonoBehaviour
         isStage4SuecreamShouEnd = true;
         nMaterialIndex = 0;
         nShouCount = 0;
+    }
+
+    public void OvenStack()
+    {
+        audioSource_OvenStack.Play();
+    }
+
+    public void OvenStackMiss()
+    {
+        audioSource_OvenStackMiss.Play();
     }
 }

@@ -14,6 +14,7 @@ public class GameUIManager : MonoBehaviour
 
     public GameObject objKnifeImage;
     public GameObject objKnife;
+    public AudioSource audioSource_KnifeTakeOut;
 
     public TutorialManager tutorialManager;
 
@@ -90,6 +91,7 @@ public class GameUIManager : MonoBehaviour
             objKnifeImage.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
             objKnife.SetActive(true);
             objKnife.GetComponent<ObjectManager>().ResetTransform();
+            audioSource_KnifeTakeOut.Play();
         }
     }
 

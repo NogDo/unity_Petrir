@@ -11,6 +11,7 @@ public class CheckPoint : MonoBehaviour
     public GameObject objCheckPoint;
     public Material material_Pink;
     public Material material_Green;
+    public AudioSource audioSource_CheckPoint;
 
     [Header("예외로 다뤄야할 오브젝트들")]
     public GameObject objCandy;
@@ -27,6 +28,7 @@ public class CheckPoint : MonoBehaviour
                 Vector3 check = transform.position;
                 vector3_CheckPoint = new Vector3(check.x, check.y + 5.0f, check.z);
                 playerManager.CheckPoint(vector3_CheckPoint);
+                audioSource_CheckPoint.Play();
 
                 objCheckPoint.GetComponent<MeshRenderer>().material.color = new Color(150.0f / 255.0f, 150.0f / 255.0f, 150.0f / 255.0f);
                 StartCoroutine(CheckPoint_To_ChangeColor());

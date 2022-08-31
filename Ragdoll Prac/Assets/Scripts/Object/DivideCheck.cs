@@ -11,6 +11,8 @@ public class DivideCheck : MonoBehaviour
     public GameObject objDivideObject2;
     public GameObject objMap;
 
+    public AudioSource audioSource_KnifeCut;
+
     public ChestManager chestManager;
     public ObjectManager objectManager;
 
@@ -29,6 +31,7 @@ public class DivideCheck : MonoBehaviour
                     divideObject2.gameObject.SetActive(false);
                     chestManager.CutChocoloateTrue();
                     gameObject.SetActive(false);
+                    audioSource_KnifeCut.Play();
                 }
                 break;
 
@@ -50,6 +53,7 @@ public class DivideCheck : MonoBehaviour
                     objDivideObject2.gameObject.SetActive(true);
                     chestManager.CutStrawberryTrue();
                     transform.parent.gameObject.SetActive(false);
+                    audioSource_KnifeCut.Play();
                 }
                 break;
 
@@ -71,6 +75,7 @@ public class DivideCheck : MonoBehaviour
                     objDivideObject2.gameObject.SetActive(true);
                     chestManager.CutKiwiTrue();
                     transform.parent.gameObject.SetActive(false);
+                    audioSource_KnifeCut.Play();
                 }
                 break;
 
@@ -92,6 +97,7 @@ public class DivideCheck : MonoBehaviour
                     objDivideObject2.gameObject.SetActive(true);
                     chestManager.CutBananaTrue();
                     transform.parent.gameObject.SetActive(false);
+                    audioSource_KnifeCut.Play();
                 }
                 break;
 
@@ -113,6 +119,7 @@ public class DivideCheck : MonoBehaviour
                     objDivideObject2.gameObject.SetActive(true);
                     chestManager.CutOrangeTrue();
                     transform.parent.gameObject.SetActive(false);
+                    audioSource_KnifeCut.Play();
                 }
                 break;
 
@@ -134,6 +141,7 @@ public class DivideCheck : MonoBehaviour
                     objDivideObject2.gameObject.SetActive(true);
                     chestManager.CutPeachTrue();
                     transform.parent.gameObject.SetActive(false);
+                    audioSource_KnifeCut.Play();
                 }
                 break;
 
@@ -155,6 +163,7 @@ public class DivideCheck : MonoBehaviour
                     objDivideObject2.gameObject.SetActive(true);
                     chestManager.CutPeachTrue();
                     transform.parent.gameObject.SetActive(false);
+                    audioSource_KnifeCut.Play();
                 }
                 break;
         }

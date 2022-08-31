@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8346519991133168948}
   - component: {fileID: 8346519991133168955}
   - component: {fileID: 8346519991133168949}
+  - component: {fileID: 7207768482382278887}
   m_Layer: 0
   m_Name: Cylinder001
   m_TagString: Item
@@ -147,6 +148,20 @@ HingeJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &7207768482382278887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440422260464394671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a1020fd60547b540adfb78b05da1f48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource_ChestSound: {fileID: 0}
+  hingeJoint_: {fileID: 8346519991133168949}
 --- !u!1 &525353737522291247
 GameObject:
   m_ObjectHideFlags: 0
