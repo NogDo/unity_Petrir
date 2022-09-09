@@ -830,7 +830,8 @@ MonoBehaviour:
   playerController: {fileID: 0}
   audio_JellyJump: {fileID: 0}
   animator: {fileID: 8349159637435249454}
-  fJumpPower: 0
+  fJumpPower: 10
+  nJumpCount: 4
 --- !u!1 &8278651260288621718
 GameObject:
   m_ObjectHideFlags: 0

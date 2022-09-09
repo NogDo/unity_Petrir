@@ -11,6 +11,7 @@ public class Spring : MonoBehaviour
     public Animator animator;
 
     public float fJumpPower;
+    public int nJumpCount;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -28,7 +29,7 @@ public class Spring : MonoBehaviour
         {
             animator.SetTrigger("Step");
             playerController.isGrounded = true;
-            playerController.AddJumpForce(fJumpPower);
+            playerController.AddJumpForce(fJumpPower, nJumpCount);
             audio_JellyJump.Play();
         }
     }

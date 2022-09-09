@@ -57,7 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5b298230395d6440bd6dc972f1b8454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patrolWall: {fileID: 0}
+  patrolWall: {fileID: 5867560266302135956}
   collision_LeftFoot: {fileID: 0}
   collision_RightFoot: {fileID: 0}
   isLeftFootExit: 0
