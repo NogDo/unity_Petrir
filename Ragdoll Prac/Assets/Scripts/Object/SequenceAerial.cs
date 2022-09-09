@@ -96,9 +96,11 @@ public class SequenceAerial : MonoBehaviour
 
     IEnumerator SetMaterialBasic()
     {
-        obj_SequenceAerials[nMaterialIndex].transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().material = mat_MoveSequence;
+        //obj_SequenceAerials[nMaterialIndex].transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().material = mat_MoveSequence;
+        obj_SequenceAerials[nMaterialIndex].transform.GetChild(0).GetComponent<MeshRenderer>().material = mat_MoveSequence;
         yield return new WaitForSeconds(0.8f);
-        obj_SequenceAerials[nMaterialIndex].transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().material = mat_MoveBasic;
+        //obj_SequenceAerials[nMaterialIndex].transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().material = mat_MoveBasic;
+        obj_SequenceAerials[nMaterialIndex].transform.GetChild(0).GetComponent<MeshRenderer>().material = mat_MoveBasic;
         nMaterialIndex++;
         if (nMaterialIndex < nSequenceMaxCount)
         {

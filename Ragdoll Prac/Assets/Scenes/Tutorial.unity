@@ -9067,8 +9067,8 @@ MonoBehaviour:
   objKnifeImage: {fileID: 247246243}
   audioSource_Stage: {fileID: 388955318}
   audioSource_Oven: {fileID: 1176077115}
-  audioSource_OvenStack: {fileID: 0}
-  audioSource_OvenStackMiss: {fileID: 0}
+  audioSource_OvenStack: {fileID: 739863951}
+  audioSource_OvenStackMiss: {fileID: 2060854314}
   cameraControl: {fileID: 1073751153}
   playerController: {fileID: 1700030761209657942}
   grabLeft: {fileID: 8265466972483022803}

@@ -2007,17 +2007,17 @@ PrefabInstance:
     - target: {fileID: 6646589040275987604, guid: faf1e9dccb16bf84babbcbeea0bcbfea,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 40.76
+      value: -48.66
       objectReference: {fileID: 0}
     - target: {fileID: 6646589040275987604, guid: faf1e9dccb16bf84babbcbeea0bcbfea,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 25.99
+      value: 5.32
       objectReference: {fileID: 0}
     - target: {fileID: 6646589040275987604, guid: faf1e9dccb16bf84babbcbeea0bcbfea,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -65.2
+      value: 3.19
       objectReference: {fileID: 0}
     - target: {fileID: 6646589040275987604, guid: faf1e9dccb16bf84babbcbeea0bcbfea,
         type: 3}
@@ -9275,8 +9275,8 @@ MonoBehaviour:
   - {fileID: 86261008}
   - {fileID: 2077362196}
   obj_Static2: []
-  mat_MoveBasic: {fileID: 2100000, guid: 04e8e5655a3f76248b48e2a255e461a5, type: 2}
-  mat_MoveSequence: {fileID: 2100000, guid: b3146fdb7b4fc3d42a5058d47d0e2d55, type: 2}
+  mat_MoveBasic: {fileID: 2100000, guid: 0b0d5d13140d3ec4a90ddba97117b582, type: 2}
+  mat_MoveSequence: {fileID: 2100000, guid: dec6139ab84af7f449d2eb9402c8c4e4, type: 2}
   nMaterialIndex: 0
   nSequenceIndex: 0
   nSequenceMaxCount: 6
