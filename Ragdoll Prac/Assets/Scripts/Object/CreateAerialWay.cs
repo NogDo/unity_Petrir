@@ -8,6 +8,7 @@ public class CreateAerialWay : MonoBehaviour
 
     public int nAerialsCount;
     public bool isStartVisible;
+    public float fTime;
 
     private void Start()
     {
@@ -42,7 +43,7 @@ public class CreateAerialWay : MonoBehaviour
 
     IEnumerator SetVisibleFalseAerials()
     {
-        yield return new WaitForSeconds(10.0f);
+        yield return new WaitForSeconds(fTime);
         for(int i = 0; i < objAerials.Length; i++)
         {
             objAerials[i].SetActive(false);

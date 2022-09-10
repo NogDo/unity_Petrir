@@ -31196,6 +31196,7 @@ MonoBehaviour:
   - {fileID: 742849173}
   nAerialsCount: 0
   isStartVisible: 0
+  fTime: 10
 --- !u!1001 &1393700328
 PrefabInstance:
   m_ObjectHideFlags: 0
