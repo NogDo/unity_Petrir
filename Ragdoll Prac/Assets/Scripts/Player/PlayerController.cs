@@ -206,12 +206,18 @@ public class PlayerController : MonoBehaviour
             if (isRunning || isEnterPassWall)
             {
                 objPassWall.GetComponent<MeshCollider>().enabled = false;
-                objPassWall2.GetComponent<MeshCollider>().enabled = false;
+                if(objPassWall2 != null)
+                {
+                    objPassWall2.GetComponent<MeshCollider>().enabled = false;
+                }
             }
             else
             {
                 objPassWall.GetComponent<MeshCollider>().enabled = true;
-                objPassWall2.GetComponent<MeshCollider>().enabled = true;
+                if(objPassWall2 != null)
+                {
+                    objPassWall2.GetComponent<MeshCollider>().enabled = true;
+                }
             }
         }
     }

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8292211039081487666}
   - component: {fileID: 6447746664159627644}
   - component: {fileID: 3920517144256897588}
+  - component: {fileID: 5086595529892143077}
   m_Layer: 0
   m_Name: siso
   m_TagString: Ground
@@ -147,3 +148,16 @@ HingeJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &5086595529892143077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130721440828980646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6d489f1e5b8acf4cb1c13c61c3b2250, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hingeJoint_this: {fileID: 3920517144256897588}

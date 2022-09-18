@@ -103,4 +103,9 @@ public class UIButtonManager : MonoBehaviour
     {
         SceneManager.LoadScene("4");
     }
+
+    public void StartStage05()
+    {
+        SceneManager.LoadScene("5");
+    }
 }
