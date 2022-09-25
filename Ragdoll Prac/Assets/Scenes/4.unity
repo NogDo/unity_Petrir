@@ -120,7 +120,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: fc06190299a9d2e41b07c23f31de652c, type: 2}
 --- !u!1001 &652455
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7411,6 +7411,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: badak2 (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 7223143290646176710, guid: dca720346cf92c2488f5bf3537f3d674,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8351697363840772956, guid: dca720346cf92c2488f5bf3537f3d674,
         type: 3}
       propertyPath: m_RootOrder
@@ -9294,6 +9299,11 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1908772815669675528, guid: a33fff2bdf20db743b63adeebf3cd05e,
+        type: 3}
+      propertyPath: audioSource_ChestSound
+      value: 
+      objectReference: {fileID: 594337063}
     - target: {fileID: 7207768482382278887, guid: a33fff2bdf20db743b63adeebf3cd05e,
         type: 3}
       propertyPath: audioSource_ChestSound
@@ -10459,6 +10469,50 @@ PrefabInstance:
       objectReference: {fileID: 1418476022}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce8c68649ea41f64a9cae304c6924f60, type: 3}
+--- !u!1 &480080477
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 480080478}
+  - component: {fileID: 480080479}
+  m_Layer: 0
+  m_Name: Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &480080478
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480080477}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1090712831}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &480080479
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480080477}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.1, z: 0.1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &484538235
 GameObject:
   m_ObjectHideFlags: 0
@@ -16554,6 +16608,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: badak (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7123764900082983685, guid: 03b7e9f36da32534dbba33586548ff12,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03b7e9f36da32534dbba33586548ff12, type: 3}
@@ -24793,6 +24852,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1090446423}
   m_CullTransparentMesh: 0
+--- !u!1 &1090712830
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1090712831}
+  m_Layer: 0
+  m_Name: TargetGround
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1090712831
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090712830}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.67, y: 0.331, z: -6.344}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 480080478}
+  m_Father: {fileID: 2005134363}
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1094749740
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34363,6 +34453,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2005134363}
     m_Modifications:
+    - target: {fileID: 1716428527635222981, guid: 037739d1cda83004cb30be33ee83f669,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 480080478}
     - target: {fileID: 7350403165555393908, guid: 037739d1cda83004cb30be33ee83f669,
         type: 3}
       propertyPath: stage
@@ -38060,6 +38155,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: badak (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 7123764900082983685, guid: 03b7e9f36da32534dbba33586548ff12,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03b7e9f36da32534dbba33586548ff12, type: 3}
 --- !u!4 &1710653363 stripped
@@ -40132,6 +40232,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: badak2 (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7223143290646176710, guid: dca720346cf92c2488f5bf3537f3d674,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8351697363840772956, guid: dca720346cf92c2488f5bf3537f3d674,
         type: 3}
@@ -42524,6 +42629,7 @@ Transform:
   - {fileID: 431838639}
   - {fileID: 805483331}
   - {fileID: 1544062090}
+  - {fileID: 1090712831}
   - {fileID: 1400427845956946012}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -45342,7 +45448,7 @@ PrefabInstance:
     - target: {fileID: 7926760881991982078, guid: dfc5d451b3f845c43a919df13b719db4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 23
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 7926760881991982078, guid: dfc5d451b3f845c43a919df13b719db4,
         type: 3}

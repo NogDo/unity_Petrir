@@ -234,6 +234,8 @@ GameObject:
   - component: {fileID: 7350403165555394185}
   - component: {fileID: 7350403165555394184}
   - component: {fileID: 7350403165555393908}
+  - component: {fileID: 1716428527635222981}
+  - component: {fileID: 8463820051181949587}
   m_Layer: 0
   m_Name: oven
   m_TagString: Static
@@ -310,6 +312,8 @@ MonoBehaviour:
   objKnifeImage: {fileID: 0}
   audioSource_Stage: {fileID: 0}
   audioSource_Oven: {fileID: 0}
+  audioSource_OvenStack: {fileID: 0}
+  audioSource_OvenStackMiss: {fileID: 0}
   cameraControl: {fileID: 0}
   playerController: {fileID: 0}
   grabLeft: {fileID: 0}
@@ -323,6 +327,43 @@ MonoBehaviour:
   objTartFinished: {fileID: 0}
   objStrawberryTartFinished: {fileID: 0}
   objShineMuskatTartFinished: {fileID: 0}
+  objRollcakeDoughFinished: {fileID: 0}
+  objRollcakeFinished: {fileID: 0}
+--- !u!114 &1716428527635222981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7350403165555394186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f273600a6d93eef428abaf14c561fb8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+--- !u!195 &8463820051181949587
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7350403165555394186}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 2
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.475
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &7350403166363993024
 GameObject:
   m_ObjectHideFlags: 0
