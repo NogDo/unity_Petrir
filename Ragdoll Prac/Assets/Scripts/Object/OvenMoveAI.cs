@@ -10,14 +10,27 @@ public class OvenMoveAI : MonoBehaviour
     [SerializeField]
     Transform target;
 
+    public GameObject objPlayer;
+
+    bool isPressF;
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        isPressF = false;
     }
 
     void Update()
     {
-        agent.SetDestination(target.position);
+        if (isPressF)
+        {
+            agent.transform.LookAt(objPlayer.transform);
+            agent.SetDestination(transform.position);
+        }
+        else
+        {
+            agent.SetDestination(target.position);
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -29,5 +42,15 @@ public class OvenMoveAI : MonoBehaviour
             Vector3 vectorTargetNewPosition = new Vector3(fX, 0, fZ);
             target.localPosition = vectorTargetNewPosition;
         }
+    }
+
+    public void PressFTrue()
+    {
+        isPressF = true;
+    }
+
+    public void PressFFalse()
+    {
+        isPressF = false;
     }
 }

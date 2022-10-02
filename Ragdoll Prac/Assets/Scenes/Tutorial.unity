@@ -3522,6 +3522,10 @@ MonoBehaviour:
   sprite_Stage4SuecreamShouCreate: []
   sprite_Stage4ChococreamShouRecipe: []
   sprite_Stage4ChococreamShouCreate: []
+  sprite_Stage5DoughRecipe: []
+  sprite_Stage5DoughCreate: []
+  sprite_Stage5CakeRecipe: []
+  sprite_Stage5CakeCreate: []
 --- !u!4 &254374234
 Transform:
   m_ObjectHideFlags: 0
@@ -9384,6 +9388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 33769074}
+  objPlayer: {fileID: 0}
 --- !u!195 &921072557
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -14015,6 +14020,7 @@ MonoBehaviour:
   tutorialManager: {fileID: 1423183771}
   obj_Text: {fileID: 2045763921}
   animator_Oven: {fileID: 1205382103}
+  ovenMoveAI: {fileID: 0}
   isPlayerInArea: 0
   isOvenInterfaceOn: 0
 --- !u!95 &1205382103
@@ -19215,6 +19221,7 @@ MonoBehaviour:
   tutorialManager: {fileID: 1423183771}
   obj_Text: {fileID: 2045763921}
   animator_Oven: {fileID: 1205382103}
+  ovenMoveAI: {fileID: 0}
   isPlayerInArea: 0
   isOvenInterfaceOn: 0
 --- !u!135 &1643700894

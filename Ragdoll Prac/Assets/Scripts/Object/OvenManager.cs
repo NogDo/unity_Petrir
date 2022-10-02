@@ -10,7 +10,8 @@ public enum Stage
     Stage1_1,
     Stage1_2,
     Stage1_3,
-    Stage1_4
+    Stage1_4,
+    Stage1_5
 }
 
 public class OvenManager : MonoBehaviour
