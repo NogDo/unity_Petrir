@@ -1351,7 +1351,7 @@ MonoBehaviour:
   targetIsSelf: 1
   targetGO: {fileID: 0}
   tweenTargetIsTargetGO: 1
-  delay: 0
+  delay: 2.5
   duration: 5
   easeType: 1
   easeCurve:
@@ -2798,6 +2798,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9072149721966994923, guid: 8fdcb11cdbb1d174ea46f2b674c98e52,
+        type: 3}
+      propertyPath: playerManager
+      value: 
+      objectReference: {fileID: 973464497}
     - target: {fileID: 9072149721966994923, guid: 8fdcb11cdbb1d174ea46f2b674c98e52,
         type: 3}
       propertyPath: audioSource_CheckPoint
@@ -31527,7 +31532,7 @@ MonoBehaviour:
   targetIsSelf: 1
   targetGO: {fileID: 0}
   tweenTargetIsTargetGO: 1
-  delay: 0
+  delay: 2.5
   duration: 5
   easeType: 1
   easeCurve:
@@ -31571,7 +31576,7 @@ MonoBehaviour:
   autoPlay: 1
   useTargetAsV3: 0
   endValueFloat: 0
-  endValueV3: {x: -90, y: 0, z: 180}
+  endValueV3: {x: -90, y: 0, z: -180}
   endValueV2: {x: 0, y: 0}
   endValueColor: {r: 1, g: 1, b: 1, a: 1}
   endValueString: 
@@ -32437,7 +32442,7 @@ MonoBehaviour:
   autoPlay: 1
   useTargetAsV3: 0
   endValueFloat: 0
-  endValueV3: {x: -90, y: 0, z: 180}
+  endValueV3: {x: -90, y: 0, z: -180}
   endValueV2: {x: 0, y: 0}
   endValueColor: {r: 1, g: 1, b: 1, a: 1}
   endValueString: 
@@ -36064,17 +36069,17 @@ PrefabInstance:
     - target: {fileID: 6646589040275987604, guid: faf1e9dccb16bf84babbcbeea0bcbfea,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -114.27
+      value: -98.88
       objectReference: {fileID: 0}
     - target: {fileID: 6646589040275987604, guid: faf1e9dccb16bf84babbcbeea0bcbfea,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.12
+      value: 40.74
       objectReference: {fileID: 0}
     - target: {fileID: 6646589040275987604, guid: faf1e9dccb16bf84babbcbeea0bcbfea,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.034
+      value: 66.45
       objectReference: {fileID: 0}
     - target: {fileID: 6646589040275987604, guid: faf1e9dccb16bf84babbcbeea0bcbfea,
         type: 3}

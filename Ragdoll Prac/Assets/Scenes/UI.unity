@@ -712,7 +712,7 @@ MonoBehaviour:
   audio_StartScreen: {fileID: 1754545304}
   audio_StageSelection: {fileID: 1399404687}
   objMain: {fileID: 1454014965}
-  objChapter: {fileID: 781447292}
+  objChapter: {fileID: 1179037603}
   objChapter1Stage: {fileID: 1179037603}
   objChapter2Stage: {fileID: 0}
   objChapter3Stage: {fileID: 0}
@@ -1065,7 +1065,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &359379475
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3157,7 +3157,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1244184689
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4234,7 +4234,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1549740869
 RectTransform:
   m_ObjectHideFlags: 0
