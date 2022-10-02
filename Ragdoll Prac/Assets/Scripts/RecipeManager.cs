@@ -36,6 +36,12 @@ public class RecipeManager : MonoBehaviour
     public Sprite[] sprite_Stage4ChococreamShouRecipe;
     public Sprite[] sprite_Stage4ChococreamShouCreate;
 
+    [Header("스테이지5 레시피")]
+    public Sprite[] sprite_Stage5DoughRecipe;
+    public Sprite[] sprite_Stage5DoughCreate;
+    public Sprite[] sprite_Stage5CakeRecipe;
+    public Sprite[] sprite_Stage5CakeCreate;
+
     public List<Sprite> GetTutorialRecipe()
     {
         List<Sprite> list_TutorialRecipe = new List<Sprite>();

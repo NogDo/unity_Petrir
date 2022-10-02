@@ -46,6 +46,8 @@ public class TutorialManager : MonoBehaviour
 
     [Header("튜토리얼 설명 텍스트")]
     public TextMeshProUGUI tmp_TutorialExplain;
+    public Image image_TutorialText;
+    public Sprite[] sprite_TutorialText;
 
     [Header("튜토리얼에 필요한 효과음")]
     public AudioSource audioSource_GuideText;
@@ -130,7 +132,8 @@ public class TutorialManager : MonoBehaviour
                 return;
             }
             audioSource_GuideText.Play();
-            tmp_TutorialExplain.text = list_TutorialGuide[nTutorialGuideIndex]["Content"].ToString();
+            //tmp_TutorialExplain.text = list_TutorialGuide[nTutorialGuideIndex]["Content"].ToString();
+            image_TutorialText.sprite = sprite_TutorialText[nTutorialGuideIndex];
             isExcuteOnce = true;
         }
     }
