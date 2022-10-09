@@ -283,4 +283,48 @@ public class RecipeManager : MonoBehaviour
 
         return list_Stage4Ceate;
     }
+
+    public List<Sprite> GetStage5DoughRecipe()
+    {
+        List<Sprite> list_Stage5Recipe = new List<Sprite>();
+        for(int i = 0; i < sprite_Stage5DoughRecipe.Length; i++)
+        {
+            list_Stage5Recipe.Add(sprite_Stage5DoughRecipe[i]);
+        }
+
+        return list_Stage5Recipe;
+    }
+
+    public List<Sprite> GetStage5DoughCreate()
+    {
+        List<Sprite> list_Stage5Create = new List<Sprite>();
+        for (int i = 0; i < sprite_Stage5DoughCreate.Length; i++)
+        {
+            list_Stage5Create.Add(sprite_Stage5DoughCreate[i]);
+        }
+
+        return list_Stage5Create;
+    }
+
+    public List<Sprite> GetStage5CakeRecipe()
+    {
+        List<Sprite> list_Stage5Recipe = new List<Sprite>();
+        for (int i = 0; i < sprite_Stage5CakeRecipe.Length; i++)
+        {
+            list_Stage5Recipe.Add(sprite_Stage5CakeRecipe[i]);
+        }
+
+        return list_Stage5Recipe;
+    }
+
+    public List<Sprite> GetStage5CakeCreate()
+    {
+        List<Sprite> list_Stage5Create = new List<Sprite>();
+        for (int i = 0; i < sprite_Stage5CakeCreate.Length; i++)
+        {
+            list_Stage5Create.Add(sprite_Stage5CakeCreate[i]);
+        }
+
+        return list_Stage5Create;
+    }
 }

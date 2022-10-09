@@ -59,6 +59,10 @@ public class OvenManager : MonoBehaviour
     public GameObject objShineMuskatTartFinished;
     public GameObject objRollcakeDoughFinished;
     public GameObject objRollcakeFinished;
+    public GameObject objDoughFinished;
+    public GameObject objCakeFinished;
+    public GameObject objDoughClearPanel;
+    public GameObject objBlackPanel;
 
     private int nMaterialIndex = 0;
     private int nPastryCount = 0;
@@ -90,6 +94,11 @@ public class OvenManager : MonoBehaviour
         {
             objRollcakeDoughFinished.SetActive(false);
             objRollcakeFinished.SetActive(false);
+        }
+        else if(stage == Stage.Stage1_5)
+        {
+            objDoughFinished.SetActive(false);
+            objCakeFinished.SetActive(false);
         }
         image_Create.gameObject.SetActive(true);
 
@@ -125,6 +134,12 @@ public class OvenManager : MonoBehaviour
                 obj_Ingredient.transform.GetChild(i).GetChild(0).GetComponent<Image>().sprite = null;
                 obj_Ingredient.transform.GetChild(i).GetChild(0).gameObject.SetActive(false);
             }
+        }
+
+        if(stage == Stage.Stage1_5)
+        {
+            objDoughClearPanel.SetActive(false);
+            objBlackPanel.SetActive(false);
         }
 
         gameUIManager.OvenUIOff();
@@ -319,6 +334,35 @@ public class OvenManager : MonoBehaviour
 
                     nMaterialIndex++;
                     if(nMaterialIndex >= recipeManager.GetStage4ShouRecipe().Count)
+                    {
+                        obj_BakeItButton.SetActive(true);
+                    }
+                }
+                else
+                {
+                    Debug.Log("재료 틀림");
+                    material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
+                    OvenStackMiss();
+                }
+                break;
+
+            case Stage.Stage1_5:
+                if (material.GetComponent<Image>().sprite == recipeManager.GetStage5DoughRecipe()[nMaterialIndex])
+                {
+                    Debug.Log("재료 맞춤");
+                    Sprite currentMaterial = material.GetComponent<Image>().sprite;
+
+                    image_Create.color = Color.white;
+                    image_Create.sprite = recipeManager.GetStage5DoughCreate()[nMaterialIndex];
+
+                    chestManager.list_Material.Remove(recipeManager.GetStage5DoughRecipe()[nMaterialIndex]);
+                    material.gameObject.SetActive(false);
+                    material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
+
+                    OvenStack();
+
+                    nMaterialIndex++;
+                    if (nMaterialIndex >= recipeManager.GetStage5DoughRecipe().Count)
                     {
                         obj_BakeItButton.SetActive(true);
                     }

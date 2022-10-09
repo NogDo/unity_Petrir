@@ -39,6 +39,7 @@ public class ChestManager : MonoBehaviour
     private int nKiwiCount;
     private int nOrangeCount;
     private int nPeachCount;
+    private int nDoughCount;
 
     private Stage stage;
 
@@ -61,6 +62,7 @@ public class ChestManager : MonoBehaviour
         nKiwiCount = 0;
         nOrangeCount = 0;
         nPeachCount = 0;
+        nDoughCount = 0;
 
         if (ovenManager != null)
         {
@@ -318,6 +320,47 @@ public class ChestManager : MonoBehaviour
                         Image_RecipeCheckBox[5].sprite = sprite_O;
                         break;
 
+                }
+                break;
+
+            case Stage.Stage1_5:
+                switch (objectManager.ingredient)
+                {
+                    case Ingredient.Dough:
+                        if(nDoughCount == 0)
+                        {
+                            Image_RecipeCheckBox[0].sprite = sprite_O;
+                        }
+                        else if(nDoughCount == 1)
+                        {
+                            Image_RecipeCheckBox[1].sprite = sprite_O;
+                        }
+                        else if(nDoughCount == 2)
+                        {
+                            Image_RecipeCheckBox[2].sprite = sprite_O;
+                        }
+                        nDoughCount++;
+                        break;
+
+                    case Ingredient.Pastry_Bag:
+                        Image_RecipeCheckBox[3].sprite = sprite_O;
+                        break;
+
+                    case Ingredient.Fig:
+                        Image_RecipeCheckBox[4].sprite = sprite_O;
+                        break;
+
+                    case Ingredient.Strawberry:
+                        Image_RecipeCheckBox[5].sprite = sprite_O;
+                        break;
+
+                    case Ingredient.Rasberry:
+                        Image_RecipeCheckBox[6].sprite = sprite_O;
+                        break;
+
+                    case Ingredient.SugarPowder:
+                        Image_RecipeCheckBox[7].sprite = sprite_O;
+                        break;
                 }
                 break;
 

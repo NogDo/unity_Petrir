@@ -58,6 +58,8 @@ public class PlateManager : MonoBehaviour
     public GameObject objShou;
     public GameObject objSuecreamShou;
     public GameObject objChocoCreamShou;
+    public GameObject objDoughFinished;
+    public GameObject objCakeFinished;
 
     private int nMaterialIndex = 0;
     private int nPastryCount = 0;
@@ -98,11 +100,16 @@ public class PlateManager : MonoBehaviour
             objRollcakeDoughFinished.SetActive(false);
             objRollcakeFinished.SetActive(false);
         }
-        else if(stage == Stage.Stage1_4)
+        else if (stage == Stage.Stage1_4)
         {
             objShou.SetActive(false);
             objSuecreamShou.SetActive(false);
             objChocoCreamShou.SetActive(false);
+        }
+        else if (stage == Stage.Stage1_5)
+        {
+            objDoughFinished.SetActive(false);
+            objCakeFinished.SetActive(false);
         }
         image_Create.gameObject.SetActive(true);
 
@@ -352,7 +359,7 @@ public class PlateManager : MonoBehaviour
                     image_Create.color = Color.white;
                     image_Create.sprite = recipeManager.GetStage4SuecreamShouCreate()[nMaterialIndex];
 
-                    if(currentMaterial == sprite_SugarPowder && nSugarPowderCount < 1)
+                    if (currentMaterial == sprite_SugarPowder && nSugarPowderCount < 1)
                     {
                         nSugarPowderCount++;
                     }
@@ -383,7 +390,7 @@ public class PlateManager : MonoBehaviour
 
                     image_Create.color = Color.white;
                     image_Create.sprite = recipeManager.GetStage4ChococreamShouCreate()[nMaterialIndex];
-                    
+
                     if (currentMaterial == sprite_Shou && nShouCount < 1)
                     {
                         nShouCount++;
@@ -402,6 +409,43 @@ public class PlateManager : MonoBehaviour
                     if (nMaterialIndex >= recipeManager.GetStage4ChococreamShouRecipe().Count)
                     {
                         obj_BakeItButton2.SetActive(true);
+                    }
+                }
+                else
+                {
+                    Debug.Log("재료 틀림");
+                    material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
+                    OvenStackMiss();
+                }
+                break;
+
+            case Stage.Stage1_5:
+                if (material.GetComponent<Image>().sprite == recipeManager.GetStage5CakeRecipe()[nMaterialIndex])
+                {
+                    Debug.Log("재료 맞춤");
+                    Sprite currentMaterial = material.GetComponent<Image>().sprite;
+
+                    image_Create.color = Color.white;
+                    image_Create.sprite = recipeManager.GetStage5CakeCreate()[nMaterialIndex];
+
+                    if (currentMaterial == sprite_PastryBag && nPastryCount < 2)
+                    {
+                        nPastryCount++;
+                    }
+                    else
+                    {
+                        chestManager.list_Material.Remove(recipeManager.GetStage5CakeRecipe()[nMaterialIndex]);
+                        material.SetActive(false);
+                    }
+
+                    material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
+
+                    OvenStack();
+
+                    nMaterialIndex++;
+                    if (nMaterialIndex >= recipeManager.GetStage5CakeRecipe().Count)
+                    {
+                        obj_BakeItButton.SetActive(true);
                     }
                 }
                 else

@@ -88,4 +88,18 @@ public class GameManager : MonoBehaviour
         ClearCheck.isStage3Clear = true;
         PlayerPrefs.SetInt("Stage3Clear", 1);
     }
+
+    public void Stage4Clear()
+    {
+        SceneManager.LoadScene("UI");
+        ClearCheck.isStage4Clear = true;
+        PlayerPrefs.SetInt("Stage4Clear", 1);
+    }
+
+    public void Stage5Clear()
+    {
+        SceneManager.LoadScene("UI");
+        ClearCheck.isStage5Clear = true;
+        PlayerPrefs.SetInt("Stage5Clear", 1);
+    }
 }

@@ -220,6 +220,7 @@ public class TutorialManager : MonoBehaviour
             objExplainTextBoardImage.SetActive(false);
             objCantTouchButton.SetActive(false);
             isStartDragTutorial = true;
+            objBlackImage.SetActive(false);
         }
 
         if (nTutorialGuideIndex == 21)
@@ -316,6 +317,7 @@ public class TutorialManager : MonoBehaviour
     {
         UnPlayable();
         objExplainTextBoardImage.SetActive(true);
+        objBlackImage.SetActive(true);
     }
 
     public void EndDragTutorial()

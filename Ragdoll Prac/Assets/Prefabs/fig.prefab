@@ -125,5 +125,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vector_StartPosition: {x: 0, y: 0, z: 0}
-  sprite_ObjectImage: {fileID: 0}
-  ingredient: 0
+  sprite_ObjectImage: {fileID: 21300000, guid: 37e59298df1398347bc11bfd8145fe7f, type: 3}
+  ingredient: 23
