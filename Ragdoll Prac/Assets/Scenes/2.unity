@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.80502546, g: 0.6616607, b: 0.70948446, a: 1}
+  m_IndirectSpecularColor: {r: 0.80502546, g: 0.66076034, b: 0.70948446, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5806,7 +5806,7 @@ PrefabInstance:
     - target: {fileID: 7237000603244744794, guid: eb47b46cdbbecbc4da83fca8005c8047,
         type: 3}
       propertyPath: m_RootOrder
-      value: 69
+      value: 68
       objectReference: {fileID: 0}
     - target: {fileID: 7237000603244744794, guid: eb47b46cdbbecbc4da83fca8005c8047,
         type: 3}
@@ -12394,6 +12394,10 @@ MonoBehaviour:
   sprite_Stage4SuecreamShouCreate: []
   sprite_Stage4ChococreamShouRecipe: []
   sprite_Stage4ChococreamShouCreate: []
+  sprite_Stage5DoughRecipe: []
+  sprite_Stage5DoughCreate: []
+  sprite_Stage5CakeRecipe: []
+  sprite_Stage5CakeCreate: []
 --- !u!4 &265932842
 Transform:
   m_ObjectHideFlags: 0
@@ -47466,7 +47470,7 @@ PrefabInstance:
     - target: {fileID: 37441252535905722, guid: 0cf6f256e71a3dc4cb7ffc270f901134,
         type: 3}
       propertyPath: m_RootOrder
-      value: 67
+      value: 66
       objectReference: {fileID: 0}
     - target: {fileID: 37441252535905722, guid: 0cf6f256e71a3dc4cb7ffc270f901134,
         type: 3}
@@ -48641,96 +48645,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0.000015258789}
   m_SizeDelta: {x: 0, y: 332}
   m_Pivot: {x: 0, y: 1}
---- !u!1001 &1092352279
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1621474652}
-    m_Modifications:
-    - target: {fileID: 1319040624629734925, guid: 35d3df2fe021d2646a8f4e56c85595a0,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 66
-      objectReference: {fileID: 0}
-    - target: {fileID: 1319040624629734925, guid: 35d3df2fe021d2646a8f4e56c85595a0,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.29680026
-      objectReference: {fileID: 0}
-    - target: {fileID: 1319040624629734925, guid: 35d3df2fe021d2646a8f4e56c85595a0,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.2968003
-      objectReference: {fileID: 0}
-    - target: {fileID: 1319040624629734925, guid: 35d3df2fe021d2646a8f4e56c85595a0,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.2968003
-      objectReference: {fileID: 0}
-    - target: {fileID: 1319040624629734925, guid: 35d3df2fe021d2646a8f4e56c85595a0,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.615
-      objectReference: {fileID: 0}
-    - target: {fileID: 1319040624629734925, guid: 35d3df2fe021d2646a8f4e56c85595a0,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.88
-      objectReference: {fileID: 0}
-    - target: {fileID: 1319040624629734925, guid: 35d3df2fe021d2646a8f4e56c85595a0,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.301
-      objectReference: {fileID: 0}
-    - target: {fileID: 1319040624629734925, guid: 35d3df2fe021d2646a8f4e56c85595a0,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.37297308
-      objectReference: {fileID: 0}
-    - target: {fileID: 1319040624629734925, guid: 35d3df2fe021d2646a8f4e56c85595a0,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.37297282
-      objectReference: {fileID: 0}
-    - target: {fileID: 1319040624629734925, guid: 35d3df2fe021d2646a8f4e56c85595a0,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.60074204
-      objectReference: {fileID: 0}
-    - target: {fileID: 1319040624629734925, guid: 35d3df2fe021d2646a8f4e56c85595a0,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.6007424
-      objectReference: {fileID: 0}
-    - target: {fileID: 1319040624629734925, guid: 35d3df2fe021d2646a8f4e56c85595a0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90.00001
-      objectReference: {fileID: 0}
-    - target: {fileID: 1319040624629734925, guid: 35d3df2fe021d2646a8f4e56c85595a0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1319040624629734925, guid: 35d3df2fe021d2646a8f4e56c85595a0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -243.668
-      objectReference: {fileID: 0}
-    - target: {fileID: 7066122864643891046, guid: 35d3df2fe021d2646a8f4e56c85595a0,
-        type: 3}
-      propertyPath: m_Name
-      value: icecream2 (23)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 35d3df2fe021d2646a8f4e56c85595a0, type: 3}
---- !u!4 &1092352280 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1319040624629734925, guid: 35d3df2fe021d2646a8f4e56c85595a0,
-    type: 3}
-  m_PrefabInstance: {fileID: 1092352279}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1092692803
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -71764,7 +71678,6 @@ Transform:
   - {fileID: 19850317}
   - {fileID: 72992368}
   - {fileID: 1028742664}
-  - {fileID: 1092352280}
   - {fileID: 1057744738}
   - {fileID: 1906308213}
   - {fileID: 125524585}
@@ -85560,7 +85473,7 @@ PrefabInstance:
     - target: {fileID: 7237000603244744794, guid: eb47b46cdbbecbc4da83fca8005c8047,
         type: 3}
       propertyPath: m_RootOrder
-      value: 68
+      value: 67
       objectReference: {fileID: 0}
     - target: {fileID: 7237000603244744794, guid: eb47b46cdbbecbc4da83fca8005c8047,
         type: 3}
