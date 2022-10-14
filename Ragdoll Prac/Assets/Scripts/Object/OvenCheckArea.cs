@@ -22,6 +22,8 @@ public class OvenCheckArea : MonoBehaviour
 
     public Animator animator_Oven;
 
+    public OvenMoveAI ovenMoveAI;
+
     public bool isPlayerInArea;
     public bool isOvenInterfaceOn;
 
@@ -36,9 +38,20 @@ public class OvenCheckArea : MonoBehaviour
     {
         if (isPlayerInArea)
         {
-            if (Input.GetKeyDown(KeyCode.F))
+            if(manager == Manager.Oven)
             {
-                animator_Oven.SetBool("isF", true);
+                if (Input.GetKeyDown(KeyCode.F))
+                {
+                    animator_Oven.SetBool("isF", true);
+                    ovenMoveAI.PressFTrue();
+                }
+            }
+            else
+            {
+                if (Input.GetKeyDown(KeyCode.F))
+                {
+                    OpenUI();
+                }
             }
         }
 
@@ -48,7 +61,9 @@ public class OvenCheckArea : MonoBehaviour
             {
                 if (manager == Manager.Oven)
                 {
+                    animator_Oven.SetBool("isF", false);
                     ovenManager.CloseOvenUI();
+                    ovenMoveAI.PressFFalse();
                 }
                 else if (manager == Manager.Plate)
                 {
@@ -56,8 +71,6 @@ public class OvenCheckArea : MonoBehaviour
                 }
                 isOvenInterfaceOn = false;
             }
-
-            animator_Oven.SetBool("isF", false);
         }
     }
 

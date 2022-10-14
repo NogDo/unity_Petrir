@@ -86,16 +86,26 @@ public class UIButtonManager : MonoBehaviour
 
     public void StartStage01()
     {
-        SceneManager.LoadScene("1-1");
+        SceneManager.LoadScene("1");
     }
 
     public void StartStage02()
     {
-        SceneManager.LoadScene("1-2");
+        SceneManager.LoadScene("2");
     }
 
     public void StartStage03()
     {
-        SceneManager.LoadScene("1-4");
+        SceneManager.LoadScene("3");
+    }
+
+    public void StartStage04()
+    {
+        SceneManager.LoadScene("4");
+    }
+
+    public void StartStage05()
+    {
+        SceneManager.LoadScene("5");
     }
 }

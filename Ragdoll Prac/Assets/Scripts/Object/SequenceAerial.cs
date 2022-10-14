@@ -11,12 +11,15 @@ public class SequenceAerial : MonoBehaviour
     public Material mat_MoveBasic;
     public Material mat_MoveSequence;
 
+    public AudioSource audioSource_Scaffolding_Light;
+
     public int nMaterialIndex;
     public int nSequenceIndex;
     public int nSequenceMaxCount;
 
     public bool isEndSequence;
     public bool isStartSequence;
+
 
     private void Start()
     {
@@ -96,9 +99,12 @@ public class SequenceAerial : MonoBehaviour
 
     IEnumerator SetMaterialBasic()
     {
-        obj_SequenceAerials[nMaterialIndex].transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().material = mat_MoveSequence;
+        //obj_SequenceAerials[nMaterialIndex].transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().material = mat_MoveSequence;
+        obj_SequenceAerials[nMaterialIndex].transform.GetChild(0).GetComponent<MeshRenderer>().material = mat_MoveSequence;
+        audioSource_Scaffolding_Light.Play();
         yield return new WaitForSeconds(0.8f);
-        obj_SequenceAerials[nMaterialIndex].transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().material = mat_MoveBasic;
+        //obj_SequenceAerials[nMaterialIndex].transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().material = mat_MoveBasic;
+        obj_SequenceAerials[nMaterialIndex].transform.GetChild(0).GetComponent<MeshRenderer>().material = mat_MoveBasic;
         nMaterialIndex++;
         if (nMaterialIndex < nSequenceMaxCount)
         {

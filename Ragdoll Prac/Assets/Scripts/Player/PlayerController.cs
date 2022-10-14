@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     public AudioSource audioSource_Jump;
 
     public GameObject objPassWall;
+    public GameObject objPassWall2;
 
     public PhysicMaterial physicMaterial_FootSlide;
 
@@ -205,10 +206,18 @@ public class PlayerController : MonoBehaviour
             if (isRunning || isEnterPassWall)
             {
                 objPassWall.GetComponent<MeshCollider>().enabled = false;
+                if(objPassWall2 != null)
+                {
+                    objPassWall2.GetComponent<MeshCollider>().enabled = false;
+                }
             }
             else
             {
                 objPassWall.GetComponent<MeshCollider>().enabled = true;
+                if(objPassWall2 != null)
+                {
+                    objPassWall2.GetComponent<MeshCollider>().enabled = true;
+                }
             }
         }
     }
@@ -231,9 +240,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void AddJumpForce(float fJumpPower)
+    public void AddJumpForce(float fJumpPower, int nJumpCount)
     {
-        if (nJumpForceCount <= 4)
+        if (nJumpForceCount <= nJumpCount)
         {
             nJumpForceCount++;
             fJumpForce += fJumpPower * nJumpForceCount;

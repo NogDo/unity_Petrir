@@ -11,6 +11,8 @@ public class DivideCheck : MonoBehaviour
     public GameObject objDivideObject2;
     public GameObject objMap;
 
+    public AudioSource audioSource_KnifeCut;
+
     public ChestManager chestManager;
     public ObjectManager objectManager;
 
@@ -29,6 +31,7 @@ public class DivideCheck : MonoBehaviour
                     divideObject2.gameObject.SetActive(false);
                     chestManager.CutChocoloateTrue();
                     gameObject.SetActive(false);
+                    audioSource_KnifeCut.Play();
                 }
                 break;
 
@@ -36,7 +39,7 @@ public class DivideCheck : MonoBehaviour
                 if (divideObject1.GetIsKnifeEnter())
                 {
                     Debug.Log("딸기 자르기 확인");
-                    if(objMap == null)
+                    if (objMap == null)
                     {
                         objDivideObject1.gameObject.transform.parent = null;
                         objDivideObject2.gameObject.transform.parent = null;
@@ -50,9 +53,120 @@ public class DivideCheck : MonoBehaviour
                     objDivideObject2.gameObject.SetActive(true);
                     chestManager.CutStrawberryTrue();
                     transform.parent.gameObject.SetActive(false);
+                    audioSource_KnifeCut.Play();
+                }
+                break;
+
+            case Ingredient.Kiwi:
+                if (divideObject1.GetIsKnifeEnter())
+                {
+                    Debug.Log("키위 자르기 확인");
+                    if (objMap == null)
+                    {
+                        objDivideObject1.gameObject.transform.parent = null;
+                        objDivideObject2.gameObject.transform.parent = null;
+                    }
+                    else
+                    {
+                        objDivideObject1.gameObject.transform.parent = objMap.transform;
+                        objDivideObject2.gameObject.transform.parent = objMap.transform;
+                    }
+                    objDivideObject1.gameObject.SetActive(true);
+                    objDivideObject2.gameObject.SetActive(true);
+                    chestManager.CutKiwiTrue();
+                    transform.parent.gameObject.SetActive(false);
+                    audioSource_KnifeCut.Play();
+                }
+                break;
+
+            case Ingredient.Banana:
+                if (divideObject1.GetIsKnifeEnter())
+                {
+                    Debug.Log("바나나 자르기 확인");
+                    if (objMap == null)
+                    {
+                        objDivideObject1.gameObject.transform.parent = null;
+                        objDivideObject2.gameObject.transform.parent = null;
+                    }
+                    else
+                    {
+                        objDivideObject1.gameObject.transform.parent = objMap.transform;
+                        objDivideObject2.gameObject.transform.parent = objMap.transform;
+                    }
+                    objDivideObject1.gameObject.SetActive(true);
+                    objDivideObject2.gameObject.SetActive(true);
+                    chestManager.CutBananaTrue();
+                    transform.parent.gameObject.SetActive(false);
+                    audioSource_KnifeCut.Play();
+                }
+                break;
+
+            case Ingredient.Orange:
+                if (divideObject1.GetIsKnifeEnter())
+                {
+                    Debug.Log("오렌지 자르기 확인");
+                    if(objMap == null)
+                    {
+                        objDivideObject1.gameObject.transform.parent = null;
+                        objDivideObject2.gameObject.transform.parent = null;
+                    }
+                    else
+                    {
+                        objDivideObject1.gameObject.transform.parent = objMap.transform;
+                        objDivideObject2.gameObject.transform.parent = objMap.transform;
+                    }
+                    objDivideObject1.gameObject.SetActive(true);
+                    objDivideObject2.gameObject.SetActive(true);
+                    chestManager.CutOrangeTrue();
+                    transform.parent.gameObject.SetActive(false);
+                    audioSource_KnifeCut.Play();
+                }
+                break;
+
+            case Ingredient.Peach:
+                if (divideObject1.GetIsKnifeEnter())
+                {
+                    Debug.Log("복숭아 자르기 확인");
+                    if(objMap == null)
+                    {
+                        objDivideObject1.gameObject.transform.parent = null;
+                        objDivideObject2.gameObject.transform.parent = null;
+                    }
+                    else
+                    {
+                        objDivideObject1.gameObject.transform.parent = objMap.transform;
+                        objDivideObject2.gameObject.transform.parent = objMap.transform;
+                    }
+                    objDivideObject1.gameObject.SetActive(true);
+                    objDivideObject2.gameObject.SetActive(true);
+                    chestManager.CutPeachTrue();
+                    transform.parent.gameObject.SetActive(false);
+                    audioSource_KnifeCut.Play();
+                }
+                break;
+
+            case Ingredient.Chou:
+                if (divideObject1.GetIsKnifeEnter())
+                {
+                    Debug.Log("슈반죽 자르기 확인");
+                    if (objMap == null)
+                    {
+                        objDivideObject1.gameObject.transform.parent = null;
+                        objDivideObject2.gameObject.transform.parent = null;
+                    }
+                    else
+                    {
+                        objDivideObject1.gameObject.transform.parent = objMap.transform;
+                        objDivideObject2.gameObject.transform.parent = objMap.transform;
+                    }
+                    objDivideObject1.gameObject.SetActive(true);
+                    objDivideObject2.gameObject.SetActive(true);
+                    chestManager.CutPeachTrue();
+                    transform.parent.gameObject.SetActive(false);
+                    audioSource_KnifeCut.Play();
                 }
                 break;
         }
-        
+
     }
 }

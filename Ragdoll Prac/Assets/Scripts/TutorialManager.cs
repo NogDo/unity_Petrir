@@ -46,6 +46,11 @@ public class TutorialManager : MonoBehaviour
 
     [Header("튜토리얼 설명 텍스트")]
     public TextMeshProUGUI tmp_TutorialExplain;
+    public Image image_TutorialText;
+    public Sprite[] sprite_TutorialText;
+
+    [Header("튜토리얼에 필요한 효과음")]
+    public AudioSource audioSource_GuideText;
 
     List<Dictionary<string, object>> list_TutorialGuide;
 
@@ -126,7 +131,9 @@ public class TutorialManager : MonoBehaviour
             {
                 return;
             }
-            tmp_TutorialExplain.text = list_TutorialGuide[nTutorialGuideIndex]["Content"].ToString();
+            audioSource_GuideText.Play();
+            //tmp_TutorialExplain.text = list_TutorialGuide[nTutorialGuideIndex]["Content"].ToString();
+            image_TutorialText.sprite = sprite_TutorialText[nTutorialGuideIndex];
             isExcuteOnce = true;
         }
     }
@@ -213,6 +220,7 @@ public class TutorialManager : MonoBehaviour
             objExplainTextBoardImage.SetActive(false);
             objCantTouchButton.SetActive(false);
             isStartDragTutorial = true;
+            objBlackImage.SetActive(false);
         }
 
         if (nTutorialGuideIndex == 21)
@@ -309,6 +317,7 @@ public class TutorialManager : MonoBehaviour
     {
         UnPlayable();
         objExplainTextBoardImage.SetActive(true);
+        objBlackImage.SetActive(true);
     }
 
     public void EndDragTutorial()

@@ -14,7 +14,21 @@ public enum Ingredient
     Pastry_Bag,
     Blueberry,
     ShineMuskat,
-    Crust
+    Crust,
+    Whipping_Bag,
+    Kiwi,
+    Kiwi_Cut,
+    Peach,
+    Orange,
+    Banana,
+    Rollcake,
+    Choco_Bag,
+    SugarPowder,
+    Chou,
+    Dough,
+    Pastry,
+    Fig,
+    Rasberry
 }
 
 public class ObjectManager : MonoBehaviour

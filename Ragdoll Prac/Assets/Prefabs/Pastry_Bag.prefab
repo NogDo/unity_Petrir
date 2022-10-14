@@ -124,5 +124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f39b589f15830e746a44f194a4ddf636, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vector_StartPosition: {x: 0, y: 0, z: 0}
   sprite_ObjectImage: {fileID: 21300000, guid: be79aef3444888344bda47287d05ba85, type: 3}
-  ingredient: 6
+  ingredient: 7

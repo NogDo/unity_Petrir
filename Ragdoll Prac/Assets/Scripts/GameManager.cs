@@ -52,6 +52,12 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F4))
         {
             PlayerPrefs.DeleteAll();
+            ClearCheck.isTutorialClear = false;
+            ClearCheck.isStage1Clear = false;
+            ClearCheck.isStage2Clear = false;
+            ClearCheck.isStage3Clear = false;
+            ClearCheck.isStage4Clear = false;
+            ClearCheck.isStage5Clear = false;
         }
     }
 
@@ -76,4 +82,24 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("Stage2Clear", 1);
     }
 
+    public void Stage3Clear()
+    {
+        SceneManager.LoadScene("UI");
+        ClearCheck.isStage3Clear = true;
+        PlayerPrefs.SetInt("Stage3Clear", 1);
+    }
+
+    public void Stage4Clear()
+    {
+        SceneManager.LoadScene("UI");
+        ClearCheck.isStage4Clear = true;
+        PlayerPrefs.SetInt("Stage4Clear", 1);
+    }
+
+    public void Stage5Clear()
+    {
+        SceneManager.LoadScene("UI");
+        ClearCheck.isStage5Clear = true;
+        PlayerPrefs.SetInt("Stage5Clear", 1);
+    }
 }

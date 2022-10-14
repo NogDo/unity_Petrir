@@ -7,6 +7,9 @@ public class DontDestroy : MonoBehaviour
     public bool isTutorialClear;
     public bool isStage1Clear;
     public bool isStage2Clear;
+    public bool isStage3Clear;
+    public bool isStage4Clear;
+    public bool isStage5Clear;
 
     private void Awake()
     {

@@ -10,7 +10,8 @@ public enum Stage
     Stage1_1,
     Stage1_2,
     Stage1_3,
-    Stage1_4
+    Stage1_4,
+    Stage1_5
 }
 
 public class OvenManager : MonoBehaviour
@@ -35,6 +36,8 @@ public class OvenManager : MonoBehaviour
     [Header("BGM")]
     public AudioSource audioSource_Stage;
     public AudioSource audioSource_Oven;
+    public AudioSource audioSource_OvenStack;
+    public AudioSource audioSource_OvenStackMiss;
 
     [Header("플레이어 관련 스크립트")]
     public CameraControl cameraControl;
@@ -54,6 +57,12 @@ public class OvenManager : MonoBehaviour
     public GameObject objTartFinished;
     public GameObject objStrawberryTartFinished;
     public GameObject objShineMuskatTartFinished;
+    public GameObject objRollcakeDoughFinished;
+    public GameObject objRollcakeFinished;
+    public GameObject objDoughFinished;
+    public GameObject objCakeFinished;
+    public GameObject objDoughClearPanel;
+    public GameObject objBlackPanel;
 
     private int nMaterialIndex = 0;
     private int nPastryCount = 0;
@@ -80,6 +89,16 @@ public class OvenManager : MonoBehaviour
             objTartFinished.SetActive(false);
             objStrawberryTartFinished.SetActive(false);
             objShineMuskatTartFinished.SetActive(false);
+        }
+        else if(stage == Stage.Stage1_3)
+        {
+            objRollcakeDoughFinished.SetActive(false);
+            objRollcakeFinished.SetActive(false);
+        }
+        else if(stage == Stage.Stage1_5)
+        {
+            objDoughFinished.SetActive(false);
+            objCakeFinished.SetActive(false);
         }
         image_Create.gameObject.SetActive(true);
 
@@ -117,6 +136,12 @@ public class OvenManager : MonoBehaviour
             }
         }
 
+        if(stage == Stage.Stage1_5)
+        {
+            objDoughClearPanel.SetActive(false);
+            objBlackPanel.SetActive(false);
+        }
+
         gameUIManager.OvenUIOff();
 
         audioSource_Oven.Stop();
@@ -148,12 +173,15 @@ public class OvenManager : MonoBehaviour
                     material.SetActive(false);
                     material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
 
+                    OvenStack();
+
                     nMaterialIndex++;
                     tutorialManager.EndDragTutorial();
                 }
                 else
                 {
                     material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
+                    OvenStackMiss();
                 }
                 break;
 
@@ -170,6 +198,8 @@ public class OvenManager : MonoBehaviour
                     material.SetActive(false);
                     material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
 
+                    OvenStack();
+
                     nMaterialIndex++;
                     if (nMaterialIndex >= recipeManager.GetTutorialRecipe().Count)
                     {
@@ -179,6 +209,7 @@ public class OvenManager : MonoBehaviour
                 else
                 {
                     material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
+                    OvenStackMiss();
                 }
                 break;
 
@@ -203,6 +234,8 @@ public class OvenManager : MonoBehaviour
                         material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
                     }
 
+                    OvenStack();
+
                     nMaterialIndex++;
                     if (nMaterialIndex >= recipeManager.GetStage1Recipe().Count)
                     {
@@ -213,6 +246,7 @@ public class OvenManager : MonoBehaviour
                 {
                     Debug.Log("재료 틀림");
                     material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
+                    OvenStackMiss();
                 }
                 break;
 
@@ -231,6 +265,8 @@ public class OvenManager : MonoBehaviour
                         material.gameObject.SetActive(false);
                         material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
 
+                        OvenStack();
+
                         nMaterialIndex++;
                         if (nMaterialIndex >= recipeManager.GetStage2TartRecipe().Count)
                         {
@@ -241,12 +277,101 @@ public class OvenManager : MonoBehaviour
                     {
                         Debug.Log("재료 틀림");
                         material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
+                        OvenStackMiss();
                     }
                 }
                 else
                 {
                     Debug.Log("재료 틀림");
                     material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
+                    OvenStackMiss();
+                }
+                break;
+
+            case Stage.Stage1_3:
+                if(material.GetComponent<Image>().sprite == recipeManager.GetStage3RollcakeDoughRecipe()[nMaterialIndex])
+                {
+                    Debug.Log("재료 맞춤");
+                    Sprite currentMaterial = material.GetComponent<Image>().sprite;
+
+                    image_Create.color = Color.white;
+                    image_Create.sprite = recipeManager.GetStage3RollcakeDoughCreate()[nMaterialIndex];
+
+                    chestManager.list_Material.Remove(recipeManager.GetStage3RollcakeDoughRecipe()[nMaterialIndex]);
+                    material.gameObject.SetActive(false);
+                    material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
+
+                    OvenStack();
+
+                    nMaterialIndex++;
+                    if (nMaterialIndex >= recipeManager.GetStage3RollcakeDoughRecipe().Count)
+                    {
+                        obj_BakeItButton.SetActive(true);
+                    }
+                }
+                else
+                {
+                    Debug.Log("재료 틀림");
+                    material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
+                    OvenStackMiss();
+                }
+                break;
+
+            case Stage.Stage1_4:
+                if(material.GetComponent<Image>().sprite == recipeManager.GetStage4ShouRecipe()[nMaterialIndex])
+                {
+                    Debug.Log("재료 맞춤");
+                    Sprite currentMaterial = material.GetComponent<Image>().sprite;
+
+                    image_Create.color = Color.white;
+                    image_Create.sprite = recipeManager.GetStage4ShouCreate()[nMaterialIndex];
+
+                    chestManager.list_Material.Remove(recipeManager.GetStage4ShouRecipe()[nMaterialIndex]);
+                    material.gameObject.SetActive(false);
+                    material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
+
+                    OvenStack();
+
+                    nMaterialIndex++;
+                    if(nMaterialIndex >= recipeManager.GetStage4ShouRecipe().Count)
+                    {
+                        obj_BakeItButton.SetActive(true);
+                    }
+                }
+                else
+                {
+                    Debug.Log("재료 틀림");
+                    material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
+                    OvenStackMiss();
+                }
+                break;
+
+            case Stage.Stage1_5:
+                if (material.GetComponent<Image>().sprite == recipeManager.GetStage5DoughRecipe()[nMaterialIndex])
+                {
+                    Debug.Log("재료 맞춤");
+                    Sprite currentMaterial = material.GetComponent<Image>().sprite;
+
+                    image_Create.color = Color.white;
+                    image_Create.sprite = recipeManager.GetStage5DoughCreate()[nMaterialIndex];
+
+                    chestManager.list_Material.Remove(recipeManager.GetStage5DoughRecipe()[nMaterialIndex]);
+                    material.gameObject.SetActive(false);
+                    material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
+
+                    OvenStack();
+
+                    nMaterialIndex++;
+                    if (nMaterialIndex >= recipeManager.GetStage5DoughRecipe().Count)
+                    {
+                        obj_BakeItButton.SetActive(true);
+                    }
+                }
+                else
+                {
+                    Debug.Log("재료 틀림");
+                    material.GetComponent<MaterialDrag>().Reset_Ingredient_PositionAndParent();
+                    OvenStackMiss();
                 }
                 break;
 
@@ -259,5 +384,15 @@ public class OvenManager : MonoBehaviour
     public int GetMaterialIndex()
     {
         return nMaterialIndex;
+    }
+
+    public void OvenStack()
+    {
+        audioSource_OvenStack.Play();
+    }
+
+    public void OvenStackMiss()
+    {
+        audioSource_OvenStackMiss.Play();
     }
 }

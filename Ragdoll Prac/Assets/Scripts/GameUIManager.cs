@@ -7,11 +7,14 @@ public class GameUIManager : MonoBehaviour
 {
     public GameObject objRecipePopupSmallTutorialGuide;
     public GameObject objRecipePopupLargeTutorialGuide;
+    public GameObject objRecipePopupRingTutorialGuide;
     public GameObject objRecipePopupSmall;
     public GameObject objRecipePopupLarge;
+    public GameObject objRecipePopupRing;
 
     public GameObject objKnifeImage;
     public GameObject objKnife;
+    public AudioSource audioSource_KnifeTakeOut;
 
     public TutorialManager tutorialManager;
 
@@ -35,15 +38,21 @@ public class GameUIManager : MonoBehaviour
                 if (!objRecipePopupSmallTutorialGuide.activeSelf && !objRecipePopupLargeTutorialGuide.activeSelf)
                 {
                     objRecipePopupSmallTutorialGuide.SetActive(true);
+                    Cursor.lockState = CursorLockMode.Confined;
+                    Cursor.visible = true;
                 }
                 else if (objRecipePopupSmallTutorialGuide.activeSelf && !objRecipePopupLargeTutorialGuide.activeSelf)
                 {
-                    objRecipePopupSmallTutorialGuide.SetActive(false);
                     objRecipePopupLargeTutorialGuide.SetActive(true);
+                    objRecipePopupRingTutorialGuide.SetActive(true);
                 }
-                else if (!objRecipePopupSmallTutorialGuide.activeSelf && objRecipePopupLargeTutorialGuide.activeSelf)
+                else if (objRecipePopupSmallTutorialGuide.activeSelf && objRecipePopupLargeTutorialGuide.activeSelf)
                 {
+                    objRecipePopupSmallTutorialGuide.SetActive(false);
                     objRecipePopupLargeTutorialGuide.SetActive(false);
+                    objRecipePopupRingTutorialGuide.SetActive(false);
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Cursor.visible = false;
                 }
             }
             else
@@ -51,15 +60,21 @@ public class GameUIManager : MonoBehaviour
                 if (!objRecipePopupSmall.activeSelf && !objRecipePopupLarge.activeSelf)
                 {
                     objRecipePopupSmall.SetActive(true);
+                    Cursor.lockState = CursorLockMode.Confined;
+                    Cursor.visible = true;
                 }
                 else if (objRecipePopupSmall.activeSelf && !objRecipePopupLarge.activeSelf)
                 {
-                    objRecipePopupSmall.SetActive(false);
                     objRecipePopupLarge.SetActive(true);
+                    objRecipePopupRing.SetActive(true);
                 }
-                else if (!objRecipePopupSmall.activeSelf && objRecipePopupLarge.activeSelf)
+                else if (objRecipePopupSmall.activeSelf && objRecipePopupLarge.activeSelf)
                 {
+                    objRecipePopupSmall.SetActive(false);
                     objRecipePopupLarge.SetActive(false);
+                    objRecipePopupRing.SetActive(false);
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Cursor.visible = false;
                 }
             }
 
@@ -76,6 +91,7 @@ public class GameUIManager : MonoBehaviour
             objKnifeImage.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
             objKnife.SetActive(true);
             objKnife.GetComponent<ObjectManager>().ResetTransform();
+            audioSource_KnifeTakeOut.Play();
         }
     }
 
