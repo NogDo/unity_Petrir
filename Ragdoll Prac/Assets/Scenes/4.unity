@@ -9325,6 +9325,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2005134363}
     m_Modifications:
+    - target: {fileID: 110380195512894385, guid: a33fff2bdf20db743b63adeebf3cd05e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7af339b65a17b0c4f881746e4662ac1f, type: 2}
+    - target: {fileID: 272920607081110727, guid: a33fff2bdf20db743b63adeebf3cd05e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cc5c82e5e24444646a5e23f5be2ce59f, type: 2}
+    - target: {fileID: 1369203712909657558, guid: a33fff2bdf20db743b63adeebf3cd05e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 675e6ec121815cd48a480d0debeaf531, type: 2}
     - target: {fileID: 1683074864384714982, guid: a33fff2bdf20db743b63adeebf3cd05e,
         type: 3}
       propertyPath: m_IsTrigger
@@ -9335,11 +9350,41 @@ PrefabInstance:
       propertyPath: audioSource_ChestSound
       value: 
       objectReference: {fileID: 594337063}
+    - target: {fileID: 4578528491372046992, guid: a33fff2bdf20db743b63adeebf3cd05e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c196358df18a6164db8dc4283ebbfa84, type: 2}
+    - target: {fileID: 6101813600651601565, guid: a33fff2bdf20db743b63adeebf3cd05e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 48e9dd6ab8ae6074f879fc2bc2e1c400, type: 2}
+    - target: {fileID: 6941022455986436167, guid: a33fff2bdf20db743b63adeebf3cd05e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3c2ebf0b2fbe1a04da363857115cd82a, type: 2}
+    - target: {fileID: 6987055450028843569, guid: a33fff2bdf20db743b63adeebf3cd05e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3c2ebf0b2fbe1a04da363857115cd82a, type: 2}
+    - target: {fileID: 7001387481273588604, guid: a33fff2bdf20db743b63adeebf3cd05e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c2e73a02fa909fe4fbd0a604c538f638, type: 2}
     - target: {fileID: 7207768482382278887, guid: a33fff2bdf20db743b63adeebf3cd05e,
         type: 3}
       propertyPath: audioSource_ChestSound
       value: 
       objectReference: {fileID: 594337063}
+    - target: {fileID: 7548765658134197521, guid: a33fff2bdf20db743b63adeebf3cd05e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fffcafe8580ddf94196eacbd5b5a4cb2, type: 2}
     - target: {fileID: 8346519991133168949, guid: a33fff2bdf20db743b63adeebf3cd05e,
         type: 3}
       propertyPath: m_UseSpring
