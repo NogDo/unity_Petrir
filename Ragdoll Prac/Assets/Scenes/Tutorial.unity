@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.80502546, g: 0.6616607, b: 0.70948446, a: 1}
+  m_IndirectSpecularColor: {r: 0.80502546, g: 0.66076034, b: 0.70948446, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &14881619
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2634,7 +2634,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &208010134
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9346,6 +9346,10 @@ MonoBehaviour:
   objShineMuskatTartFinished: {fileID: 0}
   objRollcakeDoughFinished: {fileID: 0}
   objRollcakeFinished: {fileID: 0}
+  objDoughFinished: {fileID: 0}
+  objCakeFinished: {fileID: 0}
+  objDoughClearPanel: {fileID: 0}
+  objBlackPanel: {fileID: 0}
 --- !u!54 &921072554
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9388,7 +9392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 33769074}
-  objPlayer: {fileID: 0}
+  objPlayer: {fileID: 1700030761209657937}
 --- !u!195 &921072557
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -14020,7 +14024,7 @@ MonoBehaviour:
   tutorialManager: {fileID: 1423183771}
   obj_Text: {fileID: 2045763921}
   animator_Oven: {fileID: 1205382103}
-  ovenMoveAI: {fileID: 0}
+  ovenMoveAI: {fileID: 921072556}
   isPlayerInArea: 0
   isOvenInterfaceOn: 0
 --- !u!95 &1205382103
@@ -19221,7 +19225,7 @@ MonoBehaviour:
   tutorialManager: {fileID: 1423183771}
   obj_Text: {fileID: 2045763921}
   animator_Oven: {fileID: 1205382103}
-  ovenMoveAI: {fileID: 0}
+  ovenMoveAI: {fileID: 921072556}
   isPlayerInArea: 0
   isOvenInterfaceOn: 0
 --- !u!135 &1643700894
@@ -25032,11 +25036,21 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 238852510}
+    - target: {fileID: 1716428527635222981, guid: 037739d1cda83004cb30be33ee83f669,
+        type: 3}
+      propertyPath: objPlayer
+      value: 
+      objectReference: {fileID: 1700030761209657937}
     - target: {fileID: 3787219667093811180, guid: 037739d1cda83004cb30be33ee83f669,
         type: 3}
       propertyPath: obj_Text
       value: 
       objectReference: {fileID: 1129454407}
+    - target: {fileID: 3787219667093811180, guid: 037739d1cda83004cb30be33ee83f669,
+        type: 3}
+      propertyPath: ovenMoveAI
+      value: 
+      objectReference: {fileID: 7350403166887060343}
     - target: {fileID: 3787219667093811180, guid: 037739d1cda83004cb30be33ee83f669,
         type: 3}
       propertyPath: tutorialManager
@@ -25229,6 +25243,11 @@ PrefabInstance:
       objectReference: {fileID: 1129454407}
     - target: {fileID: 7350403166363993039, guid: 037739d1cda83004cb30be33ee83f669,
         type: 3}
+      propertyPath: ovenMoveAI
+      value: 
+      objectReference: {fileID: 7350403166887060343}
+    - target: {fileID: 7350403166363993039, guid: 037739d1cda83004cb30be33ee83f669,
+        type: 3}
       propertyPath: animator_Oven
       value: 
       objectReference: {fileID: 1032463225}
@@ -25244,6 +25263,18 @@ PrefabInstance:
       objectReference: {fileID: 1700030761209657942}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 037739d1cda83004cb30be33ee83f669, type: 3}
+--- !u!114 &7350403166887060343 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1716428527635222981, guid: 037739d1cda83004cb30be33ee83f669,
+    type: 3}
+  m_PrefabInstance: {fileID: 7350403166887060342}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f273600a6d93eef428abaf14c561fb8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &7389046764328600184 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3199522162272210466, guid: 08acf44d887f2fa45bcf22a740298111,

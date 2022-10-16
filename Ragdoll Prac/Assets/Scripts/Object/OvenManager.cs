@@ -136,7 +136,22 @@ public class OvenManager : MonoBehaviour
             }
         }
 
-        if(stage == Stage.Stage1_5)
+        if(stage == Stage.Stage1_2)
+        {
+            objDoughClearPanel.SetActive(false);
+            objBlackPanel.SetActive(false);
+        }
+        else if(stage == Stage.Stage1_3)
+        {
+            objDoughClearPanel.SetActive(false);
+            objBlackPanel.SetActive(false);
+        }
+        else if(stage == Stage.Stage1_4)
+        {
+            objDoughClearPanel.SetActive(false);
+            objBlackPanel.SetActive(false);
+        }
+        else if(stage == Stage.Stage1_5)
         {
             objDoughClearPanel.SetActive(false);
             objBlackPanel.SetActive(false);

@@ -23466,6 +23466,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crust (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6247283035091026290, guid: b336e527fc15faf41bbbdbe786079c92,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6771477044453481416, guid: b336e527fc15faf41bbbdbe786079c92,
         type: 3}
       propertyPath: m_RootOrder
@@ -46435,6 +46440,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1186938088}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1026974951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50011,7 +50027,7 @@ PrefabInstance:
     - target: {fileID: 6247283035091026290, guid: b336e527fc15faf41bbbdbe786079c92,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6771477044453481416, guid: b336e527fc15faf41bbbdbe786079c92,
         type: 3}
@@ -64450,6 +64466,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 600504961}
+    - target: {fileID: 1716428527635222981, guid: 037739d1cda83004cb30be33ee83f669,
+        type: 3}
+      propertyPath: objPlayer
+      value: 
+      objectReference: {fileID: 1444345836}
     - target: {fileID: 1881538444742439995, guid: 037739d1cda83004cb30be33ee83f669,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -64475,6 +64496,11 @@ PrefabInstance:
       propertyPath: obj_Text
       value: 
       objectReference: {fileID: 1457535073}
+    - target: {fileID: 3787219667093811180, guid: 037739d1cda83004cb30be33ee83f669,
+        type: 3}
+      propertyPath: ovenMoveAI
+      value: 
+      objectReference: {fileID: 2022273163}
     - target: {fileID: 3787219667093811180, guid: 037739d1cda83004cb30be33ee83f669,
         type: 3}
       propertyPath: plateManager
@@ -64628,6 +64654,11 @@ PrefabInstance:
       objectReference: {fileID: 1186938088}
     - target: {fileID: 7350403165555393908, guid: 037739d1cda83004cb30be33ee83f669,
         type: 3}
+      propertyPath: objBlackPanel
+      value: 
+      objectReference: {fileID: 143232361}
+    - target: {fileID: 7350403165555393908, guid: 037739d1cda83004cb30be33ee83f669,
+        type: 3}
       propertyPath: objKnifeImage
       value: 
       objectReference: {fileID: 541339092}
@@ -64683,6 +64714,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: ec5f718c96afa1446809cc39d9709061,
         type: 3}
+    - target: {fileID: 7350403165555393908, guid: 037739d1cda83004cb30be33ee83f669,
+        type: 3}
+      propertyPath: objDoughClearPanel
+      value: 
+      objectReference: {fileID: 1719285630}
     - target: {fileID: 7350403165555393908, guid: 037739d1cda83004cb30be33ee83f669,
         type: 3}
       propertyPath: audioSource_Tutorial
@@ -64793,6 +64829,11 @@ PrefabInstance:
       propertyPath: obj_Text
       value: 
       objectReference: {fileID: 1457535073}
+    - target: {fileID: 7350403166363993039, guid: 037739d1cda83004cb30be33ee83f669,
+        type: 3}
+      propertyPath: ovenMoveAI
+      value: 
+      objectReference: {fileID: 2022273163}
     - target: {fileID: 7350403166363993039, guid: 037739d1cda83004cb30be33ee83f669,
         type: 3}
       propertyPath: animator_Oven
@@ -70352,7 +70393,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1583268235
 RectTransform:
   m_ObjectHideFlags: 0
@@ -91587,6 +91628,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2020684747}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2022273163 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1716428527635222981, guid: 037739d1cda83004cb30be33ee83f669,
+    type: 3}
+  m_PrefabInstance: {fileID: 1457535071}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f273600a6d93eef428abaf14c561fb8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2027826298
 PrefabInstance:
   m_ObjectHideFlags: 0
