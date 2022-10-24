@@ -9,6 +9,8 @@ public class SoundManager : MonoBehaviour
     public Slider slider_BGM;
     public Slider slider_Sound;
 
+    public Stage stage;
+
     private void Start()
     {
         // 0, 1은 BGM 나머지는 효과음
@@ -17,23 +19,47 @@ public class SoundManager : MonoBehaviour
             audioSources.Add(transform.GetChild(i).GetComponent<AudioSource>());
         }
 
-        slider_BGM.onValueChanged.AddListener(delegate { ChangeBGMVolume(); });
-        slider_Sound.onValueChanged.AddListener(delegate { ChangeSoundVolume(); });
+        if(slider_BGM != null)
+        {
+            slider_BGM.onValueChanged.AddListener(delegate { ChangeBGMVolume(); });
+            slider_Sound.onValueChanged.AddListener(delegate { ChangeSoundVolume(); });
+        }
     }
 
     public void ChangeBGMVolume()
     {
-        for(int i = 0; i < 2; i++)
+        if(stage == Stage.Stage1_5)
         {
-            audioSources[i].volume = slider_BGM.value;
+            for (int i = 0; i < 3; i++)
+            {
+                audioSources[i].volume = slider_BGM.value;
+            }
         }
+        else
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                audioSources[i].volume = slider_BGM.value;
+            }
+        }
+        
     }
 
     public void ChangeSoundVolume()
     {
-        for(int i = 2; i < audioSources.Count; i++)
+        if(stage == Stage.Stage1_5)
         {
-            audioSources[i].volume = slider_Sound.value;
+            for (int i = 3; i < audioSources.Count; i++)
+            {
+                audioSources[i].volume = slider_Sound.value;
+            }
+        }
+        else
+        {
+            for (int i = 2; i < audioSources.Count; i++)
+            {
+                audioSources[i].volume = slider_Sound.value;
+            }
         }
     }
 }

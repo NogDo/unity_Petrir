@@ -1,13 +1,7 @@
 fileFormatVersion: 2
 guid: dddbcdae5a6eeb341a504d62f77f92a4
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -3595631259717235180
-    second: strsand3_0
-  - first:
-      213: 8120872930988617572
-    second: strsand3_1
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -103,49 +97,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: strsand3_0
-      rect:
-        serializedVersion: 2
-        x: 298
-        y: 382
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 41e83457b60c91ec0800000000000000
-      internalID: -3595631259717235180
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: strsand3_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 33
-        width: 500
-        height: 467
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 46f69ad87e223b070800000000000000
-      internalID: 8120872930988617572
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []

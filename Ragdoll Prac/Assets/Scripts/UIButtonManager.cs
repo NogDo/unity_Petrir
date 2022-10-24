@@ -20,6 +20,13 @@ public class UIButtonManager : MonoBehaviour
 
     public DontDestroy ClearCheck;
 
+    public GameObject[] Stage;
+    public GameObject[] StageSelect;
+    private int nIndex;
+
+    [SerializeField]
+    Image image_ProgressBar;
+    public GameObject objLoading;
     private void OnEnable()
     {
         Cursor.SetCursor(texture_Cursor, Vector2.zero, CursorMode.ForceSoftware);
@@ -29,6 +36,17 @@ public class UIButtonManager : MonoBehaviour
         ClearCheck = GameObject.Find("ClearCheck").GetComponent<DontDestroy>();
     }
 
+    private void Start()
+    {
+        nIndex = 0;
+        for (int i = 0; i < StageSelect.Length; i++)
+        {
+            StageSelect[i].transform.GetChild(0).GetComponent<Image>().sprite = Stage[i].transform.GetChild(0).GetComponent<Image>().sprite;
+            StageSelect[i].transform.GetChild(1).GetComponent<Image>().sprite = Stage[i].transform.GetChild(1).GetComponent<Image>().sprite;
+            StageSelect[i].transform.GetChild(2).GetComponent<Image>().sprite = Stage[i].transform.GetChild(2).GetComponent<Image>().sprite;
+        }
+    }
+
     public void ShowChapter()
     {
         objMain.SetActive(false);
@@ -36,14 +54,46 @@ public class UIButtonManager : MonoBehaviour
 
         if (PlayerPrefs.GetInt("Stage1Clear") == 1)
         {
-            objChapter1Stage.transform.GetChild(1).GetChild(0).gameObject.SetActive(true);
-            objChapter1Stage.transform.GetChild(1).GetChild(2).gameObject.SetActive(true);
+            Stage[0].transform.GetChild(0).gameObject.SetActive(true);
+            Stage[0].transform.GetChild(2).gameObject.SetActive(true);
         }
 
         if (PlayerPrefs.GetInt("Stage2Clear") == 1)
         {
-            objChapter1Stage.transform.GetChild(2).GetChild(0).gameObject.SetActive(true);
-            objChapter1Stage.transform.GetChild(2).GetChild(2).gameObject.SetActive(true);
+            Stage[1].transform.GetChild(0).gameObject.SetActive(true);
+            Stage[1].transform.GetChild(2).gameObject.SetActive(true);
+        }
+
+        if (PlayerPrefs.GetInt("Stage3Clear") == 1)
+        {
+            Stage[2].transform.GetChild(0).gameObject.SetActive(true);
+            Stage[2].transform.GetChild(2).gameObject.SetActive(true);
+        }
+
+        if (PlayerPrefs.GetInt("Stage4Clear") == 1)
+        {
+            Stage[3].transform.GetChild(0).gameObject.SetActive(true);
+            Stage[3].transform.GetChild(2).gameObject.SetActive(true);
+        }
+
+        if (PlayerPrefs.GetInt("Stage5Clear") == 1)
+        {
+            Stage[4].transform.GetChild(0).gameObject.SetActive(true);
+            Stage[4].transform.GetChild(2).gameObject.SetActive(true);
+        }
+
+        for (int i = 0; i < 3; i++)
+        {
+            if (Stage[i].transform.GetChild(0).gameObject.activeSelf)
+            {
+                StageSelect[i].transform.GetChild(0).gameObject.SetActive(true);
+                StageSelect[i].transform.GetChild(2).gameObject.SetActive(true);
+            }
+            else
+            {
+                StageSelect[i].transform.GetChild(0).gameObject.SetActive(false);
+                StageSelect[i].transform.GetChild(2).gameObject.SetActive(false);
+            }
         }
     }
 
@@ -86,26 +136,151 @@ public class UIButtonManager : MonoBehaviour
 
     public void StartStage01()
     {
-        SceneManager.LoadScene("1");
+        //SceneManager.LoadScene("1");
+        StartCoroutine(LoadScenePrecess("1"));
     }
 
     public void StartStage02()
     {
-        SceneManager.LoadScene("2");
+        //SceneManager.LoadScene("2");
+        StartCoroutine(LoadScenePrecess("2"));
     }
 
     public void StartStage03()
     {
-        SceneManager.LoadScene("3");
+        //SceneManager.LoadScene("3");
+        StartCoroutine(LoadScenePrecess("3"));
     }
 
     public void StartStage04()
     {
-        SceneManager.LoadScene("4");
+        //SceneManager.LoadScene("4");
+        StartCoroutine(LoadScenePrecess("4"));
     }
 
     public void StartStage05()
     {
-        SceneManager.LoadScene("5");
+        //SceneManager.LoadScene("5");
+        StartCoroutine(LoadScenePrecess("5"));
+    }
+    public void SelectStage(int nStageCount)
+    {
+        nStageCount += nIndex;
+
+        switch (nStageCount)
+        {
+            case 1:
+                StartStage01();
+                break;
+
+            case 2:
+                StartStage02();
+                break;
+
+            case 3:
+                StartStage03();
+                break;
+
+            case 4:
+                StartStage04();
+                break;
+
+            case 5:
+                StartStage05();
+                break;
+
+            default:
+                Debug.Log("스테이지 카운트 오류");
+                break;
+        }
+    }
+
+    IEnumerator LoadScenePrecess(string sceneName)
+    {
+        objLoading.SetActive(true);
+        AsyncOperation op = SceneManager.LoadSceneAsync(sceneName);
+        op.allowSceneActivation = false;
+
+        float timer = 0.0f;
+        while (!op.isDone)
+        {
+            yield return null;
+
+            if(op.progress < 0.5f)
+            {
+                image_ProgressBar.fillAmount = op.progress;
+            }
+            else
+            {
+                timer += Time.unscaledDeltaTime;
+                Debug.Log(timer);
+                image_ProgressBar.fillAmount = Mathf.Lerp(0.1f, 1.0f, timer / 10.0f);
+                if (image_ProgressBar.fillAmount >= 1.0f)
+                {
+                    op.allowSceneActivation = true;
+                    yield break;
+                }
+            }
+        }
+    }
+
+    public void PressLeftArrow()
+    {
+        if (nIndex <= 0)
+        {
+            return;
+        }
+
+        nIndex--;
+        for (int i = 0; i < 3; i++)
+        {
+            StageSelect[i].transform.GetChild(0).GetComponent<Image>().sprite = Stage[i + nIndex].transform.GetChild(0).GetComponent<Image>().sprite;
+            StageSelect[i].transform.GetChild(1).GetComponent<Image>().sprite = Stage[i + nIndex].transform.GetChild(1).GetComponent<Image>().sprite;
+            StageSelect[i].transform.GetChild(2).GetComponent<Image>().sprite = Stage[i + nIndex].transform.GetChild(2).GetComponent<Image>().sprite;
+        }
+
+        for (int i = 0; i < 3; i++)
+        {
+            if (Stage[i + nIndex].transform.GetChild(0).gameObject.activeSelf)
+            {
+                StageSelect[i].transform.GetChild(0).gameObject.SetActive(true);
+                StageSelect[i].transform.GetChild(2).gameObject.SetActive(true);
+            }
+            else
+            {
+                StageSelect[i].transform.GetChild(0).gameObject.SetActive(false);
+                StageSelect[i].transform.GetChild(2).gameObject.SetActive(false);
+            }
+        }
+    }
+
+    public void PressRightArrow()
+    {
+        if (nIndex >= 2)
+        {
+            return;
+        }
+
+        nIndex++;
+        for (int i = 0; i < 3; i++)
+        {
+            StageSelect[i].transform.GetChild(0).GetComponent<Image>().sprite = Stage[i + nIndex].transform.GetChild(0).GetComponent<Image>().sprite;
+            StageSelect[i].transform.GetChild(1).GetComponent<Image>().sprite = Stage[i + nIndex].transform.GetChild(1).GetComponent<Image>().sprite;
+            StageSelect[i].transform.GetChild(2).GetComponent<Image>().sprite = Stage[i + nIndex].transform.GetChild(2).GetComponent<Image>().sprite;
+        }
+
+        for (int i = 0; i < 3; i++)
+        {
+            if (Stage[i + nIndex].transform.GetChild(0).gameObject.activeSelf)
+            {
+                StageSelect[i].transform.GetChild(0).gameObject.SetActive(true);
+                StageSelect[i].transform.GetChild(2).gameObject.SetActive(true);
+            }
+            else
+            {
+                StageSelect[i].transform.GetChild(0).gameObject.SetActive(false);
+                StageSelect[i].transform.GetChild(2).gameObject.SetActive(false);
+            }
+        }
     }
 }

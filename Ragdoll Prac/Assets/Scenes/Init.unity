@@ -151,6 +151,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTutorialClear: 0
+  isStage1Clear: 0
+  isStage2Clear: 0
+  isStage3Clear: 0
+  isStage4Clear: 0
+  isStage5Clear: 0
 --- !u!4 &139345379
 Transform:
   m_ObjectHideFlags: 0
@@ -412,7 +417,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d05fcbd863113a34fb096f715b556f19, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 44e4be9cd6396634d8f3e436e13f7ed9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -3,56 +3,96 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public enum CutScene
+{
+    Epilogue,
+    Prologue
+}
 public class CutSceneManager : MonoBehaviour
 {
     float fTime;
     float fCutSceneTime;
+    bool isStart;
+    int nTimeCount;
 
     public GameObject[] objCutSceneImage;
-
     public AudioSource audioSource;
+    public CutScene cutScene;
 
+    public GameObject objOverlay;
+    public GameObject objCutScene;
     private void Start()
     {
         fCutSceneTime = 5.0f;
+        isStart = false;
+        nTimeCount = 2;
+
+        if(cutScene == CutScene.Epilogue)
+        {
+            StartCutScene();
+        }
 
         Cursor.visible = false;
     }
-
     void Update()
     {
-        fTime += Time.deltaTime;
-        Debug.Log(fTime);
+        if (isStart)
+        {
+            fTime += Time.deltaTime;
+            Debug.Log(fTime);
 
-        if (fTime >= fCutSceneTime && fTime < fCutSceneTime * 2)
-        {
-            objCutSceneImage[1].SetActive(true);
-        }
-        else if (fTime >= fCutSceneTime * 2 && fTime < fCutSceneTime * 3)
-        {
-            objCutSceneImage[2].SetActive(true);
-        }
-        else if (fTime >= fCutSceneTime * 3 && fTime < fCutSceneTime * 4)
-        {
-            objCutSceneImage[3].SetActive(true);
-        }
-        else if (fTime >= fCutSceneTime * 4 && fTime < fCutSceneTime * 5)
-        {
-            objCutSceneImage[4].SetActive(true);
-        }
-        else if (fTime >= fCutSceneTime * 5 && fTime < fCutSceneTime * 6)
-        {
-            objCutSceneImage[5].SetActive(true);
-        }
-        else if(fTime >= fCutSceneTime * 6)
-        {
-            SceneManager.LoadScene("Tutorial");
-        }
+            if(fTime >= fCutSceneTime * (nTimeCount - 1) && fTime < fCutSceneTime * nTimeCount)
+            {
+                if(nTimeCount - 1 < objCutSceneImage.Length)
+                {
+                    objCutSceneImage[nTimeCount - 1].SetActive(true);
+                    nTimeCount++;
+                }
+                else
+                {
+                    if(cutScene == CutScene.Epilogue)
+                    {
+                        audioSource.Stop();
+                        SceneManager.LoadScene("Tutorial");
+                    }
+                }
+            }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            audioSource.Stop();
-            SceneManager.LoadScene("Tutorial");
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                if (cutScene == CutScene.Epilogue)
+                {
+                    audioSource.Stop();
+                    SceneManager.LoadScene("Tutorial");
+                }
+                else if (cutScene == CutScene.Prologue)
+                {
+                    audioSource.Stop();
+                }
+            }
         }
+    }
+    public void StartCutScene()
+    {
+        audioSource.Play();
+        isStart = true;
+
+        if(cutScene == CutScene.Prologue)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+
+            objOverlay.SetActive(false);
+            objCutScene.SetActive(true);
+        }
+    }
+
+    public void EndCutScene()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        objOverlay.SetActive(true);
+        objCutScene.SetActive(false);
     }
 }
