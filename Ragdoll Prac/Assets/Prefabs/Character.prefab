@@ -370,6 +370,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   audioSource_Jump: {fileID: 0}
   objPassWall: {fileID: 0}
+  objPassWall2: {fileID: 0}
   physicMaterial_FootSlide: {fileID: 13400000, guid: 1d96117915c22434ba5ee20ceeb894ef,
     type: 2}
 --- !u!114 &172145336046117815
@@ -387,6 +388,8 @@ MonoBehaviour:
   vector_TutorialStartPosition: {x: -15, y: 10, z: -15}
   objCharacter: {fileID: 6302432711321044526}
   sequenceAerial: {fileID: 0}
+  LGrab: {fileID: 7440223482911487537}
+  RGrab: {fileID: 164413525722639155}
 --- !u!114 &172145336046117813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1335,7 +1338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73339cff4ada7d445b7561530bef7315, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fRotationSpeed: 5
+  fRotationSpeed: 4
   fStomachOffset: 0
   transform_Root: {fileID: 1581939660624821275}
   hipJoint: {fileID: 172145336046117809}

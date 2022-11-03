@@ -13,37 +13,48 @@ public class UIButtonManager : MonoBehaviour
     public GameObject objMain;
     public GameObject objChapter;
     public GameObject objChapter1Stage;
-    public GameObject objChapter2Stage;
-    public GameObject objChapter3Stage;
+    public Sprite[] sprite_StageOpen;
+    public Sprite[] sprite_StageLocked;
 
     public Texture2D texture_Cursor;
 
     public DontDestroy ClearCheck;
 
+    public RandomTipManager randomTipManager;
+
     public GameObject[] Stage;
     public GameObject[] StageSelect;
+
+    public bool isExhibitionFile;
     private int nIndex;
 
     [SerializeField]
     Image image_ProgressBar;
     public GameObject objLoading;
+
     private void OnEnable()
     {
-        Cursor.SetCursor(texture_Cursor, Vector2.zero, CursorMode.ForceSoftware);
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        if(StageSelect[0] != null)
+        {
+            Cursor.SetCursor(texture_Cursor, Vector2.zero, CursorMode.ForceSoftware);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
 
-        ClearCheck = GameObject.Find("ClearCheck").GetComponent<DontDestroy>();
+            ClearCheck = GameObject.Find("ClearCheck").GetComponent<DontDestroy>();
+        }
     }
 
     private void Start()
     {
-        nIndex = 0;
-        for (int i = 0; i < StageSelect.Length; i++)
+        if(StageSelect[0] != null)
         {
-            StageSelect[i].transform.GetChild(0).GetComponent<Image>().sprite = Stage[i].transform.GetChild(0).GetComponent<Image>().sprite;
-            StageSelect[i].transform.GetChild(1).GetComponent<Image>().sprite = Stage[i].transform.GetChild(1).GetComponent<Image>().sprite;
-            StageSelect[i].transform.GetChild(2).GetComponent<Image>().sprite = Stage[i].transform.GetChild(2).GetComponent<Image>().sprite;
+            nIndex = 0;
+            for (int i = 0; i < StageSelect.Length; i++)
+            {
+                StageSelect[i].transform.GetChild(0).GetComponent<Image>().sprite = Stage[i].transform.GetChild(0).GetComponent<Image>().sprite;
+                StageSelect[i].transform.GetChild(1).GetComponent<Image>().sprite = Stage[i].transform.GetChild(1).GetComponent<Image>().sprite;
+                StageSelect[i].transform.GetChild(2).GetComponent<Image>().sprite = Stage[i].transform.GetChild(2).GetComponent<Image>().sprite;
+            }
         }
     }
 
@@ -52,34 +63,64 @@ public class UIButtonManager : MonoBehaviour
         objMain.SetActive(false);
         objChapter.SetActive(true);
 
+        if (isExhibitionFile)
+        {
+            for (int i = 1; i < 5; i++)
+            {
+                Stage[i].transform.GetChild(1).GetComponent<Image>().sprite = sprite_StageOpen[i - 1];
+            }
+        }
+        else
+        {
+            for (int i = 1; i < 5; i++)
+            {
+                Stage[i].transform.GetChild(1).GetComponent<Image>().sprite = sprite_StageLocked[i - 1];
+            }
+        }
+
         if (PlayerPrefs.GetInt("Stage1Clear") == 1)
         {
             Stage[0].transform.GetChild(0).gameObject.SetActive(true);
             Stage[0].transform.GetChild(2).gameObject.SetActive(true);
+
+            Stage[1].transform.GetChild(1).GetComponent<Image>().sprite = sprite_StageOpen[0];
         }
 
         if (PlayerPrefs.GetInt("Stage2Clear") == 1)
         {
             Stage[1].transform.GetChild(0).gameObject.SetActive(true);
             Stage[1].transform.GetChild(2).gameObject.SetActive(true);
+
+            Stage[2].transform.GetChild(1).GetComponent<Image>().sprite = sprite_StageOpen[1];
         }
 
         if (PlayerPrefs.GetInt("Stage3Clear") == 1)
         {
             Stage[2].transform.GetChild(0).gameObject.SetActive(true);
             Stage[2].transform.GetChild(2).gameObject.SetActive(true);
+
+            Stage[3].transform.GetChild(1).GetComponent<Image>().sprite = sprite_StageOpen[2];
         }
 
         if (PlayerPrefs.GetInt("Stage4Clear") == 1)
         {
             Stage[3].transform.GetChild(0).gameObject.SetActive(true);
             Stage[3].transform.GetChild(2).gameObject.SetActive(true);
+
+            Stage[4].transform.GetChild(1).GetComponent<Image>().sprite = sprite_StageOpen[3];
         }
 
         if (PlayerPrefs.GetInt("Stage5Clear") == 1)
         {
             Stage[4].transform.GetChild(0).gameObject.SetActive(true);
             Stage[4].transform.GetChild(2).gameObject.SetActive(true);
+        }
+
+        for (int i = 0; i < StageSelect.Length; i++)
+        {
+            StageSelect[i].transform.GetChild(0).GetComponent<Image>().sprite = Stage[i].transform.GetChild(0).GetComponent<Image>().sprite;
+            StageSelect[i].transform.GetChild(1).GetComponent<Image>().sprite = Stage[i].transform.GetChild(1).GetComponent<Image>().sprite;
+            StageSelect[i].transform.GetChild(2).GetComponent<Image>().sprite = Stage[i].transform.GetChild(2).GetComponent<Image>().sprite;
         }
 
         for (int i = 0; i < 3; i++)
@@ -132,37 +173,54 @@ public class UIButtonManager : MonoBehaviour
     {
         ClearCheck.isTutorialClear = true;
         PlayerPrefs.SetInt("TutorialClear", 1);
+
+        StartTutorial();
+    }
+
+    public void PlayTutorial()
+    {
+        ClearCheck.isTutorialClear = false;
+
+        StartTutorial();
+    }
+
+    public void StartTutorialLoading()
+    {
+        Debug.Log("튜토리얼 로딩");
+        randomTipManager.RandomTutorialTip();
+        StartCoroutine(LoadScenePrecess("Tutorial"));
     }
 
     public void StartStage01()
     {
-        //SceneManager.LoadScene("1");
+        randomTipManager.RandomTip();
         StartCoroutine(LoadScenePrecess("1"));
     }
 
     public void StartStage02()
     {
-        //SceneManager.LoadScene("2");
+        randomTipManager.RandomStage2Tip();
         StartCoroutine(LoadScenePrecess("2"));
     }
 
     public void StartStage03()
     {
-        //SceneManager.LoadScene("3");
+        randomTipManager.RandomTip();
         StartCoroutine(LoadScenePrecess("3"));
     }
 
     public void StartStage04()
     {
-        //SceneManager.LoadScene("4");
+        randomTipManager.RandomStage4Tip();
         StartCoroutine(LoadScenePrecess("4"));
     }
 
     public void StartStage05()
     {
-        //SceneManager.LoadScene("5");
+        randomTipManager.RandomTip();
         StartCoroutine(LoadScenePrecess("5"));
     }
+
     public void SelectStage(int nStageCount)
     {
         nStageCount += nIndex;
@@ -174,19 +232,31 @@ public class UIButtonManager : MonoBehaviour
                 break;
 
             case 2:
-                StartStage02();
+                if(Stage[1].transform.GetChild(1).GetComponent<Image>().sprite == sprite_StageOpen[0])
+                {
+                    StartStage02();
+                }
                 break;
 
             case 3:
-                StartStage03();
+                if (Stage[2].transform.GetChild(1).GetComponent<Image>().sprite == sprite_StageOpen[1])
+                {
+                    StartStage03();
+                }
                 break;
 
             case 4:
-                StartStage04();
+                if (Stage[3].transform.GetChild(1).GetComponent<Image>().sprite == sprite_StageOpen[2])
+                {
+                    StartStage04();
+                }
                 break;
 
             case 5:
-                StartStage05();
+                if (Stage[4].transform.GetChild(1).GetComponent<Image>().sprite == sprite_StageOpen[3])
+                {
+                    StartStage05();
+                }
                 break;
 
             default:

@@ -13,6 +13,7 @@ public class CutSceneManager : MonoBehaviour
     float fTime;
     float fCutSceneTime;
     bool isStart;
+    bool isTutorialStart;
     int nTimeCount;
 
     public GameObject[] objCutSceneImage;
@@ -21,10 +22,14 @@ public class CutSceneManager : MonoBehaviour
 
     public GameObject objOverlay;
     public GameObject objCutScene;
+
+    public UIButtonManager uIButtonManager;
+
     private void Start()
     {
         fCutSceneTime = 5.0f;
         isStart = false;
+        isTutorialStart = false;
         nTimeCount = 2;
 
         if(cutScene == CutScene.Epilogue)
@@ -50,10 +55,12 @@ public class CutSceneManager : MonoBehaviour
                 }
                 else
                 {
-                    if(cutScene == CutScene.Epilogue)
+                    if(cutScene == CutScene.Epilogue && !isTutorialStart)
                     {
                         audioSource.Stop();
-                        SceneManager.LoadScene("Tutorial");
+                        //SceneManager.LoadScene("Tutorial");
+                        uIButtonManager.StartTutorialLoading();
+                        isTutorialStart = true;
                     }
                 }
             }
@@ -63,11 +70,12 @@ public class CutSceneManager : MonoBehaviour
                 if (cutScene == CutScene.Epilogue)
                 {
                     audioSource.Stop();
-                    SceneManager.LoadScene("Tutorial");
+                    //SceneManager.LoadScene("Tutorial");
+                    uIButtonManager.StartTutorialLoading();
                 }
                 else if (cutScene == CutScene.Prologue)
                 {
-                    audioSource.Stop();
+                    //audioSource.Stop();
                 }
             }
         }

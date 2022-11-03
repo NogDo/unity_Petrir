@@ -14,6 +14,8 @@ public class PlayerManager : MonoBehaviour
 
     [Header("플레이어가 맵밖으로 떨어졌을 때 초기화 하기 위해 필요한 매니저 or 오브젝트")]
     public SequenceAerial sequenceAerial;
+    public Grab LGrab;
+    public Grab RGrab;
 
     private void Start()
     {
@@ -24,6 +26,9 @@ public class PlayerManager : MonoBehaviour
     {
         if(transform.position.y <= -20.0f)
         {
+            LGrab.RemoveJoint();
+            RGrab.RemoveJoint();
+
             transform.position = vector_StartPosition;
             if(sequenceAerial != null)
             {

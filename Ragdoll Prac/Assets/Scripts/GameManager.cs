@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
         Cursor.SetCursor(texture_Cursor, Vector2.zero, CursorMode.ForceSoftware);
         Cursor.visible = false;
 
-        ClearCheck = GameObject.Find("ClearCheck").GetComponent<DontDestroy>();
+        ClearCheck = GameObject.Find("ClearCheck").GetComponent<DontDestroy>();  
     }
 
     void Update()
