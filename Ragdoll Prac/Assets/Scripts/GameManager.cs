@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
         Cursor.SetCursor(texture_Cursor, Vector2.zero, CursorMode.ForceSoftware);
         Cursor.visible = false;
 
-        ClearCheck = GameObject.Find("ClearCheck").GetComponent<DontDestroy>();
+        ClearCheck = GameObject.Find("ClearCheck").GetComponent<DontDestroy>();  
     }
 
     void Update()
@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F3))
         {
-            SceneManager.LoadScene("UI");
+            LoadUIScene();
         }
 
         if (Input.GetKeyDown(KeyCode.F4))
@@ -101,5 +101,10 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("UI");
         ClearCheck.isStage5Clear = true;
         PlayerPrefs.SetInt("Stage5Clear", 1);
+    }
+
+    public void LoadUIScene()
+    {
+        SceneManager.LoadScene("UI");
     }
 }

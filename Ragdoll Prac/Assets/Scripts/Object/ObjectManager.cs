@@ -55,10 +55,10 @@ public class ObjectManager : MonoBehaviour
     {
         if (transform.position.y <= -20.0f || transform.position.y >= 100.0f)
         {
-            while(gameObject.GetComponent<FixedJoint>() != null)
-            {
-                Destroy(gameObject.GetComponent<FixedJoint>());
-            }
+            //while(gameObject.GetComponent<FixedJoint>() != null)
+            //{
+            //    Destroy(gameObject.GetComponent<FixedJoint>());
+            //}
 
             ResetTransform();
         }

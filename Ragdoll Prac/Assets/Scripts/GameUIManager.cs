@@ -11,6 +11,7 @@ public class GameUIManager : MonoBehaviour
     public GameObject objRecipePopupSmall;
     public GameObject objRecipePopupLarge;
     public GameObject objRecipePopupRing;
+    public GameObject objOptionCanvas;
 
     public GameObject objKnifeImage;
     public GameObject objKnife;
@@ -21,15 +22,28 @@ public class GameUIManager : MonoBehaviour
     public bool isTutorialGuide;
     public bool isOvenUIOn;
     public bool isPlateUIOn;
+    public bool isQuitCanvasOn;
 
     private void Start()
     {
         isOvenUIOn = false;
         isPlateUIOn = false;
+        isQuitCanvasOn = false;
     }
 
     void Update()
     {
+        // 옵션창
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!isOvenUIOn && !isPlateUIOn && !isQuitCanvasOn)
+            {
+                objOptionCanvas.SetActive(true);
+                Cursor.lockState = CursorLockMode.Confined;
+                Cursor.visible = true;
+            }
+        }
+
         // 레시피 열기
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -81,17 +95,26 @@ public class GameUIManager : MonoBehaviour
         }
 
         // 칼 꺼내기
-        if (Input.GetKeyDown(KeyCode.F))
+        if (!isOvenUIOn && !isPlateUIOn)
         {
-            objKnifeImage.GetComponent<Image>().color = new Color(200.0f / 255.0f, 200.0f / 255.0f, 200.0f / 255.0f, 1.0f);
-        }
+            objKnifeImage.SetActive(true);
 
-        if (Input.GetKeyUp(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                objKnifeImage.GetComponent<Image>().color = new Color(200.0f / 255.0f, 200.0f / 255.0f, 200.0f / 255.0f, 1.0f);
+            }
+
+            if (Input.GetKeyUp(KeyCode.F))
+            {
+                objKnifeImage.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+                objKnife.SetActive(true);
+                objKnife.GetComponent<ObjectManager>().ResetTransform();
+                audioSource_KnifeTakeOut.Play();
+            }
+        }
+        else
         {
-            objKnifeImage.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
-            objKnife.SetActive(true);
-            objKnife.GetComponent<ObjectManager>().ResetTransform();
-            audioSource_KnifeTakeOut.Play();
+            objKnifeImage.SetActive(false);
         }
     }
 
@@ -123,5 +146,21 @@ public class GameUIManager : MonoBehaviour
     public void PlateUIOff()
     {
         isPlateUIOn = false;
+    }
+
+    public void QuitCanvasOn()
+    {
+        isQuitCanvasOn = true;
+    }
+
+    public void QuitCanvasOff()
+    {
+        isQuitCanvasOn = false;
+    }
+
+    public void HideCursor()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }

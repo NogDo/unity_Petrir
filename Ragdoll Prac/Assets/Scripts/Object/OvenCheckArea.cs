@@ -26,17 +26,19 @@ public class OvenCheckArea : MonoBehaviour
 
     public bool isPlayerInArea;
     public bool isOvenInterfaceOn;
+    public bool isStartPrologue;
 
     private bool isEndOvenTutorial;
 
     private void Start()
     {
         isEndOvenTutorial = false;
+        isStartPrologue = false;
     }
 
     void Update()
     {
-        if (isPlayerInArea)
+        if (isPlayerInArea && !isOvenInterfaceOn)
         {
             if(manager == Manager.Oven)
             {
@@ -57,19 +59,21 @@ public class OvenCheckArea : MonoBehaviour
 
         if (isOvenInterfaceOn)
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (!isStartPrologue)
             {
-                if (manager == Manager.Oven)
+                if (Input.GetKeyUp(KeyCode.Escape))
                 {
-                    animator_Oven.SetBool("isF", false);
-                    ovenManager.CloseOvenUI();
-                    ovenMoveAI.PressFFalse();
+                    if (manager == Manager.Oven)
+                    {
+                        OvenAIFalse();
+                        ovenManager.CloseOvenUI();
+                    }
+                    else if (manager == Manager.Plate)
+                    {
+                        plateManager.ClosePlateUI();
+                    }
+                    isOvenInterfaceOn = false;
                 }
-                else if (manager == Manager.Plate)
-                {
-                    plateManager.ClosePlateUI();
-                }
-                isOvenInterfaceOn = false;
             }
         }
     }
@@ -122,5 +126,26 @@ public class OvenCheckArea : MonoBehaviour
             plateManager.OpenPlateUI();
         }
         isOvenInterfaceOn = true;
+    }
+
+    public void OvenAIFalse()
+    {
+        animator_Oven.SetBool("isF", false);
+        ovenMoveAI.PressFFalse();
+    }
+
+    public void InterFaceOff()
+    {
+        isOvenInterfaceOn = false;
+    }
+
+    public void StartPrologue()
+    {
+        isStartPrologue = true;
+    }
+    
+    public void EndPrologue()
+    {
+        isStartPrologue = false;
     }
 }
