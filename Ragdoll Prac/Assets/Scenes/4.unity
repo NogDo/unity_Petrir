@@ -8875,7 +8875,8 @@ PrefabInstance:
         type: 3}
       propertyPath: sprite_ObjectImage
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 21300000, guid: 21e630a5146a82d48be376218c59eb99,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a5bf62a5364fe143863e1aac08dc099, type: 3}
 --- !u!4 &398245766 stripped
@@ -26046,7 +26047,8 @@ PrefabInstance:
         type: 3}
       propertyPath: sprite_ObjectImage
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 21300000, guid: 21e630a5146a82d48be376218c59eb99,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a5bf62a5364fe143863e1aac08dc099, type: 3}
 --- !u!4 &1087082954 stripped
