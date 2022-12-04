@@ -353,4 +353,10 @@ public class UIButtonManager : MonoBehaviour
             }
         }
     }
+
+    public void StartCredit()
+    {
+
+
+    }
 }
