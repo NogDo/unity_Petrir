@@ -19,13 +19,10 @@ public class CopyMotion : MonoBehaviour
     {
         if (!mirror)
         {
-            //configurableJoint.targetRotation = transform_TargetLimb.rotation;
-            //configurableJoint.SetTargetRotation(transform_TargetLimb.localRotation, startingRotation);
             configurableJoint.SetTargetRotationLocal(transform_TargetLimb.localRotation, startingRotation);
         }
         else
         {
-            //configurableJoint.targetRotation = Quaternion.Inverse(transform_TargetLimb.rotation);
             configurableJoint.SetTargetRotation(Quaternion.Inverse(transform_TargetLimb.localRotation), startingRotation);
         }
     }

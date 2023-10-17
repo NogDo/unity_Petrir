@@ -25,7 +25,6 @@ public class LimbCollision : MonoBehaviour
         {
             if (tutorialManager.IsStartJumpTutorial() && !isOnce && playerController.isJump)
             {
-                Debug.Log("이게 문젠가3");
                 StartJumpTutorial();
                 isOnce = true;
             }
@@ -38,7 +37,6 @@ public class LimbCollision : MonoBehaviour
         RaycastHit hit_down, hit_Front;
         Vector3 down = transform.TransformDirection(Vector3.left);
         Vector3 front = transform.TransformDirection(new Vector3(-0.5f, 1, 0));
-        //Vector3 front = transform.TransformDirection(Vector3.up);
         Debug.DrawRay(transform.position, down * 0.25f, Color.red);
         Debug.DrawRay(transform.position, front * 0.3f, Color.red);
 
@@ -95,10 +93,7 @@ public class LimbCollision : MonoBehaviour
                     playerController.isJump = false;
                     playerController.fRunSpeed = 2.0f;
                 }
-                else 
-                {
-                    //playerController.isGrounded = false;
-                }
+                
             }
         }
         else if(Physics.Raycast(transform.position, front, out hit_Front, 0.3f) && !isStartJumpTutorial)
@@ -132,10 +127,7 @@ public class LimbCollision : MonoBehaviour
                     playerController.isJump = false;
                     playerController.fRunSpeed = 2.0f;
                 }
-                else
-                {
-                    //playerController.isGrounded = false;
-                }
+                
             }
         }
     }

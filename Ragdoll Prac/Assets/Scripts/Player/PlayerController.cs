@@ -52,13 +52,6 @@ public class PlayerController : MonoBehaviour
                     rigidbody_Hips.velocity = rigidbody_Hips.velocity.normalized * fMaxRunSpeed;
                 }
             }
-            //else
-            //{
-            //    if (rigidbody_Hips.velocity.magnitude >= fMaxWalkSpeed)
-            //    {
-            //        rigidbody_Hips.velocity = rigidbody_Hips.velocity.normalized * fMaxWalkSpeed;
-            //    }
-            //}
         }
     }
 
@@ -117,15 +110,12 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                //animator.SetBool("isLeft", true);
-                //rigidbody_Hips.AddForce(-rigidbody_Hips.transform.right * fStrafeSpeed);
                 rigidbody_Hips.AddRelativeForce(Vector3.forward * fStrafeSpeed);
                 animator.SetBool("SideMoveLeft", true);
             }
         }
         else
         {
-            //animator.SetBool("isLeft", false);
             animator.SetBool("SideMoveLeft", false);
         }
 
@@ -151,20 +141,16 @@ public class PlayerController : MonoBehaviour
         {
             if (isRunning)
             {
-                //animator.SetBool("isRight", true);
                 rigidbody_Hips.AddRelativeForce(Vector3.back * fStrafeSpeed * fRunSpeed);
             }
             else
             {
-                //animator.SetBool("isRight", true);
-                //rigidbody_Hips.AddForce(rigidbody_Hips.transform.right * fStrafeSpeed);
                 rigidbody_Hips.AddRelativeForce(Vector3.back * fStrafeSpeed);
                 animator.SetBool("SideMoveRight", true);
             }
         }
         else
         {
-            //animator.SetBool("isRight", false);
             animator.SetBool("SideMoveRight", false);
         }
     }
@@ -206,18 +192,12 @@ public class PlayerController : MonoBehaviour
             if (isRunning || isEnterPassWall)
             {
                 objPassWall.GetComponent<MeshCollider>().enabled = false;
-                //if(objPassWall2 != null)
-                //{
-                //    objPassWall2.GetComponent<MeshCollider>().enabled = false;
-                //}
+                
             }
             else
             {
                 objPassWall.GetComponent<MeshCollider>().enabled = true;
-                //if(objPassWall2 != null)
-                //{
-                //    objPassWall2.GetComponent<MeshCollider>().enabled = true;
-                //}
+                
             }
         }
     }

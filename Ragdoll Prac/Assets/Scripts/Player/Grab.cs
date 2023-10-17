@@ -108,11 +108,6 @@ public class Grab : MonoBehaviour
         }
     }
 
-    //private void OnTriggerExit(Collider other)
-    //{
-    //    objGrabble = null;
-    //}
-
     public void Grabble(bool isItem)
     {
         if (isCanGrab)
